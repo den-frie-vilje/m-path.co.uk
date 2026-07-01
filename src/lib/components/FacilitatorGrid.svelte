@@ -2,6 +2,7 @@
 <script lang="ts">
   import Photo from './Photo.svelte';
   import Prose from './Prose.svelte';
+  import { isExternal } from '$lib/util';
   import type { Facilitator } from '$lib/content';
   let { people }: { people: Facilitator[] } = $props();
 
@@ -43,8 +44,8 @@
               <a
                 href={l.href}
                 class="font-medium text-violet-600 underline-offset-2 hover:underline"
-                target={/^https?:/.test(l.href) ? '_blank' : undefined}
-                rel={/^https?:/.test(l.href) ? 'noopener noreferrer' : undefined}>{l.label}</a
+                target={isExternal(l.href) ? '_blank' : undefined}
+                rel={isExternal(l.href) ? 'noopener noreferrer' : undefined}>{l.label}</a
               >
             {/each}
           </div>

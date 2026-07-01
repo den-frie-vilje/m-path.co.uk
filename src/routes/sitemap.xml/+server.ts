@@ -1,4 +1,5 @@
 import { site, posts } from '$lib/content';
+import { isoDate } from '$lib/util';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
@@ -9,7 +10,7 @@ export const GET: RequestHandler = () => {
   const base = site.url.replace(/\/$/, '');
   const urls = [
     ...STATIC_PATHS.map((p) => ({ loc: base + (p === '/' ? '' : p), lastmod: undefined as string | undefined })),
-    ...posts.map((p) => ({ loc: `${base}/blog/${p.slug}`, lastmod: p.date }))
+    ...posts.map((p) => ({ loc: `${base}/blog/${p.slug}`, lastmod: isoDate(p.date) }))
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

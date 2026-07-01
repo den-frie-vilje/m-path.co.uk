@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
   import Icon from './Icon.svelte';
+  import { isExternal } from '$lib/util';
 
   interface Props {
     href: string;
@@ -15,7 +16,7 @@
   }
   let { href, label, variant = 'primary', icon, class: klass = '' }: Props = $props();
 
-  const external = $derived(/^https?:\/\//i.test(href));
+  const external = $derived(isExternal(href));
   const isMail = $derived(/^(mailto|tel):/i.test(href));
   const trailingIcon = $derived(icon ?? (external ? 'arrow-up-right' : isMail ? undefined : 'arrow-right'));
 </script>

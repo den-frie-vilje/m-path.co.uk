@@ -2,12 +2,11 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
   import { stripMarkdown } from '$lib/markdown';
+  import { formatDate } from '$lib/util';
   import type { Post } from '$lib/content';
   let { post }: { post: Post } = $props();
 
-  const dateLabel = $derived(
-    new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  );
+  const dateLabel = $derived(formatDate(post.date));
 </script>
 
 <article

@@ -184,9 +184,11 @@ export const workplaces = workplacesData as ProgrammePageContent;
 export const connect = connectData as ConnectContent;
 export const chris = chrisData as ChrisContent;
 export const blog = blogData as BlogContent;
-export const posts = postsData as Post[];
-export const testimonials = testimonialsData as Testimonial[];
-export const partners = partnersData as Partner[];
+// testimonials/partners/posts are stored as `{ items: [...] }` (object root) so the Sveltia file
+// collections round-trip cleanly; the site consumes the arrays.
+export const posts = (postsData as { items: Post[] }).items;
+export const testimonials = (testimonialsData as { items: Testimonial[] }).items;
+export const partners = (partnersData as { items: Partner[] }).items;
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);

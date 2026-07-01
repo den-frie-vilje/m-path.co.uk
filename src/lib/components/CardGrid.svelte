@@ -17,7 +17,7 @@
 
 <ul class="grid gap-6 {cols}">
   {#each items as item (item.title)}
-    {@const href = 'href' in item ? item.href : undefined}
+    {@const href = 'href' in item && item.href ? item.href : undefined}
     <li class="h-full">
       <svelte:element
         this={href ? 'a' : 'div'}

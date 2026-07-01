@@ -1,22 +1,24 @@
-[
-  {
-    "quote": "We found Chris to be insightful and completely different to what we usually see during our speaker events. His honesty opens up the room to an engaging and open discussion around how we can solve these issues going forward.",
-    "org": "Barclays",
-    "href": "https://www.barclays.co.uk/"
-  },
-  {
-    "quote": "Honest, thought-provoking and very engaging. Chris helped us realise how men have a huge responsibility in the journey towards gender equality, and we all have so much to gain from broadening the definition of masculinity in the future.",
-    "org": "L'Oréal",
-    "href": "https://www.loreal.com/en/"
-  },
-  {
-    "quote": "Chris is a regular speaker at our business conferences and we couldn't recommend him highly enough. His ability to be both engaging and challenging often creates lively debates and further discussion amongst our delegates, both during and after his session.",
-    "org": "HFM Events",
-    "href": "https://www.hartfordmarathon.com/hmf-events/"
-  },
-  {
-    "quote": "Chris Hemmings is a dynamic and engaging public speaker who has delivered talks and workshops on masculinity, mental health and social justice in schools, universities, conferences and corporate events. He is known for his ability to connect with diverse audiences and to challenge and inspire them to reflect on their own beliefs and behaviours.",
-    "org": "London Speaker Bureau",
-    "href": "https://londonspeakerbureau.com/speaker-profile/chris-hemmings/"
-  }
-]
+{
+  "items": [
+    {
+      "quote": "We found Chris to be insightful and completely different to what we usually see during our speaker events. His honesty opens up the room to an engaging and open discussion around how we can solve these issues going forward.",
+      "org": "Barclays",
+      "href": "https://www.barclays.co.uk/"
+    },
+    {
+      "quote": "Honest, thought-provoking and very engaging. Chris helped us realise how men have a huge responsibility in the journey towards gender equality, and we all have so much to gain from broadening the definition of masculinity in the future.",
+      "org": "L'Oréal",
+      "href": "https://www.loreal.com/en/"
+    },
+    {
+      "quote": "Chris is a regular speaker at our business conferences and we couldn't recommend him highly enough. His ability to be both engaging and challenging often creates lively debates and further discussion amongst our delegates, both during and after his session.",
+      "org": "HFM Events",
+      "href": "https://www.hartfordmarathon.com/hmf-events/"
+    },
+    {
+      "quote": "Chris Hemmings is a dynamic and engaging public speaker who has delivered talks and workshops on masculinity, mental health and social justice in schools, universities, conferences and corporate events. He is known for his ability to connect with diverse audiences and to challenge and inspire them to reflect on their own beliefs and behaviours.",
+      "org": "London Speaker Bureau",
+      "href": "https://londonspeakerbureau.com/speaker-profile/chris-hemmings/"
+    }
+  ]
+}

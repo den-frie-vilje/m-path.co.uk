@@ -59,7 +59,9 @@ export function buildSeo({ seo, path, type = 'website', article }: BuildOpts): H
           name: site.brand,
           url: site.url,
           description: site.tagline,
-          email: site.contacts[1]?.email,
+          // General enquiries address (last contact = Workplaces/info@); fall back to the first
+          // contact so trimming the list to one entry never drops the email.
+          email: (site.contacts.at(-1) ?? site.contacts[0])?.email,
           founder: { '@type': 'Person', name: 'Chris Hemmings' }
         };
 

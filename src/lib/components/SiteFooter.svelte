@@ -2,7 +2,8 @@
 <script lang="ts">
   import { site } from '$lib/content';
   import Icon from './Icon.svelte';
-  const year = 2026;
+  // Baked at build/prerender time — refreshes on every deploy, never goes stale by hand.
+  const year = new Date().getFullYear();
 </script>
 
 <footer class="bg-violet-950 text-white/80">

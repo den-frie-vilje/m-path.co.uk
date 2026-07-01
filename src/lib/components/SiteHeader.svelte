@@ -13,8 +13,13 @@
   let open = $state(false);
   let toggleEl: HTMLButtonElement | undefined = $state();
 
-  const current = (href: string) =>
-    href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+  // Active when the path IS the link or a sub-path of it (with a `/` boundary), so '/schools' never
+  // lights up for a hypothetical '/schools-extra'.
+  const current = (href: string) => {
+    const path = page.url.pathname;
+    if (href === '/') return path === '/';
+    return path === href || path.startsWith(href + '/');
+  };
 
   function close() {
     open = false;

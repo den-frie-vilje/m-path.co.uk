@@ -2,6 +2,7 @@
   import { site, posts } from '$lib/content';
   import { buildSeo } from '$lib/seo';
   import { stripMarkdown } from '$lib/markdown';
+  import { formatDate } from '$lib/util';
   import SeoHead from '$lib/components/SeoHead.svelte';
   import Section from '$lib/components/Section.svelte';
   import Prose from '$lib/components/Prose.svelte';
@@ -25,9 +26,7 @@
     })
   );
 
-  const dateLabel = $derived(
-    new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-  );
+  const dateLabel = $derived(formatDate(post.date));
   const more = $derived(posts.filter((p) => p.slug !== post.slug).slice(0, 2));
 </script>
 

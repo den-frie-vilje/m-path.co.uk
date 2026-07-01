@@ -1,11 +1,51 @@
-[
-  { "name": "Barclays", "logo": "/img/logos/barclays.svg", "href": "https://www.barclays.co.uk/", "kind": "organisation" },
-  { "name": "L'Oréal", "logo": "/img/logos/loreal.svg", "href": "https://www.loreal.com/en/", "kind": "organisation" },
-  { "name": "Nike", "logo": "/img/logos/nike.svg", "kind": "organisation" },
-  { "name": "KPMG", "logo": "/img/logos/kpmg.svg", "kind": "organisation" },
-  { "name": "Monster Energy", "logo": "/img/logos/monster-energy.webp", "kind": "organisation" },
-  { "name": "Merseyside Police", "logo": "/img/logos/merseyside-police.png", "kind": "organisation" },
-  { "name": "SharkNinja", "logo": "/img/logos/sharkninja.svg", "kind": "organisation" },
-  { "name": "EssenceMediacom", "logo": "/img/logos/essencemediacom.svg", "kind": "organisation" },
-  { "name": "Dalkia (Groupe EDF)", "logo": "/img/logos/dalkia.svg", "kind": "organisation" }
-]
+{
+  "items": [
+    {
+      "name": "Barclays",
+      "logo": "/img/logos/barclays.svg",
+      "href": "https://www.barclays.co.uk/",
+      "kind": "organisation"
+    },
+    {
+      "name": "L'Oréal",
+      "logo": "/img/logos/loreal.svg",
+      "href": "https://www.loreal.com/en/",
+      "kind": "organisation"
+    },
+    {
+      "name": "Nike",
+      "logo": "/img/logos/nike.svg",
+      "kind": "organisation"
+    },
+    {
+      "name": "KPMG",
+      "logo": "/img/logos/kpmg.svg",
+      "kind": "organisation"
+    },
+    {
+      "name": "Monster Energy",
+      "logo": "/img/logos/monster-energy.webp",
+      "kind": "organisation"
+    },
+    {
+      "name": "Merseyside Police",
+      "logo": "/img/logos/merseyside-police.png",
+      "kind": "organisation"
+    },
+    {
+      "name": "SharkNinja",
+      "logo": "/img/logos/sharkninja.svg",
+      "kind": "organisation"
+    },
+    {
+      "name": "EssenceMediacom",
+      "logo": "/img/logos/essencemediacom.svg",
+      "kind": "organisation"
+    },
+    {
+      "name": "Dalkia (Groupe EDF)",
+      "logo": "/img/logos/dalkia.svg",
+      "kind": "organisation"
+    }
+  ]
+}

@@ -21,13 +21,22 @@ marked.use({
   renderer: {
     link(token) {
       const text = this.parser.parseInline(token.tokens);
-      const title = token.title ? ` title="${token.title}"` : '';
+      const title = token.title ? ` title="${escapeAttr(token.title)}"` : '';
       const external = /^https?:\/\//i.test(token.href);
       const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-      return `<a href="${token.href}"${title}${attrs}>${text}</a>`;
+      return `<a href="${escapeAttr(token.href)}"${title}${attrs}>${text}</a>`;
     }
   }
 });
+
+/** Escape a string for safe interpolation into a double-quoted HTML attribute. */
+function escapeAttr(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
 
 /** Render a block-level markdown string to an HTML fragment. */
 export function renderMarkdown(md: string | null | undefined): string {
@@ -39,7 +48,8 @@ export function stripMarkdown(md: string | null | undefined, max = 200): string 
   const text = (md ?? '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/[#>*_`~\-]+/g, ' ')
+    .replace(/^[\s]*[-*+]\s+/gm, '') // list markers (keep hyphens inside words)
+    .replace(/[#>*_`~]+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
   return text.length > max ? text.slice(0, max - 1).trimEnd() + '…' : text;

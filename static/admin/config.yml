@@ -42,7 +42,25 @@ collections:
           - { name: brand, label: Brand name, widget: string }
           - { name: tagline, label: Tagline, widget: string }
           - { name: url, label: Site URL, widget: string }
+          - { name: logo, label: Logo, widget: image }
+          - { name: logoWhite, label: Logo (white), widget: image }
           - { name: footerBlurb, label: Footer blurb, <<: *prose }
+          - name: nav
+            label: Header navigation
+            widget: list
+            fields: [{ name: label, widget: string }, { name: href, widget: string }]
+          - name: footerNav
+            label: Footer navigation
+            widget: list
+            fields: [{ name: label, widget: string }, { name: href, widget: string }]
+          - { name: cta, label: Header CTA, widget: object, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
+          - name: defaultSeo
+            label: Default SEO / share card
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Meta description, widget: text }
+              - { name: image, label: OG image, widget: image, required: false }
           - name: contacts
             label: Contact routes
             widget: list
