@@ -20,7 +20,7 @@
       <span
         class="brand-gradient relative z-10 inline-flex h-11 w-11 shrink-0 rotate-2 items-center justify-center rounded-xl font-display text-base font-bold text-white shadow-sm {i ===
         steps.length - 1
-          ? 'ring-2 ring-white/40 ring-offset-2'
+          ? 'ring-2 ring-gold-400 ring-offset-2'
           : ''} {dark ? 'ring-offset-plum-950' : 'ring-offset-paper'}"
       >
         {i + 1}

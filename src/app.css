@@ -408,3 +408,14 @@ details[open] > summary .path-node {
   border-color: var(--color-violet-500);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-violet-500) 22%, transparent);
 }
+
+/* EXAMPLE — the single restrained accent: the destination node (the hopeful endpoint = allyship)
+   carries a muted-gold outline; a warm gold ring when reached. Violet's complement region,
+   desaturated, one role only, separated by neutral space (research: metallic reads premium only
+   when restrained). Revert this commit to return to pure monochrome. */
+.path-node.is-destination {
+  border-color: var(--color-gold-400);
+}
+details[open] > summary .path-node.is-destination {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-gold-400) 45%, transparent);
+}
