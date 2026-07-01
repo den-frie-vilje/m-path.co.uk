@@ -57,10 +57,10 @@
   /* Magenta — gradient partner + large accent ONLY */
   --color-magenta-500: #d03edf;
 
-  /* Optional single premium accent (violet's complement region), desaturated, thin details only,
-     ≤10%, separated by neutral space. UNUSED by default — the site is monochrome violet + neutrals.
-     Enable only deliberately (research: metallic/warm reads premium only when restrained). */
-  --color-gold-400: #c79a3e;
+  /* Single premium accent — violet's complement region (gold). sRGB fallback here; a bolder,
+     more-luminous WIDE-GAMUT (display-P3 / OKLCH) gold is layered on P3 screens in the @supports
+     block below. Used in ONE role only (the destination/allyship node), separated by neutral space. */
+  --color-gold-400: #e0a83a; /* sRGB fallback */
 
   /* Layout rhythm */
   --spacing-section: 88px;
@@ -82,6 +82,15 @@
 
 :root {
   color-scheme: light;
+}
+
+/* Wide-gamut gold: on display-P3 screens (recent Apple/most modern displays) OKLCH lets the gold be
+   bolder + more luminous than sRGB can express; browsers gamut-map to the sRGB fallback elsewhere.
+   OKLCH is perceptually uniform, so lightness/chroma stay predictable. */
+@supports (color: oklch(0.8 0.16 90)) {
+  :root {
+    --color-gold-400: oklch(0.82 0.163 92);
+  }
 }
 
 html {
@@ -413,9 +422,12 @@ details[open] > summary .path-node {
    carries a muted-gold outline; a warm gold ring when reached. Violet's complement region,
    desaturated, one role only, separated by neutral space (research: metallic reads premium only
    when restrained). Revert this commit to return to pure monochrome. */
-.path-node.is-destination {
-  border-color: var(--color-gold-400);
-}
+/* the journey "arrives" in gold: the destination node fills gold (dark text = 8.6:1 AA) when reached.
+   (No gold OUTLINE on light grounds — gold-on-paper is only 2:1, below the 3:1 non-text bar; gold is
+   used as a FILL only, where it passes.) */
 details[open] > summary .path-node.is-destination {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-gold-400) 45%, transparent);
+  background: var(--color-gold-400);
+  color: var(--color-plum-950);
+  border-color: var(--color-gold-400);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-gold-400) 42%, transparent);
 }
