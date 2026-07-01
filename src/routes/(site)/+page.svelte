@@ -20,7 +20,6 @@
 <Hero
   eyebrow={home.hero.eyebrow}
   title={home.hero.title}
-  highlight={home.hero.highlight}
   lead={home.hero.lead}
   ctas={home.hero.ctas}
   bg={home.hero.bg ? { src: home.hero.bg, alt: 'An M-Path workshop in progress' } : undefined}
@@ -37,14 +36,13 @@
 <Section
   tone="paper"
   eyebrow="Choose your path"
-  keyline
   heading="Two programmes, one mission"
   lead="We tailor everything to who you are — a school helping boys grow up well, or an organisation bringing men into inclusion."
 >
   <AudienceChooser audiences={home.audiences} />
 </Section>
 
-<Section tone="sand" eyebrow={home.intro.eyebrow} keyline heading={home.intro.heading} lead={home.intro.lead}>
+<Section tone="sand" eyebrow={home.intro.eyebrow} heading={home.intro.heading} lead={home.intro.lead}>
   <CardGrid items={home.intro.cards} columns={3} />
 </Section>
 
@@ -67,7 +65,6 @@
 <Section
   tone="plum"
   eyebrow={home.services.eyebrow}
-  keyline
   heading={home.services.heading}
   lead={home.services.lead}
 >
@@ -78,7 +75,7 @@
   <LogoWall items={partners} />
 </Section>
 
-<Section tone="lilac" eyebrow="What people say" keyline heading="Insightful, honest and engaging">
+<Section tone="lilac" eyebrow="What people say" heading="Insightful, honest and engaging">
   <TestimonialCards items={testimonials.slice(0, 3)} />
 </Section>
 

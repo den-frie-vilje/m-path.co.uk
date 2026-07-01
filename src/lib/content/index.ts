@@ -67,6 +67,25 @@ export interface Testimonial {
   author?: string;
   org?: string;
   href?: string;
+  /** audience filter: 'workplace' | 'general' (speaking/education-relevant). */
+  tag?: 'workplace' | 'general';
+}
+
+export interface Credential {
+  icon?: string;
+  label: string;
+}
+
+export interface Faq {
+  q: string;
+  /** markdown */
+  a: string;
+}
+
+export interface ProcessStep {
+  title: string;
+  /** markdown */
+  body: string;
 }
 
 export interface Partner {
@@ -138,7 +157,7 @@ export interface Audience {
 
 export interface HomeContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas: CtaLink[]; bg?: string };
+  hero: { eyebrow?: string; title: string; lead: string; ctas: CtaLink[]; bg?: string };
   stats: Stat[];
   audiences: Audience[];
   intro: { eyebrow: string; heading: string; lead: string; cards: IconCard[] };
@@ -159,7 +178,10 @@ export interface ProgrammePageContent {
   seo: Seo;
   hero: { eyebrow?: string; title: string; lead: string; ctas?: CtaLink[]; contactEmail?: string };
   intro?: { body: string };
+  credentials?: { heading: string; items: Credential[] };
   programme: { eyebrow: string; heading: string; steps: ProgrammeStep[] };
+  process?: { eyebrow: string; heading: string; steps: ProcessStep[] };
+  faq?: { heading: string; items: Faq[] };
   note?: string; // markdown (e.g. "prices on request")
   cta: { heading: string; body: string; ctas: CtaLink[] };
 }
@@ -203,4 +225,11 @@ export const partners = (partnersData as { items: Partner[] }).items;
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+/** Testimonials for an audience: 'general' items always show; 'workplace' only on workplace surfaces. */
+export function testimonialsFor(audience: 'schools' | 'workplace'): Testimonial[] {
+  return testimonials.filter((t) =>
+    audience === 'workplace' ? true : t.tag !== 'workplace'
+  );
 }

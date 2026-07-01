@@ -6,16 +6,27 @@
   },
   "hero": {
     "eyebrow": "For schools & colleges",
-    "title": "Schools & Colleges",
-    "lead": "We've worked in schools and colleges across the UK and Europe, successfully engaging thousands of young people aged 11–18 with talks and workshops on masculinity, empathy and bystander intervention.",
+    "title": "Help boys navigate a changing world",
+    "lead": "A whole-school programme on healthy masculinity, the manosphere and mental health — talks, interactive workshops, staff CPD and parent webinars, for pupils of all genders aged 11–18, from BACP-registered practitioners.",
     "ctas": [{ "label": "Enquire — education@m-path.co.uk", "href": "mailto:education@m-path.co.uk" }],
     "contactEmail": "education@m-path.co.uk"
+  },
+  "credentials": {
+    "heading": "Why schools trust M-Path",
+    "items": [
+      { "icon": "check", "label": "BACP-registered psychotherapists & trained facilitators" },
+      { "icon": "graduation-cap", "label": "10+ years in schools & colleges across the UK & Europe" },
+      { "icon": "message-circle", "label": "Specialists in the manosphere & online influences" },
+      { "icon": "users", "label": "For pupils of all genders, aged 11–18" },
+      { "icon": "book-open", "label": "Complements PSHE; includes staff CPD & parent webinars" },
+      { "icon": "check", "label": "Safeguarding-aware — DBS status & references on request" }
+    ]
   },
   "intro": {
     "body": "We know that this generation of students is ready to meet the challenge faced by a changing world, and we've seen first-hand how transformational this work can be when boys are met with compassion and understanding.\n\nThis programme is for pupils of all genders. It encourages a movement away from blaming and shaming boys — whilst challenging them to better engage with the changing world around them."
   },
   "programme": {
-    "eyebrow": "What we do",
+    "eyebrow": "The journey",
     "heading": "A programme built to complement itself",
     "steps": [
       {
@@ -33,6 +44,42 @@
       {
         "title": "Parents",
         "body": "This important work doesn't end when the school day finishes. We invite parents into the conversation through online webinars that explain what their children were taught, equipping them with strategies to continue the work at home."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "heading": "From first enquiry to lasting change",
+    "steps": [
+      { "title": "Enquiry", "body": "Tell us about your setting, your cohort and what you're seeing — we'll respond quickly." },
+      { "title": "Scoping call", "body": "We shape the right mix of talk, workshops, staff CPD and parent sessions for your school." },
+      { "title": "Tailored proposal", "body": "Agreed content, timings and pricing — designed around your pupils, not off the shelf." },
+      { "title": "Delivery", "body": "In person or online, by BACP-registered facilitators experienced with 11–18s." },
+      { "title": "Beyond the visit", "body": "Resources for staff and parents, and support to keep the conversation going." }
+    ]
+  },
+  "faq": {
+    "heading": "Questions schools ask",
+    "items": [
+      {
+        "q": "Is this therapy?",
+        "a": "No. Our talks and workshops are **psychoeducational**, not group therapy. Facilitators are BACP-registered and signpost pupils to appropriate support where a need surfaces."
+      },
+      {
+        "q": "Does it blame or shame boys?",
+        "a": "The opposite. We meet boys with **compassion, not blame**, and deliberately move away from language like 'toxic masculinity' — that's what earns their engagement."
+      },
+      {
+        "q": "Is it anti-girls or anti-women?",
+        "a": "No. The programme is for pupils of **all genders** and builds empathy, allyship and healthier relationships that benefit everyone."
+      },
+      {
+        "q": "Is it age-appropriate?",
+        "a": "Yes. Content is tailored for **11–18** and to your setting, and complements your PSHE curriculum. Staff CPD and parent webinars extend the work responsibly."
+      },
+      {
+        "q": "How much time does it take?",
+        "a": "It's flexible — from a single assembly talk to a full workshop series with staff and parent sessions. We scope it with you."
       }
     ]
   },

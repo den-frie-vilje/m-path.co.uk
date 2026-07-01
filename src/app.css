@@ -312,10 +312,11 @@ h4 {
 }
 .prose-warm.on-dark :where(blockquote) {
   color: var(--color-violet-300);
-  border-color: var(--color-cyan-300);
+  border-color: var(--color-violet-400);
 }
 .prose-warm.on-dark a {
-  color: var(--color-cyan-300);
+  color: var(--color-violet-300);
+  text-decoration-color: color-mix(in srgb, var(--color-violet-300) 60%, transparent);
 }
 
 /* ============================================================================
@@ -346,42 +347,6 @@ h4 {
 .t-hero .light {
   font-weight: 300;
   letter-spacing: -0.02em;
-}
-
-/* The "highlighted turn" — light ONE pivotal word per headline. Two treatments: */
-.turn-gradient {
-  background: linear-gradient(100deg, var(--color-violet-400), var(--color-magenta-500) 70%, var(--color-yellow-300));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-/* Hand-drawn cyan underline swipe under a word on dark grounds (decorative). */
-.turn-underline {
-  position: relative;
-  white-space: nowrap;
-}
-.turn-underline::after {
-  content: '';
-  position: absolute;
-  left: -0.06em;
-  right: -0.06em;
-  bottom: -0.06em;
-  height: 0.36em;
-  z-index: -1;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-cyan-300), color-mix(in srgb, var(--color-cyan-300) 55%, var(--color-yellow-300)));
-  opacity: 0.9;
-  transform: rotate(-1deg);
-}
-
-/* Cyan keyline accent — the "path/hope" spark, used as a short leading rule above eyebrows etc. */
-.keyline {
-  display: inline-block;
-  width: 2.25rem;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--color-cyan-300);
-  vertical-align: middle;
 }
 
 /* Signature 2° tilt for decorative rounded-square layers (echoes the badge). */
@@ -430,14 +395,10 @@ h4 {
   border: 2px solid var(--color-violet-400);
   background: transparent;
 }
-/* current/open: filled violet with a cyan ring */
+/* current/open: filled violet with a soft same-family ring (monochrome — no clashing accent). */
 details[open] > summary .path-node {
   background: var(--color-violet-500);
   color: #fff;
   border-color: var(--color-violet-500);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-cyan-300) 70%, transparent);
-}
-/* the destination node (last step) glows yellow when open */
-details[open] > summary .path-node.is-destination {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-yellow-300) 80%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-violet-500) 22%, transparent);
 }

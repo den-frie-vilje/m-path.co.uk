@@ -1,7 +1,7 @@
 <!--
   Audience fork — the home page's primary decision. Two large cards route the two distinct buyers
   (schools safeguarding/PSHE leads vs workplace HR/DE&I) to their journey. Distinct M-Path devices:
-  the tilted badge-echo behind the icon, a cyan keyline, gradient hover.
+  the tilted badge-echo behind the icon and a gradient hover.
 -->
 <script lang="ts">
   import Icon from './Icon.svelte';
@@ -31,7 +31,7 @@
               <Icon name={a.icon} size={28} />
             </span>
           {/if}
-          <p class="t-eyebrow"><span class="keyline mr-2"></span>{a.eyebrow}</p>
+          <p class="t-eyebrow">{a.eyebrow}</p>
         </div>
 
         <h3 class="t-h3 mt-6 text-ink">{a.title}</h3>

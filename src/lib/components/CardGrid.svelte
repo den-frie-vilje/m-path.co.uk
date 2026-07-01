@@ -25,7 +25,7 @@
         this={href ? 'a' : 'div'}
         href={href}
         class={dark
-          ? 'group flex h-full flex-col rounded-2xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-white/[0.09] motion-reduce:hover:translate-y-0'
+          ? 'group flex h-full flex-col rounded-2xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:border-violet-300/60 hover:bg-white/[0.09] motion-reduce:hover:translate-y-0'
           : 'group flex h-full flex-col rounded-2xl border border-line bg-paper-2 p-7 transition duration-200 hover:-translate-y-1 hover:border-violet-400 hover:shadow-[0_18px_40px_-24px_rgba(162,48,217,0.55)] motion-reduce:hover:translate-y-0'}
       >
         {#if item.icon}
@@ -42,7 +42,7 @@
         {#if href}
           <span
             class="mt-4 inline-flex items-center gap-1 text-sm font-semibold {dark
-              ? 'text-cyan-300'
+              ? 'text-violet-300'
               : 'text-violet-600 group-hover:text-violet-700'}"
           >
             Learn more <Icon name="arrow-right" size={16} />

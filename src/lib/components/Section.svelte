@@ -15,8 +15,6 @@
     heading?: string;
     lead?: string;
     align?: 'center' | 'left';
-    /** show the cyan keyline above the eyebrow (the "path/hope" spark). */
-    keyline?: boolean;
     id?: string;
     class?: string;
     children: Snippet;
@@ -27,7 +25,6 @@
     heading,
     lead,
     align = 'center',
-    keyline = false,
     id,
     class: klass = '',
     children
@@ -50,9 +47,7 @@
     {#if eyebrow || heading || lead}
       <div class="{align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} mb-10 sm:mb-14">
         {#if eyebrow}
-          <p class="t-eyebrow {onDark ? '!text-cyan-300' : ''}">
-            {#if keyline}<span class="keyline mr-2 {align === 'center' ? '' : ''}"></span>{/if}{eyebrow}
-          </p>
+          <p class="t-eyebrow {onDark ? '!text-violet-300' : ''}">{eyebrow}</p>
         {/if}
         {#if heading}
           <h2 class="t-h2 mt-3 {onDark ? 'text-white' : 'text-ink'}">{heading}</h2>

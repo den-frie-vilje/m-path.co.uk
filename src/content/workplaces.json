@@ -6,16 +6,27 @@
   },
   "hero": {
     "eyebrow": "For workplaces",
-    "title": "Workplace Programmes",
-    "lead": "Giving men targeted support with their emotional health and wellbeing benefits an entire workplace. We deliver that support through programmes on men's mental health, allyship and inclusion.",
+    "title": "Bring men into inclusion and allyship",
+    "lead": "Feeling that DE&I doesn't include them is the main reason men disengage from it. We run talks, workshops and men's wellbeing networks that bring male colleagues into inclusion — trusted by Barclays, Nike, KPMG and L'Oréal.",
     "ctas": [{ "label": "Enquire — info@m-path.co.uk", "href": "mailto:info@m-path.co.uk" }],
     "contactEmail": "info@m-path.co.uk"
+  },
+  "credentials": {
+    "heading": "Why organisations work with M-Path",
+    "items": [
+      { "icon": "check", "label": "BACP-registered psychotherapists & facilitators" },
+      { "icon": "briefcase", "label": "Delivered across major UK & international organisations" },
+      { "icon": "users", "label": "A DE&I lens — engaging the group most likely to disengage" },
+      { "icon": "compass", "label": "Trained facilitators who build men's wellbeing networks" },
+      { "icon": "mic", "label": "Founder: BACP psychotherapist, ex-BBC journalist & author" },
+      { "icon": "book-open", "label": "Featured on the BBC, The Independent & The Telegraph" }
+    ]
   },
   "intro": {
     "body": "> Feeling uncertain about whether DE&I includes them is the main reason men say they either disengage or are not as committed to it as others in their organisation.\n> — Forbes\n\nFor cultural change to truly happen within an organisation, a majority of colleagues must be engaged and feel included. Currently that isn't happening. We work with businesses through a DE&I lens — using talks, workshops and support groups to open up discussions, help male colleagues with very real emotional challenges, and address male allyship in the process."
   },
   "programme": {
-    "eyebrow": "What we offer",
+    "eyebrow": "The programme",
     "heading": "Workplace programmes for men",
     "steps": [
       {
@@ -29,6 +40,42 @@
       {
         "title": "Men's wellbeing networks",
         "body": "Many businesses have working groups and support networks, but very few have one specifically for men. As trained facilitators who've built these networks across a variety of business settings, we encourage attendees of our talks and workshops to take the bold step into men's work."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "heading": "From first enquiry to an ongoing network",
+    "steps": [
+      { "title": "Enquiry", "body": "Tell us about your organisation, your people and your DE&I goals." },
+      { "title": "Scoping call", "body": "We shape the right mix of keynote, workshops and network support." },
+      { "title": "Tailored proposal", "body": "Agreed content, timings and pricing, designed around your teams." },
+      { "title": "Delivery", "body": "In person or online, for audiences of any size." },
+      { "title": "Ongoing network", "body": "We help you establish and sustain a men's wellbeing network." }
+    ]
+  },
+  "faq": {
+    "heading": "Questions organisations ask",
+    "items": [
+      {
+        "q": "Is this therapy?",
+        "a": "No. Sessions are **psychoeducational**, not group therapy. Our BACP-registered facilitators signpost to appropriate support where needed."
+      },
+      {
+        "q": "Will it alienate or blame men?",
+        "a": "No — the opposite. We meet men with **compassion, not blame**, which is exactly why the men most likely to disengage actually take part."
+      },
+      {
+        "q": "Does it undercut our DE&I, or is it anti-women?",
+        "a": "No. It brings the **disengaged majority into** DE&I. Building men's empathy and allyship benefits women, teams and the whole organisation."
+      },
+      {
+        "q": "Is it just a one-off talk?",
+        "a": "It scales — from a single keynote to a full workshop series and an ongoing men's wellbeing network."
+      },
+      {
+        "q": "Can it be tailored and delivered online?",
+        "a": "Yes. Every programme is tailored to your organisation and can be delivered in person or online."
       }
     ]
   },
