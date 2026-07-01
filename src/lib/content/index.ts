@@ -88,6 +88,12 @@ export interface ProcessStep {
   body: string;
 }
 
+export interface VideoRef {
+  /** YouTube id */
+  id: string;
+  title: string;
+}
+
 export interface Partner {
   name: string;
   logo: string; // /img/logos/*
@@ -171,6 +177,7 @@ export interface AboutContent {
   mission: { body: string }; // markdown
   founder: { heading: string; body: string; cta: CtaLink };
   facilitators: { heading: string; lead?: string; people: Facilitator[] };
+  media?: { eyebrow?: string; heading: string; lead?: string; video: VideoRef };
   cta: { heading: string; body: string; ctas: CtaLink[] };
 }
 
@@ -180,6 +187,7 @@ export interface ProgrammePageContent {
   intro?: { body: string };
   credentials?: { heading: string; items: Credential[] };
   programme: { eyebrow: string; heading: string; steps: ProgrammeStep[] };
+  videos?: { eyebrow?: string; heading: string; lead?: string; items: VideoRef[] };
   process?: { eyebrow: string; heading: string; steps: ProcessStep[] };
   faq?: { heading: string; items: Faq[] };
   note?: string; // markdown (e.g. "prices on request")
@@ -197,6 +205,7 @@ export interface ChrisContent {
   seo: Seo;
   hero: { eyebrow?: string; title: string; lead: string };
   bio: { body: string };
+  video?: { eyebrow?: string; heading: string; blurb?: string; id: string; title: string };
   press: { heading: string; outlets: string[] };
   book: { heading: string; blurb: string; reviews: { by: string; quote: string }[] };
   publications: PublicationGroup[];

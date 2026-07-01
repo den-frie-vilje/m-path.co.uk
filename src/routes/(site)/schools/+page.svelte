@@ -7,6 +7,7 @@
   import Prose from '$lib/components/Prose.svelte';
   import CredentialStrip from '$lib/components/CredentialStrip.svelte';
   import ProgrammeAccordion from '$lib/components/ProgrammeAccordion.svelte';
+  import VideoEmbed from '$lib/components/VideoEmbed.svelte';
   import ProcessTimeline from '$lib/components/ProcessTimeline.svelte';
   import FaqAccordion from '$lib/components/FaqAccordion.svelte';
   import PhotoFeature from '$lib/components/PhotoFeature.svelte';
@@ -48,6 +49,21 @@
 <Section tone="sand" eyebrow={schools.programme.eyebrow} heading={schools.programme.heading}>
   <ProgrammeAccordion steps={schools.programme.steps} />
 </Section>
+
+{#if schools.videos}
+  <Section
+    tone="paper"
+    eyebrow={schools.videos.eyebrow}
+    heading={schools.videos.heading}
+    lead={schools.videos.lead}
+  >
+    <div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+      {#each schools.videos.items as v (v.id)}
+        <VideoEmbed id={v.id} title={v.title} />
+      {/each}
+    </div>
+  </Section>
+{/if}
 
 {#if schools.process}
   <Section tone="plum" eyebrow={schools.process.eyebrow} heading={schools.process.heading}>

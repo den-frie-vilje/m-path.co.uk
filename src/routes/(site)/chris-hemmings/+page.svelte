@@ -5,6 +5,7 @@
   import Hero from '$lib/components/Hero.svelte';
   import Section from '$lib/components/Section.svelte';
   import Prose from '$lib/components/Prose.svelte';
+  import VideoEmbed from '$lib/components/VideoEmbed.svelte';
   import PublicationList from '$lib/components/PublicationList.svelte';
   import TestimonialCards from '$lib/components/TestimonialCards.svelte';
   import CtaBand from '$lib/components/CtaBand.svelte';
@@ -48,6 +49,19 @@
     </ul>
   </div>
 </Section>
+
+{#if chris.video}
+  <Section
+    tone="plum"
+    eyebrow={chris.video.eyebrow}
+    heading={chris.video.heading}
+    lead={chris.video.blurb}
+  >
+    <div class="mx-auto max-w-3xl">
+      <VideoEmbed id={chris.video.id} title={chris.video.title} />
+    </div>
+  </Section>
+{/if}
 
 <Section tone="mist" eyebrow="The book" heading={chris.book.heading}>
   <div class="mx-auto max-w-3xl">

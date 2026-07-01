@@ -1,4 +1,22 @@
 {
+  "/img/photos/alex-lewis.jpg": {
+    "hash": "5f773b063728",
+    "quality": "lanczos",
+    "width": 1600,
+    "height": 1057,
+    "avif": "/img/photos/_gen/alex-lewis-320.avif 320w, /img/photos/_gen/alex-lewis-480.avif 480w, /img/photos/_gen/alex-lewis-640.avif 640w, /img/photos/_gen/alex-lewis-768.avif 768w, /img/photos/_gen/alex-lewis-1024.avif 1024w, /img/photos/_gen/alex-lewis-1280.avif 1280w, /img/photos/_gen/alex-lewis-1600.avif 1600w",
+    "webp": "/img/photos/_gen/alex-lewis-320.webp 320w, /img/photos/_gen/alex-lewis-480.webp 480w, /img/photos/_gen/alex-lewis-640.webp 640w, /img/photos/_gen/alex-lewis-768.webp 768w, /img/photos/_gen/alex-lewis-1024.webp 1024w, /img/photos/_gen/alex-lewis-1280.webp 1280w, /img/photos/_gen/alex-lewis-1600.webp 1600w",
+    "fallback": "/img/photos/_gen/alex-lewis-1600.jpg"
+  },
+  "/img/photos/ben-oliver.jpg": {
+    "hash": "8911610832ec",
+    "quality": "source",
+    "width": 1707,
+    "height": 2560,
+    "avif": "/img/photos/_gen/ben-oliver-320.avif 320w, /img/photos/_gen/ben-oliver-480.avif 480w, /img/photos/_gen/ben-oliver-640.avif 640w, /img/photos/_gen/ben-oliver-768.avif 768w, /img/photos/_gen/ben-oliver-1024.avif 1024w, /img/photos/_gen/ben-oliver-1280.avif 1280w, /img/photos/_gen/ben-oliver-1600.avif 1600w, /img/photos/_gen/ben-oliver-1707.avif 1707w",
+    "webp": "/img/photos/_gen/ben-oliver-320.webp 320w, /img/photos/_gen/ben-oliver-480.webp 480w, /img/photos/_gen/ben-oliver-640.webp 640w, /img/photos/_gen/ben-oliver-768.webp 768w, /img/photos/_gen/ben-oliver-1024.webp 1024w, /img/photos/_gen/ben-oliver-1280.webp 1280w, /img/photos/_gen/ben-oliver-1600.webp 1600w, /img/photos/_gen/ben-oliver-1707.webp 1707w",
+    "fallback": "/img/photos/_gen/ben-oliver-1707.jpg"
+  },
   "/img/photos/chris-hemmings-workshop.jpg": {
     "hash": "180277a2ef7a",
     "quality": "source",
@@ -34,6 +52,15 @@
     "avif": "/img/photos/_gen/chris-nike-320.avif 320w, /img/photos/_gen/chris-nike-480.avif 480w, /img/photos/_gen/chris-nike-640.avif 640w, /img/photos/_gen/chris-nike-768.avif 768w",
     "webp": "/img/photos/_gen/chris-nike-320.webp 320w, /img/photos/_gen/chris-nike-480.webp 480w, /img/photos/_gen/chris-nike-640.webp 640w, /img/photos/_gen/chris-nike-768.webp 768w",
     "fallback": "/img/photos/_gen/chris-nike-768.jpg"
+  },
+  "/img/photos/darrell-warwick.jpg": {
+    "hash": "44f2aafaaeb6",
+    "quality": "source",
+    "width": 1024,
+    "height": 755,
+    "avif": "/img/photos/_gen/darrell-warwick-320.avif 320w, /img/photos/_gen/darrell-warwick-480.avif 480w, /img/photos/_gen/darrell-warwick-640.avif 640w, /img/photos/_gen/darrell-warwick-768.avif 768w, /img/photos/_gen/darrell-warwick-1024.avif 1024w",
+    "webp": "/img/photos/_gen/darrell-warwick-320.webp 320w, /img/photos/_gen/darrell-warwick-480.webp 480w, /img/photos/_gen/darrell-warwick-640.webp 640w, /img/photos/_gen/darrell-warwick-768.webp 768w, /img/photos/_gen/darrell-warwick-1024.webp 1024w",
+    "fallback": "/img/photos/_gen/darrell-warwick-1024.jpg"
   },
   "/img/photos/jack-harrison.jpg": {
     "hash": "f425d97f1b91",
@@ -79,5 +106,14 @@
     "avif": "/img/photos/_gen/mpath-workshop-3-320.avif 320w, /img/photos/_gen/mpath-workshop-3-480.avif 480w, /img/photos/_gen/mpath-workshop-3-640.avif 640w, /img/photos/_gen/mpath-workshop-3-768.avif 768w, /img/photos/_gen/mpath-workshop-3-1024.avif 1024w, /img/photos/_gen/mpath-workshop-3-1280.avif 1280w, /img/photos/_gen/mpath-workshop-3-1516.avif 1516w",
     "webp": "/img/photos/_gen/mpath-workshop-3-320.webp 320w, /img/photos/_gen/mpath-workshop-3-480.webp 480w, /img/photos/_gen/mpath-workshop-3-640.webp 640w, /img/photos/_gen/mpath-workshop-3-768.webp 768w, /img/photos/_gen/mpath-workshop-3-1024.webp 1024w, /img/photos/_gen/mpath-workshop-3-1280.webp 1280w, /img/photos/_gen/mpath-workshop-3-1516.webp 1516w",
     "fallback": "/img/photos/_gen/mpath-workshop-3-1516.jpg"
+  },
+  "/img/photos/will-adolphy.jpg": {
+    "hash": "ef0506f78630",
+    "quality": "source",
+    "width": 1778,
+    "height": 2560,
+    "avif": "/img/photos/_gen/will-adolphy-320.avif 320w, /img/photos/_gen/will-adolphy-480.avif 480w, /img/photos/_gen/will-adolphy-640.avif 640w, /img/photos/_gen/will-adolphy-768.avif 768w, /img/photos/_gen/will-adolphy-1024.avif 1024w, /img/photos/_gen/will-adolphy-1280.avif 1280w, /img/photos/_gen/will-adolphy-1600.avif 1600w, /img/photos/_gen/will-adolphy-1778.avif 1778w",
+    "webp": "/img/photos/_gen/will-adolphy-320.webp 320w, /img/photos/_gen/will-adolphy-480.webp 480w, /img/photos/_gen/will-adolphy-640.webp 640w, /img/photos/_gen/will-adolphy-768.webp 768w, /img/photos/_gen/will-adolphy-1024.webp 1024w, /img/photos/_gen/will-adolphy-1280.webp 1280w, /img/photos/_gen/will-adolphy-1600.webp 1600w, /img/photos/_gen/will-adolphy-1778.webp 1778w",
+    "fallback": "/img/photos/_gen/will-adolphy-1778.jpg"
   }
 }

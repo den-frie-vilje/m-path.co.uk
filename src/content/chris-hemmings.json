@@ -12,9 +12,21 @@
   "bio": {
     "body": "M-Path was founded by Chris Hemmings, a BACP-registered psychotherapist, coach and speaker who specialises in working with men and boys around masculinity and mental health. Chris was called into this work after the death of his father in 2013 and his subsequent fall into drugs and alcohol. Since then, he has dedicated over a decade to helping men build emotional wellbeing, develop empathy and become more effective allies.\n\nAlongside delivering talks and workshops on masculinity, men's mental health and allyship to schools, universities and organisations around the world, Chris founded [Men's Therapy Hub](http://www.menstherapyhub.co.uk) — a growing platform connecting male clients with male therapists, building professional community and reshaping how men access support.\n\nBefore training as a therapist and gaining accreditation with the British Association for Counselling and Psychotherapy, Chris spent ten years as a journalist with the BBC. His first book, *Be A Man: How Macho Culture Damages Us and How to Escape It*, was published in 2017 and explored how traditional masculine norms harm men's mental health and relationships. These themes featured across his documentaries and his writing for the BBC, The Independent, The Telegraph and The Guardian.\n\nNow based between London and Copenhagen, Chris continues to guide the development of men's groups, emotional wellbeing networks and progressive conversations around gender and identity — both through M-Path and Men's Therapy Hub."
   },
+  "video": {
+    "eyebrow": "Watch",
+    "heading": "Things men need to hear",
+    "blurb": "Chris in conversation with Zac Fine (The Masculinity Therapist) on masculinity, mental health and what men need to hear.",
+    "id": "QqDuwPyMXDQ",
+    "title": "Chris Hemmings: Things men need to hear"
+  },
   "press": {
     "heading": "As published by…",
-    "outlets": ["The BBC", "The Independent", "The Telegraph", "The Guardian"]
+    "outlets": [
+      "The BBC",
+      "The Independent",
+      "The Telegraph",
+      "The Guardian"
+    ]
   },
   "book": {
     "heading": "Be A Man — the book",
@@ -80,7 +92,10 @@
           "label": "Doctors' mental health at tipping point",
           "href": "https://www.bbc.co.uk/programmes/p06k5gdy"
         },
-        { "label": "Men can be nursery teachers too", "href": "https://www.bbc.co.uk/news/education-43386250" },
+        {
+          "label": "Men can be nursery teachers too",
+          "href": "https://www.bbc.co.uk/news/education-43386250"
+        },
         {
           "label": "Why are most problem gamblers men?",
           "href": "https://www.bbc.co.uk/programmes/p05y0709"
@@ -92,8 +107,14 @@
     "heading": "Work with Chris and the M-Path team",
     "body": "Book a talk or workshop, or find out more about our programmes.",
     "ctas": [
-      { "label": "See workplace programmes", "href": "/workplaces" },
-      { "label": "Get in touch", "href": "/connect" }
+      {
+        "label": "See workplace programmes",
+        "href": "/workplaces"
+      },
+      {
+        "label": "Get in touch",
+        "href": "/connect"
+      }
     ]
   }
 }

@@ -15,7 +15,10 @@
   "founder": {
     "heading": "Why we exist",
     "body": "M-Path was founded by BACP psychotherapist, former BBC journalist and founder of Men's Therapy Hub, [Chris Hemmings](/chris-hemmings). Learn more about his journey and why he founded M-Path.",
-    "cta": { "label": "Read more about Chris", "href": "/chris-hemmings" }
+    "cta": {
+      "label": "Read more about Chris",
+      "href": "/chris-hemmings"
+    }
   },
   "facilitators": {
     "heading": "Our facilitators",
@@ -24,6 +27,7 @@
       {
         "name": "Will Adolphy",
         "role": "Managing Director & Facilitator",
+        "photo": "/img/photos/will-adolphy.jpg",
         "bio": "Will is a [BACP-qualified psychotherapist](http://willadolphy.com) specialising in men's health, anxiety, addiction and depression, with over six years teaching in schools and mentoring boys with ASD and AD(H)D to develop self-regulation skills.\n\nHe specialises in why boys are pulled towards online masculinity influencers, drawing on his own experience. His story has featured in the Telegraph, on Good Morning Britain and on BBC Radio 4's Woman's Hour. His upcoming book, *Boys Online: A Parent's Guide to the Manosphere*, draws on his work with parents and young men across the UK.\n\nWill has spoken at multiple United Nations events, including the HeForShe Summit, and was invited to Number 10 to share his lived experience with the Prime Minister and Health Secretary."
       },
       {
@@ -31,21 +35,29 @@
         "role": "Founder",
         "photo": "/img/photos/chris-hemmings.jpg",
         "bio": "Chris is a [BACP psychotherapist](/chris-hemmings) and coach who specialises in working with men, focusing on helping them develop their emotional wellbeing. He's a professional public speaker and workshop facilitator who founded the M-Path programmes after his book on macho culture was published in 2017.\n\nHe previously spent ten years as a BBC journalist, producing and presenting documentaries on men and masculinity. He's recently stepped back from day-to-day M-Path delivery to focus on his new project, [Men's Therapy Hub](http://www.menstherapyhub.co.uk).",
-        "links": [{ "label": "Full profile", "href": "/chris-hemmings" }]
+        "links": [
+          {
+            "label": "Full profile",
+            "href": "/chris-hemmings"
+          }
+        ]
       },
       {
         "name": "Alex Lewis",
         "role": "Facilitator",
+        "photo": "/img/photos/alex-lewis.jpg",
         "bio": "Alex is a BACP-registered therapist working with people from all walks of life, joining them on their journey of understanding self. His training and experience in cultural and diversity sensitivity has allowed him to work with people from a range of backgrounds. He has worked in schools offering therapeutic support, and facilitated groups with men who want to change their behaviour."
       },
       {
         "name": "Darrell Warwick",
         "role": "Facilitator",
+        "photo": "/img/photos/darrell-warwick.jpg",
         "bio": "Darrell works as a Mental Health Practitioner with Mind, offering low-intensity therapy and coaching in GP surgeries, and is training to qualify as a psychotherapist by 2026. Previously an Alternative Provisions Educator, he has supported young boys and people in crisis. He founded a thriving men's group in his community, driven by his own experiences, and is passionate about healthy masculinity and positive role models."
       },
       {
         "name": "Ben Oliver",
         "role": "Facilitator",
+        "photo": "/img/photos/ben-oliver.jpg",
         "bio": "Ben is the founder of the PSHE organisation Worth Educating, focused on boys and young men, and has delivered workshops in schools across the North East of the UK for the last ten years. He's passionate about creating spaces for boys to explore healthy masculinity — strong and sensitive, competitive and empathetic. A father of two young girls, he's driven to help the next generation build healthy relationship dynamics."
       },
       {
@@ -56,12 +68,27 @@
       }
     ]
   },
+  "media": {
+    "eyebrow": "In the media",
+    "heading": "Our work, in the national conversation",
+    "lead": "Facilitator Will Adolphy on Good Morning Britain, on schools teaching boys about healthy masculinity.",
+    "video": {
+      "id": "lTXGLGHJcNg",
+      "title": "Schools in England to Begin Teaching Anti-Misogyny Lessons — Good Morning Britain"
+    }
+  },
   "cta": {
     "heading": "Bring M-Path to your community",
     "body": "Whether you're a school, college or organisation, we'll tailor a programme to your needs.",
     "ctas": [
-      { "label": "Programmes for schools", "href": "/schools" },
-      { "label": "Programmes for workplaces", "href": "/workplaces" }
+      {
+        "label": "Programmes for schools",
+        "href": "/schools"
+      },
+      {
+        "label": "Programmes for workplaces",
+        "href": "/workplaces"
+      }
     ]
   }
 }

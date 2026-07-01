@@ -32,6 +32,7 @@
     x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
     'chevron-down': '<path d="m6 9 6 6 6-6"/>',
     check: '<path d="M20 6 9 17l-5-5"/>',
+    play: '<path d="M6 4v16l14-8z" fill="currentColor" stroke="none"/>',
     facebook:
       '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
     twitter:

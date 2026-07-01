@@ -9,18 +9,41 @@
     "title": "Help boys navigate a changing world",
     "highlight": "boys",
     "lead": "A whole-school programme on healthy masculinity, the manosphere and mental health — talks, interactive workshops, staff CPD and parent webinars, for pupils of all genders aged 11–18, from BACP-registered practitioners.",
-    "ctas": [{ "label": "Enquire — education@m-path.co.uk", "href": "mailto:education@m-path.co.uk" }],
+    "ctas": [
+      {
+        "label": "Enquire — education@m-path.co.uk",
+        "href": "mailto:education@m-path.co.uk"
+      }
+    ],
     "contactEmail": "education@m-path.co.uk"
   },
   "credentials": {
     "heading": "Why schools trust M-Path",
     "items": [
-      { "icon": "check", "label": "BACP-registered psychotherapists & trained facilitators" },
-      { "icon": "graduation-cap", "label": "10+ years in schools & colleges across the UK & Europe" },
-      { "icon": "message-circle", "label": "Specialists in the manosphere & online influences" },
-      { "icon": "users", "label": "For pupils of all genders, aged 11–18" },
-      { "icon": "book-open", "label": "Complements PSHE; includes staff CPD & parent webinars" },
-      { "icon": "check", "label": "Safeguarding-aware — DBS status & references on request" }
+      {
+        "icon": "check",
+        "label": "BACP-registered psychotherapists & trained facilitators"
+      },
+      {
+        "icon": "graduation-cap",
+        "label": "10+ years in schools & colleges across the UK & Europe"
+      },
+      {
+        "icon": "message-circle",
+        "label": "Specialists in the manosphere & online influences"
+      },
+      {
+        "icon": "users",
+        "label": "For pupils of all genders, aged 11–18"
+      },
+      {
+        "icon": "book-open",
+        "label": "Complements PSHE; includes staff CPD & parent webinars"
+      },
+      {
+        "icon": "check",
+        "label": "Safeguarding-aware — DBS status & references on request"
+      }
     ]
   },
   "intro": {
@@ -48,15 +71,45 @@
       }
     ]
   },
+  "videos": {
+    "eyebrow": "In their words",
+    "heading": "Hear it from a teacher and a pupil",
+    "lead": "Real testimonials from the schools and students we've worked with.",
+    "items": [
+      {
+        "id": "OEUvlgXElTA",
+        "title": "Teacher testimonial — M-Path"
+      },
+      {
+        "id": "_xjSPKecb4E",
+        "title": "Pupil testimonial for M-Path"
+      }
+    ]
+  },
   "process": {
     "eyebrow": "How it works",
     "heading": "From first enquiry to lasting change",
     "steps": [
-      { "title": "Enquiry", "body": "Tell us about your setting, your cohort and what you're seeing — we'll respond quickly." },
-      { "title": "Scoping call", "body": "We shape the right mix of talk, workshops, staff CPD and parent sessions for your school." },
-      { "title": "Tailored proposal", "body": "Agreed content, timings and pricing — designed around your pupils, not off the shelf." },
-      { "title": "Delivery", "body": "In person or online, by BACP-registered facilitators experienced with 11–18s." },
-      { "title": "Beyond the visit", "body": "Resources for staff and parents, and support to keep the conversation going." }
+      {
+        "title": "Enquiry",
+        "body": "Tell us about your setting, your cohort and what you're seeing — we'll respond quickly."
+      },
+      {
+        "title": "Scoping call",
+        "body": "We shape the right mix of talk, workshops, staff CPD and parent sessions for your school."
+      },
+      {
+        "title": "Tailored proposal",
+        "body": "Agreed content, timings and pricing — designed around your pupils, not off the shelf."
+      },
+      {
+        "title": "Delivery",
+        "body": "In person or online, by BACP-registered facilitators experienced with 11–18s."
+      },
+      {
+        "title": "Beyond the visit",
+        "body": "Resources for staff and parents, and support to keep the conversation going."
+      }
     ]
   },
   "faq": {
@@ -89,8 +142,14 @@
     "heading": "Bring the programme to your school",
     "body": "Talk to us about a talk, a full workshop series, staff CPD or a parents' webinar.",
     "ctas": [
-      { "label": "Email education@m-path.co.uk", "href": "mailto:education@m-path.co.uk" },
-      { "label": "About Chris Hemmings", "href": "/chris-hemmings" }
+      {
+        "label": "Email education@m-path.co.uk",
+        "href": "mailto:education@m-path.co.uk"
+      },
+      {
+        "label": "About Chris Hemmings",
+        "href": "/chris-hemmings"
+      }
     ]
   }
 }
