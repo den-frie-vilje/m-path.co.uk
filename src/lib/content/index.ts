@@ -157,7 +157,7 @@ export interface Audience {
 
 export interface HomeContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; lead: string; ctas: CtaLink[]; bg?: string };
+  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas: CtaLink[]; bg?: string };
   stats: Stat[];
   audiences: Audience[];
   intro: { eyebrow: string; heading: string; lead: string; cards: IconCard[] };
@@ -176,7 +176,7 @@ export interface AboutContent {
 
 export interface ProgrammePageContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; lead: string; ctas?: CtaLink[]; contactEmail?: string };
+  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas?: CtaLink[]; contactEmail?: string };
   intro?: { body: string };
   credentials?: { heading: string; items: Credential[] };
   programme: { eyebrow: string; heading: string; steps: ProgrammeStep[] };

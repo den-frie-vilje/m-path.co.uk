@@ -3,6 +3,7 @@
 
 /* Self-hosted brand fonts (weights actually used). Jost = display/headings,
    Montserrat = body — the existing m-path.co.uk typography, modernised. */
+@import '@fontsource/jost/300.css';
 @import '@fontsource/jost/400.css';
 @import '@fontsource/jost/500.css';
 @import '@fontsource/jost/600.css';
@@ -56,9 +57,10 @@
   /* Magenta — gradient partner + large accent ONLY */
   --color-magenta-500: #d03edf;
 
-  /* Pops (used sparingly on dark/violet grounds) */
-  --color-cyan-300: #41fff8;
-  --color-yellow-300: #ffe250;
+  /* Optional single premium accent (violet's complement region), desaturated, thin details only,
+     ≤10%, separated by neutral space. UNUSED by default — the site is monochrome violet + neutrals.
+     Enable only deliberately (research: metallic/warm reads premium only when restrained). */
+  --color-gold-400: #c79a3e;
 
   /* Layout rhythm */
   --spacing-section: 88px;
@@ -157,7 +159,7 @@ h4 {
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em; /* all-caps tracking 0.1–0.15em (Butterick) */
   text-transform: uppercase;
   color: var(--color-violet-600);
 }
@@ -257,6 +259,8 @@ h4 {
   color: var(--color-ink);
   font-size: clamp(17px, 1.4vw, 19px);
   line-height: 1.66;
+  /* Comfortable reading measure ~66ch (Butterick 45–90 CPL); never overflow a narrow parent. */
+  max-width: min(68ch, 100%);
 }
 .prose-warm :where(p, ul, ol) {
   margin-block: 0.9em;
@@ -334,19 +338,21 @@ h4 {
   color: #fff;
 }
 
-/* Poster display tier — one oversized moment per page (hero word / big section). */
+/* Poster display tier — one oversized moment per page. Fluid via rem+vw (never pure vw — that
+   breaks browser zoom / WCAG 1.4.4); max ≤ 2.5× min keeps it conformant. Light default weight so a
+   single bold "turn" word carries strong (300→700) weight contrast — the researched, non-cliché
+   alternative to a coloured underline. */
 .t-hero {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(50px, 8.5vw, 116px);
-  line-height: 0.94;
-  letter-spacing: -0.03em;
+  font-weight: 300;
+  font-size: clamp(3.125rem, 6.5vw + 1rem, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
-/* Mixed-weight headline: a light lead-in word paired with the heavy turn. */
-.t-hero .light {
-  font-weight: 300;
-  letter-spacing: -0.02em;
+.t-hero .turn {
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 /* Signature 2° tilt for decorative rounded-square layers (echoes the badge). */

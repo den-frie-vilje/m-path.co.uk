@@ -12,6 +12,8 @@
   interface Props {
     eyebrow?: string;
     title: string;
+    /** ONE word/phrase in the title to emphasise with a heavy weight (strong 300→700 contrast). */
+    highlight?: string;
     lead?: string;
     ctas?: CtaLink[];
     portrait?: { src: string; alt: string };
@@ -19,7 +21,15 @@
     bg?: { src: string; alt?: string };
     compact?: boolean;
   }
-  let { eyebrow, title, lead, ctas = [], portrait, bg, compact = false }: Props = $props();
+  let { eyebrow, title, highlight, lead, ctas = [], portrait, bg, compact = false }: Props = $props();
+
+  // Split the title around the highlighted word (first occurrence) for the weight-contrast emphasis.
+  const parts = $derived.by(() => {
+    if (!highlight || compact) return null;
+    const i = title.toLowerCase().indexOf(highlight.toLowerCase());
+    if (i < 0) return null;
+    return { before: title.slice(0, i), word: title.slice(i, i + highlight.length), after: title.slice(i + highlight.length) };
+  });
 </script>
 
 <section class="brand-gradient grain relative isolate overflow-hidden text-white">
@@ -60,7 +70,9 @@
       {#if eyebrow}
         <p class="t-eyebrow !text-white/75">{eyebrow}</p>
       {/if}
-      <h1 class="{compact ? 't-display' : 't-hero'} mt-5 text-white">{title}</h1>
+      <h1 class="{compact ? 't-display' : 't-hero'} mt-5 text-white">
+        {#if parts}{parts.before}<span class="turn">{parts.word}</span>{parts.after}{:else}{title}{/if}
+      </h1>
       {#if lead}
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">{lead}</p>
       {/if}

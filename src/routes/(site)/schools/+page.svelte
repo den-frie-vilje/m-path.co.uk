@@ -22,6 +22,7 @@
 <Hero
   eyebrow={schools.hero.eyebrow}
   title={schools.hero.title}
+  highlight={schools.hero.highlight}
   lead={schools.hero.lead}
   ctas={schools.hero.ctas}
 />

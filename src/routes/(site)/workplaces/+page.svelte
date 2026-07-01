@@ -23,6 +23,7 @@
 <Hero
   eyebrow={workplaces.hero.eyebrow}
   title={workplaces.hero.title}
+  highlight={workplaces.hero.highlight}
   lead={workplaces.hero.lead}
   ctas={workplaces.hero.ctas}
 />

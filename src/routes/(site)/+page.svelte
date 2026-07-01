@@ -20,6 +20,7 @@
 <Hero
   eyebrow={home.hero.eyebrow}
   title={home.hero.title}
+  highlight={home.hero.highlight}
   lead={home.hero.lead}
   ctas={home.hero.ctas}
   bg={home.hero.bg ? { src: home.hero.bg, alt: 'An M-Path workshop in progress' } : undefined}

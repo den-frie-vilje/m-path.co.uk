@@ -16,8 +16,11 @@
   {#each stats as s (s.label)}
     <div class="px-4 py-7 text-center">
       <dd>
-        <!-- inline-block so the background-clip:text box hugs the glyphs (never clips them). -->
-        <span class="brand-gradient-text inline-block font-display text-5xl font-bold leading-none whitespace-nowrap sm:text-6xl">
+        <span
+          class="inline-block font-display text-5xl font-bold leading-none whitespace-nowrap sm:text-6xl {onDark
+            ? 'text-white'
+            : 'text-violet-700'}"
+        >
           {s.value}
         </span>
       </dd>
