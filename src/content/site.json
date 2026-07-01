@@ -34,11 +34,7 @@
       "email": "info@m-path.co.uk"
     }
   ],
-  "socials": [
-    { "label": "Facebook", "icon": "facebook", "href": "https://www.facebook.com/" },
-    { "label": "X (Twitter)", "icon": "twitter", "href": "https://twitter.com/" },
-    { "label": "LinkedIn", "icon": "linkedin", "href": "https://www.linkedin.com/" }
-  ],
+  "socials": [],
   "footerBlurb": "Talks, workshops and well-being networks that help men and boys engage with their emotional wellbeing — and develop their powers of empathy and allyship. Founded by BACP psychotherapist Chris Hemmings.",
   "defaultSeo": {
     "title": "M-Path | Men's Mental Health & Masculinity Programmes",
