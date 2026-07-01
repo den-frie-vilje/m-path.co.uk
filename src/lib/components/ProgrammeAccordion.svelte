@@ -17,7 +17,7 @@
         class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg font-semibold text-ink transition hover:text-violet-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden"
       >
         <span class="flex items-center gap-4">
-          <span class="path-node {i === steps.length - 1 ? 'is-destination' : ''}" aria-hidden="true">
+          <span class="path-node" aria-hidden="true">
             {i + 1}
           </span>
           {step.title}

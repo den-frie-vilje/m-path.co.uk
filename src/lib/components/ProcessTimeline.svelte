@@ -12,16 +12,13 @@
   <!-- the path rail (decorative) -->
   <span
     aria-hidden="true"
-    class="absolute bottom-4 left-[1.375rem] top-4 w-0.5 rounded bg-gradient-to-b from-violet-500 via-violet-400/50 to-gold-400/80"
+    class="absolute bottom-4 left-[1.375rem] top-4 w-0.5 rounded bg-gradient-to-b from-violet-500 via-violet-400/50 to-violet-300/70"
   ></span>
 
   {#each steps as step, i (step.title)}
     <li class="relative flex gap-5 pb-9 last:pb-0">
       <span
-        class="relative z-10 inline-flex h-11 w-11 shrink-0 rotate-2 items-center justify-center rounded-xl font-display text-base font-bold shadow-sm {i ===
-        steps.length - 1
-          ? 'bg-gold-400 text-plum-950 ring-2 ring-gold-400/40 ring-offset-2'
-          : 'brand-gradient text-white'} {dark ? 'ring-offset-plum-950' : 'ring-offset-paper'}"
+        class="brand-gradient relative z-10 inline-flex h-11 w-11 shrink-0 rotate-2 items-center justify-center rounded-xl font-display text-base font-bold text-white shadow-sm"
       >
         {i + 1}
       </span>

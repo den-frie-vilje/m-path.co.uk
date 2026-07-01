@@ -60,7 +60,7 @@
   /* Single premium accent — violet's complement region (gold). sRGB fallback here; a bolder,
      more-luminous WIDE-GAMUT (display-P3 / OKLCH) gold is layered on P3 screens in the @supports
      block below. Used in ONE role only (the destination/allyship node), separated by neutral space. */
-  --color-gold-400: #e0a83a; /* sRGB fallback */
+  --color-gold-400: #f2b52a; /* sRGB fallback — bold gold */
 
   /* Layout rhythm */
   --spacing-section: 88px;
@@ -89,7 +89,8 @@
    OKLCH is perceptually uniform, so lightness/chroma stay predictable. */
 @supports (color: oklch(0.8 0.16 90)) {
   :root {
-    --color-gold-400: oklch(0.82 0.163 92);
+    /* Bolder, more-luminous wide-gamut gold — pushes chroma past sRGB; P3 displays render it richer. */
+    --color-gold-400: oklch(0.85 0.19 92);
   }
 }
 
@@ -245,14 +246,15 @@ h4 {
   background: var(--color-violet-500);
   color: #fff;
 }
-/* On violet/dark surfaces. */
+/* Primary action ON violet/dark surfaces — the single bold GOLD accent (research: the ≤10% accent is
+   reserved for the primary CTA). Dark text on gold = 8.6:1 AA; gold pops on the purple/plum grounds. */
 .btn-on-violet {
-  background: #fff;
-  color: var(--color-violet-700);
+  background: var(--color-gold-400);
+  color: var(--color-plum-950);
 }
 .btn-on-violet:hover {
-  background: var(--color-yellow-300);
-  color: var(--color-violet-950);
+  background: #fff;
+  color: var(--color-violet-700);
 }
 .btn-ghost-on-violet {
   border: 1.5px solid color-mix(in srgb, #fff 45%, transparent);
@@ -422,12 +424,3 @@ details[open] > summary .path-node {
    carries a muted-gold outline; a warm gold ring when reached. Violet's complement region,
    desaturated, one role only, separated by neutral space (research: metallic reads premium only
    when restrained). Revert this commit to return to pure monochrome. */
-/* the journey "arrives" in gold: the destination node fills gold (dark text = 8.6:1 AA) when reached.
-   (No gold OUTLINE on light grounds — gold-on-paper is only 2:1, below the 3:1 non-text bar; gold is
-   used as a FILL only, where it passes.) */
-details[open] > summary .path-node.is-destination {
-  background: var(--color-gold-400);
-  color: var(--color-plum-950);
-  border-color: var(--color-gold-400);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-gold-400) 42%, transparent);
-}
