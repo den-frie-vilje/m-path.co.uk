@@ -12,6 +12,8 @@
   interface Props {
     eyebrow?: string;
     title: string;
+    /** the ONE pivotal word to light with the cyan "turn" swipe (must appear in title). */
+    highlight?: string;
     lead?: string;
     ctas?: CtaLink[];
     portrait?: { src: string; alt: string };
@@ -19,10 +21,18 @@
     bg?: { src: string; alt?: string };
     compact?: boolean;
   }
-  let { eyebrow, title, lead, ctas = [], portrait, bg, compact = false }: Props = $props();
+  let { eyebrow, title, highlight, lead, ctas = [], portrait, bg, compact = false }: Props = $props();
+
+  // Split the title around the highlighted word (first occurrence) for the "turn" treatment.
+  const parts = $derived.by(() => {
+    if (!highlight) return null;
+    const i = title.toLowerCase().indexOf(highlight.toLowerCase());
+    if (i < 0) return null;
+    return { before: title.slice(0, i), word: title.slice(i, i + highlight.length), after: title.slice(i + highlight.length) };
+  });
 </script>
 
-<section class="brand-gradient relative isolate overflow-hidden text-white">
+<section class="brand-gradient grain relative isolate overflow-hidden text-white">
   {#if bg}
     <!-- Background photo + gradient scrim: photo reads on the left/bottom, copy stays legible. -->
     <img
@@ -58,9 +68,11 @@
   >
     <div class="max-w-2xl">
       {#if eyebrow}
-        <p class="t-eyebrow !text-white/80">{eyebrow}</p>
+        <p class="t-eyebrow !text-cyan-300"><span class="keyline mr-2"></span>{eyebrow}</p>
       {/if}
-      <h1 class="t-display mt-4 text-white">{title}</h1>
+      <h1 class="{compact ? 't-display' : 't-hero'} mt-5 text-white">
+        {#if parts}{parts.before}<span class="turn-underline">{parts.word}</span>{parts.after}{:else}{title}{/if}
+      </h1>
       {#if lead}
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">{lead}</p>
       {/if}

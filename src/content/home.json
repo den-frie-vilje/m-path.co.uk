@@ -7,10 +7,11 @@
   "hero": {
     "eyebrow": "Men's mental health & masculinity",
     "title": "Engaging men in cultural change",
-    "lead": "Men's mental health, emotional wellbeing & masculinity programmes designed to drive inclusion and allyship within organisations of all sizes.",
+    "highlight": "change",
+    "lead": "We meet men and boys with compassion, not blame — then bring them into empathy and allyship. Talks, workshops and wellbeing networks for schools and organisations.",
     "ctas": [
-      { "label": "Discover more", "href": "/about" },
-      { "label": "Get in touch", "href": "/connect" }
+      { "label": "For schools & colleges", "href": "/schools" },
+      { "label": "For workplaces", "href": "/workplaces" }
     ],
     "bg": "/img/photos/mpath-workshop-2.jpg"
   },
@@ -19,6 +20,24 @@
     { "value": "1000s", "label": "Young people reached" },
     { "value": "9+", "label": "Leading organisations" },
     { "value": "10+", "label": "Years of this work" }
+  ],
+  "audiences": [
+    {
+      "icon": "graduation-cap",
+      "eyebrow": "For schools & colleges",
+      "title": "Help boys navigate a changing world",
+      "blurb": "Talks, interactive workshops, staff CPD and parent webinars on healthy masculinity, the manosphere and mental health — a whole-school programme for pupils of all genders, aged 11–18.",
+      "cta": "Explore school programmes",
+      "href": "/schools"
+    },
+    {
+      "icon": "briefcase",
+      "eyebrow": "For workplaces",
+      "title": "Bring men into inclusion & allyship",
+      "blurb": "Talks, workshops and men's wellbeing networks that engage male colleagues in DE&I — the group most likely to disengage. Trusted by Barclays, Nike, KPMG and L'Oréal.",
+      "cta": "Explore workplace programmes",
+      "href": "/workplaces"
+    }
   ],
   "intro": {
     "eyebrow": "What we do",
@@ -86,8 +105,8 @@
     "heading": "Ready to start the conversation?",
     "body": "Tell us about your school, college or organisation and we'll design a programme that fits.",
     "ctas": [
-      { "label": "Get in touch", "href": "/connect" },
-      { "label": "Programmes for schools", "href": "/schools" }
+      { "label": "Programmes for schools", "href": "/schools" },
+      { "label": "Programmes for workplaces", "href": "/workplaces" }
     ]
   }
 }

@@ -126,10 +126,21 @@ export interface Stat {
   label: string;
 }
 
+export interface Audience {
+  icon?: string;
+  eyebrow: string;
+  title: string;
+  /** markdown */
+  blurb: string;
+  cta: string;
+  href: string;
+}
+
 export interface HomeContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; lead: string; ctas: CtaLink[]; bg?: string };
+  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas: CtaLink[]; bg?: string };
   stats: Stat[];
+  audiences: Audience[];
   intro: { eyebrow: string; heading: string; lead: string; cards: IconCard[] };
   services: { eyebrow: string; heading: string; lead?: string; items: Service[] };
   cta: { heading: string; body: string; ctas: CtaLink[] };

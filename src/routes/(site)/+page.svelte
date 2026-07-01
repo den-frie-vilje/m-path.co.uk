@@ -5,6 +5,7 @@
   import Hero from '$lib/components/Hero.svelte';
   import Section from '$lib/components/Section.svelte';
   import StatBand from '$lib/components/StatBand.svelte';
+  import AudienceChooser from '$lib/components/AudienceChooser.svelte';
   import CardGrid from '$lib/components/CardGrid.svelte';
   import PhotoFeature from '$lib/components/PhotoFeature.svelte';
   import LogoWall from '$lib/components/LogoWall.svelte';
@@ -19,20 +20,31 @@
 <Hero
   eyebrow={home.hero.eyebrow}
   title={home.hero.title}
+  highlight={home.hero.highlight}
   lead={home.hero.lead}
   ctas={home.hero.ctas}
   bg={home.hero.bg ? { src: home.hero.bg, alt: 'An M-Path workshop in progress' } : undefined}
 />
 
-<!-- Impact band overlapping the hero for a distinctive, non-generic transition -->
-<div class="bg-mist">
-  <div class="container-page -mt-10 sm:-mt-12">
+<!-- Impact band on warm sand, directly under the hero. -->
+<div class="bg-sand">
+  <div class="container-page py-12 sm:py-16">
     <StatBand stats={home.stats} />
   </div>
-  <div class="h-12 sm:h-16"></div>
 </div>
 
-<Section tone="paper" eyebrow={home.intro.eyebrow} heading={home.intro.heading} lead={home.intro.lead}>
+<!-- The audience fork — the page's primary decision. -->
+<Section
+  tone="paper"
+  eyebrow="Choose your path"
+  keyline
+  heading="Two programmes, one mission"
+  lead="We tailor everything to who you are — a school helping boys grow up well, or an organisation bringing men into inclusion."
+>
+  <AudienceChooser audiences={home.audiences} />
+</Section>
+
+<Section tone="sand" eyebrow={home.intro.eyebrow} keyline heading={home.intro.heading} lead={home.intro.lead}>
   <CardGrid items={home.intro.cards} columns={3} />
 </Section>
 
@@ -51,15 +63,22 @@
   </PhotoFeature>
 </Section>
 
-<Section tone="mist" eyebrow={home.services.eyebrow} heading={home.services.heading} lead={home.services.lead}>
-  <CardGrid items={home.services.items} columns={3} />
+<!-- Reclaimed brand-colour section (plum gravitas) so colour carries through the page middle. -->
+<Section
+  tone="plum"
+  eyebrow={home.services.eyebrow}
+  keyline
+  heading={home.services.heading}
+  lead={home.services.lead}
+>
+  <CardGrid items={home.services.items} columns={3} dark />
 </Section>
 
 <Section tone="paper" heading="Trusted by organisations we've worked with" align="center">
   <LogoWall items={partners} />
 </Section>
 
-<Section tone="lilac" eyebrow="What people say" heading="Insightful, honest and engaging">
+<Section tone="lilac" eyebrow="What people say" keyline heading="Insightful, honest and engaging">
   <TestimonialCards items={testimonials.slice(0, 3)} />
 </Section>
 

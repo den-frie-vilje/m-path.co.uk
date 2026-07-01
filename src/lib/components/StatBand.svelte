@@ -17,7 +17,7 @@
     <div class="px-4 py-7 text-center">
       <dd>
         <!-- inline-block so the background-clip:text box hugs the glyphs (never clips them). -->
-        <span class="brand-gradient-text inline-block font-display text-4xl font-bold leading-none whitespace-nowrap lg:text-5xl">
+        <span class="brand-gradient-text inline-block font-display text-5xl font-bold leading-none whitespace-nowrap sm:text-6xl">
           {s.value}
         </span>
       </dd>

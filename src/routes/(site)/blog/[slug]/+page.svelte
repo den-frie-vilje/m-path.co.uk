@@ -49,8 +49,9 @@
 </header>
 
 {#if post.cover}
+  <!-- Cover sits clearly BELOW the header with breathing room (was overlapping it by ~32px). -->
   <div class="bg-mist">
-    <div class="container-page -mt-8 sm:-mt-10">
+    <div class="container-page pt-12 sm:pt-16">
       <img
         src={post.cover}
         alt=""

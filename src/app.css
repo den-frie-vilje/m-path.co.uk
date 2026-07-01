@@ -28,11 +28,17 @@
   --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Jost', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 
-  /* Grounds / neutrals */
+  /* Grounds / neutrals — warmed off cool-lilac toward a barely-warm sand so light sections read
+     human, not clinical. Purple-tinted inks keep the brand tie. */
   --color-paper: #ffffff; /* primary page ground */
-  --color-paper-2: #faf7fd; /* faint lilac raised surface */
-  --color-mist: #f4f2f7; /* alternating section ground (from Astra #f4f6f6) */
-  --color-line: #e7e1ef; /* borders / dividers */
+  --color-paper-2: #faf7f2; /* warm raised surface (cards) */
+  --color-sand: #f5f1e9; /* warm alternating section ground (default alt) */
+  --color-mist: #f6f2f8; /* cool lilac alt (secondary) */
+  --color-line: #e9e3da; /* warm border / divider */
+
+  /* Deep plum — flat "gravitas" surface (trust/authority), distinct from the energetic gradient. */
+  --color-plum-900: #2c1147;
+  --color-plum-950: #1c0d2e;
 
   /* Ink / text (purple-tinted neutrals) */
   --color-ink: #1c1230; /* primary text — 17.8:1 on white */
@@ -57,6 +63,14 @@
   /* Layout rhythm */
   --spacing-section: 88px;
   --container-page: 1180px;
+
+  /* Signature 2° badge-tilt (echoes the logo). Used only on decorative layers, never on text. */
+  --tilt: 2deg;
+
+  /* Motion tokens (used by the deferred microinteraction pass; safe as CSS defaults now). */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-base: 260ms;
 
   /* Header nav breakpoints (mobile → desktop). */
   --breakpoint-navtight: 40rem;
@@ -289,4 +303,141 @@ h4 {
   border-left: 3px solid var(--color-violet-500);
   padding-left: 1rem;
   margin-block: 1.4em;
+}
+.prose-warm.on-dark {
+  color: color-mix(in srgb, #fff 88%, transparent);
+}
+.prose-warm.on-dark strong {
+  color: #fff;
+}
+.prose-warm.on-dark :where(blockquote) {
+  color: var(--color-violet-300);
+  border-color: var(--color-cyan-300);
+}
+.prose-warm.on-dark a {
+  color: var(--color-cyan-300);
+}
+
+/* ============================================================================
+   IDENTITY LAYER — the devices that make it unmistakably M-Path (not generic):
+   plum gravitas ground, poster display type, the "highlighted turn", grain,
+   the 2° badge-tilt, cyan/yellow accents with real jobs, and the PATH motif.
+   All decorative layers are aria-hidden + pointer-events-none in markup.
+   ============================================================================ */
+
+/* Flat deep-plum gravitas surface — trust/authority (vs the energetic gradient). */
+.surface-plum {
+  background:
+    radial-gradient(120% 140% at 85% -10%, #3a1a5e 0%, transparent 55%),
+    linear-gradient(180deg, var(--color-plum-950) 0%, var(--color-plum-900) 100%);
+  color: #fff;
+}
+
+/* Poster display tier — one oversized moment per page (hero word / big section). */
+.t-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(50px, 8.5vw, 116px);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+/* Mixed-weight headline: a light lead-in word paired with the heavy turn. */
+.t-hero .light {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+/* The "highlighted turn" — light ONE pivotal word per headline. Two treatments: */
+.turn-gradient {
+  background: linear-gradient(100deg, var(--color-violet-400), var(--color-magenta-500) 70%, var(--color-yellow-300));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Hand-drawn cyan underline swipe under a word on dark grounds (decorative). */
+.turn-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.turn-underline::after {
+  content: '';
+  position: absolute;
+  left: -0.06em;
+  right: -0.06em;
+  bottom: -0.06em;
+  height: 0.36em;
+  z-index: -1;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-cyan-300), color-mix(in srgb, var(--color-cyan-300) 55%, var(--color-yellow-300)));
+  opacity: 0.9;
+  transform: rotate(-1deg);
+}
+
+/* Cyan keyline accent — the "path/hope" spark, used as a short leading rule above eyebrows etc. */
+.keyline {
+  display: inline-block;
+  width: 2.25rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-cyan-300);
+  vertical-align: middle;
+}
+
+/* Signature 2° tilt for decorative rounded-square layers (echoes the badge). */
+.tilt {
+  transform: rotate(var(--tilt));
+}
+.tilt-neg {
+  transform: rotate(calc(-1 * var(--tilt)));
+}
+
+/* Fine grain — warms flat gradient/plum fields (printed-poster feel). Dark grounds only.
+   Inline SVG feTurbulence, no network request; sits as a decorative overlay. */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* PATH motif — numbered journey nodes for the programme sequence (disengagement → allyship).
+   Rounded-square badges (logo echo). State via modifier classes set by the component. */
+.path-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transform: rotate(var(--tilt));
+  transition:
+    background-color var(--dur-base) var(--ease-brand),
+    box-shadow var(--dur-base) var(--ease-brand),
+    color var(--dur-base) var(--ease-brand);
+}
+/* upcoming: outline violet on light */
+.path-node {
+  color: var(--color-violet-700);
+  border: 2px solid var(--color-violet-400);
+  background: transparent;
+}
+/* current/open: filled violet with a cyan ring */
+details[open] > summary .path-node {
+  background: var(--color-violet-500);
+  color: #fff;
+  border-color: var(--color-violet-500);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-cyan-300) 70%, transparent);
+}
+/* the destination node (last step) glows yellow when open */
+details[open] > summary .path-node.is-destination {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-yellow-300) 80%, transparent);
 }
