@@ -1,0 +1,52 @@
+# Ingress for ingress-nginx + cert-manager. Provider-agnostic: works on any cluster running
+# ingress-nginx (or swap the class/annotations for your provider's controller). TLS is issued by
+# cert-manager's `letsencrypt-prod` ClusterIssuer into the m-path-tls secret.
+#
+# www → apex canonicalisation is handled by a dedicated redirect ingress below (ingress-nginx
+# permanent-redirect annotation), matching the Caddy front-door behaviour in the compose model.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: m-path
+  namespace: m-path
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: [m-path.co.uk, www.m-path.co.uk]
+      secretName: m-path-tls
+  rules:
+    - host: m-path.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: m-path
+                port: { number: 80 }
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: m-path-www-redirect
+  namespace: m-path
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/permanent-redirect: https://m-path.co.uk$request_uri
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts: [www.m-path.co.uk]
+      secretName: m-path-tls
+  rules:
+    - host: www.m-path.co.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: m-path
+                port: { number: 80 }

@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: m-path
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+commonLabels:
+  app.kubernetes.io/name: m-path
+  app.kubernetes.io/managed-by: kustomize
+# Pin the image tag/digest here for GitOps (Argo/Flux) rather than editing deployment.yaml.
+images:
+  - name: ghcr.io/den-frie-vilje/m-path
+    newTag: production-latest

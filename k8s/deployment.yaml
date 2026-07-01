@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: m-path
+  namespace: m-path
+  labels:
+    app.kubernetes.io/name: m-path
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: m-path
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: m-path
+    spec:
+      # GHCR is private → a docker-registry pull secret named `ghcr` must exist in this namespace.
+      # See k8s/README.md for the one-liner to create it.
+      imagePullSecrets:
+        - name: ghcr
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 101 # nginx user in nginxinc/nginx-unprivileged
+        runAsGroup: 101
+        fsGroup: 101
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: site
+          # Pin to an immutable digest in production (Cosign-verified). `:production-latest`
+          # here matches the compose model; a GitOps flow should rewrite this to the signed digest.
+          image: ghcr.io/den-frie-vilje/m-path:production-latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          # nginx needs a few writable paths; the rest of the rootfs stays read-only.
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+            - { name: cache, mountPath: /var/cache/nginx }
+            - { name: run, mountPath: /var/run }
+          resources:
+            requests: { cpu: 25m, memory: 32Mi }
+            limits: { cpu: 250m, memory: 128Mi }
+          readinessProbe:
+            httpGet: { path: /, port: http }
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /, port: http }
+            initialDelaySeconds: 5
+            periodSeconds: 20
+      volumes:
+        - { name: tmp, emptyDir: {} }
+        - { name: cache, emptyDir: {} }
+        - { name: run, emptyDir: {} }
