@@ -14,9 +14,12 @@
     : 'border-line bg-paper-2'} sm:grid-cols-4 sm:divide-x sm:divide-y-0"
 >
   {#each stats as s (s.label)}
-    <div class="px-6 py-7 text-center">
-      <dd class="brand-gradient-text font-display text-4xl font-bold leading-none sm:text-5xl">
-        {s.value}
+    <div class="px-4 py-7 text-center">
+      <dd>
+        <!-- inline-block so the background-clip:text box hugs the glyphs (never clips them). -->
+        <span class="brand-gradient-text inline-block font-display text-4xl font-bold leading-none whitespace-nowrap lg:text-5xl">
+          {s.value}
+        </span>
       </dd>
       <dt class="mt-2 text-sm font-medium {onDark ? 'text-white/70' : 'text-ink-soft'}">{s.label}</dt>
     </div>

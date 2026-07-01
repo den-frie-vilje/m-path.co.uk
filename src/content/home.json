@@ -15,10 +15,10 @@
     "bg": "/img/photos/mpath-workshop-2.jpg"
   },
   "stats": [
-    { "value": "11–18", "label": "Age range we work with" },
-    { "value": "1,000s", "label": "Students engaged" },
-    { "value": "UK & Europe", "label": "Schools & organisations" },
-    { "value": "10+ yrs", "label": "Delivering this work" }
+    { "value": "11–18", "label": "Ages we engage" },
+    { "value": "1000s", "label": "Young people reached" },
+    { "value": "9+", "label": "Leading organisations" },
+    { "value": "10+", "label": "Years of this work" }
   ],
   "intro": {
     "eyebrow": "What we do",

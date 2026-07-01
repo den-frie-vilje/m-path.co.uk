@@ -13,10 +13,10 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "format": "prettier --write .",
-    "og": "tsx scripts/gen-og.ts",
-    "photos": "tsx scripts/gen-photos.ts",
+    "og": "node scripts/gen-og.ts",
+    "photos": "node scripts/gen-photos.ts",
     "photos:ci": "bash scripts/gen-photos-docker.sh",
-    "prebuild": "tsx scripts/copy-sveltia.ts && tsx scripts/gen-og.ts && tsx scripts/gen-photos.ts"
+    "prebuild": "node scripts/copy-sveltia.ts && node scripts/gen-og.ts && node scripts/gen-photos.ts"
   },
   "engines": {
     "node": "~25",
