@@ -1,0 +1,5 @@
+build
+.svelte-kit
+pnpm-lock.yaml
+drizzle
+static/admin

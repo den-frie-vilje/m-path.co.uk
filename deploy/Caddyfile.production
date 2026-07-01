@@ -1,0 +1,68 @@
+# Front-door reverse proxy for production (m-path.co.uk).
+#
+# Web Station proxies every production hostname for this site
+# (apex, www, legacy domains…) to 127.0.0.1:8083.
+#
+# Two responsibilities Caddy handles:
+#   1. Path routing — /admin + /publish blocks, /*
+#   2. Host canonicalization — redirect non-canonical hostnames
+#      (www, legacy brands) to the apex so SEO doesn't see
+#      duplicate content.
+#
+# Adding a new legacy hostname: add its A-record on the client
+# side, add it as a SAN on the DSM vhost (so LE reissues the
+# multi-SAN cert), add it to the @non_canonical matcher below.
+
+{
+    admin off
+    auto_https off
+}
+
+:80 {
+    # Explicit ordering inside `route {}` — canonicalization
+    # first, editor-tooling block next, site last.
+    route {
+        # Host canonicalization. List every non-canonical
+        # production hostname here; Caddy 301s them to the
+        # canonical apex (m-path.co.uk).
+        #
+        # The `.prod.denfrievilje.dk` internal origin is
+        # COMMENTED OUT by default — uncomment AFTER the
+        # client apex DNS is CNAME'd to .prod.denfrievilje.dk.
+        # Otherwise the redirect points users at a hostname
+        # that isn't yet resolving (during initial testing +
+        # cert provisioning you want to be able to hit the
+        # internal origin directly without chasing a 301 to
+        # a dead name).
+        #
+        # Edit this list when adding a new legacy domain too.
+        @non_canonical {
+            host www.m-path.co.uk
+            # host m-path-co-uk.prod.denfrievilje.dk   ← uncomment after DNS delegated
+            # host legacy-brand.dk
+            # host oldname.com
+        }
+        redir @non_canonical https://m-path.co.uk{uri} 301
+
+        # Editor tooling — not for public eyes. /admin and
+        # /publish are staging-only; serve 404 on production.
+        @editor path /admin /admin/* /publish /publish/*
+        handle @editor {
+            respond "Not found" 404
+        }
+
+        # Fallthrough: the static site. Upstream port 8080
+        # because the site container runs rootless (nginx user,
+        # can't bind <1024).
+        handle {
+            reverse_proxy site:8080
+        }
+    }
+
+    encode gzip zstd
+
+    log {
+        output stdout
+        format json
+    }
+}

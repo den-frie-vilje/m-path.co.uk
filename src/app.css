@@ -1,0 +1,292 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Self-hosted brand fonts (weights actually used). Jost = display/headings,
+   Montserrat = body — the existing m-path.co.uk typography, modernised. */
+@import '@fontsource/jost/400.css';
+@import '@fontsource/jost/500.css';
+@import '@fontsource/jost/600.css';
+@import '@fontsource/jost/700.css';
+@import '@fontsource/montserrat/300.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/500.css';
+@import '@fontsource/montserrat/600.css';
+
+/*
+  Design tokens — M-Path (Chris Hemmings' men's mental-health & masculinity
+  programmes for schools + workplaces). Palette + type DERIVED FROM THE EXISTING
+  site (Astra/Elementor), then modernised: the real brand is a vibrant
+  purple→magenta (violet #A230D9 → magenta #D03EDF) with cyan + yellow pops,
+  white-on-purple heroes, Jost display + Montserrat body.
+
+  Contrast (WCAG, computed): white on violet-500 = 5.3:1 (AA ✓ for CTAs);
+  violet-600 on white = 6.76:1 (AA ✓ links/text); magenta-500 on white = 3.86:1
+  (LARGE text / gradient ONLY — never small copy); ink on white = 17.8:1.
+*/
+@theme {
+  /* Type */
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Jost', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+
+  /* Grounds / neutrals */
+  --color-paper: #ffffff; /* primary page ground */
+  --color-paper-2: #faf7fd; /* faint lilac raised surface */
+  --color-mist: #f4f2f7; /* alternating section ground (from Astra #f4f6f6) */
+  --color-line: #e7e1ef; /* borders / dividers */
+
+  /* Ink / text (purple-tinted neutrals) */
+  --color-ink: #1c1230; /* primary text — 17.8:1 on white */
+  --color-ink-soft: #5a5170; /* muted / secondary text */
+
+  /* Violet — brand primary */
+  --color-violet-300: #cf8fe8; /* accent on dark surfaces */
+  --color-violet-400: #b558e0;
+  --color-violet-500: #a230d9; /* primary brand — CTA bg (white text = AA) */
+  --color-violet-600: #8f13c9; /* links / text on light, CTA hover */
+  --color-violet-700: #7d17ad; /* deep accent */
+  --color-violet-900: #2c1147; /* dark surface base (header/footer) */
+  --color-violet-950: #1c0d2e;
+
+  /* Magenta — gradient partner + large accent ONLY */
+  --color-magenta-500: #d03edf;
+
+  /* Pops (used sparingly on dark/violet grounds) */
+  --color-cyan-300: #41fff8;
+  --color-yellow-300: #ffe250;
+
+  /* Layout rhythm */
+  --spacing-section: 88px;
+  --container-page: 1180px;
+
+  /* Header nav breakpoints (mobile → desktop). */
+  --breakpoint-navtight: 40rem;
+  --breakpoint-navmini: 48rem;
+  --breakpoint-navfull: 62rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  overscroll-behavior-y: none;
+  background: var(--color-paper);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-violet-300);
+  color: var(--color-violet-950);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-violet-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Typographic scale (Jost display) ---- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  line-height: 1.08;
+}
+.t-display {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+.t-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-violet-600);
+}
+.t-lead {
+  font-size: clamp(18px, 1.6vw, 21px);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+/* ---- Layout primitives ---- */
+.container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 28px);
+}
+.section-y {
+  padding-block: clamp(52px, 8vw, var(--spacing-section));
+}
+
+/* ---- Brand gradient (purple → magenta) ----
+   The signature m-path wash. Use on hero + CTA bands; put white content on top. */
+.brand-gradient {
+  background: linear-gradient(135deg, #7d17ad 0%, #a230d9 52%, #d03edf 100%);
+}
+.brand-gradient-soft {
+  background: linear-gradient(135deg, #2c1147 0%, #4a1170 55%, #7d17ad 100%);
+}
+/* Gradient applied to text (large display only). */
+.brand-gradient-text {
+  background: linear-gradient(100deg, #a230d9, #d03edf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.97rem;
+  line-height: 1.2;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px; /* pill — the modern update to the existing square buttons */
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+/* Primary = violet, white text (AA-safe). */
+.btn-primary {
+  background: var(--color-violet-500);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-violet-600);
+  box-shadow: 0 8px 24px -10px rgba(162, 48, 217, 0.7);
+}
+/* Secondary = violet outline on light. */
+.btn-outline {
+  border: 1.5px solid var(--color-violet-500);
+  color: var(--color-violet-600);
+}
+.btn-outline:hover {
+  background: var(--color-violet-500);
+  color: #fff;
+}
+/* On violet/dark surfaces. */
+.btn-on-violet {
+  background: #fff;
+  color: var(--color-violet-700);
+}
+.btn-on-violet:hover {
+  background: var(--color-yellow-300);
+  color: var(--color-violet-950);
+}
+.btn-ghost-on-violet {
+  border: 1.5px solid color-mix(in srgb, #fff 45%, transparent);
+  color: #fff;
+}
+.btn-ghost-on-violet:hover {
+  background: #fff;
+  color: var(--color-violet-700);
+}
+
+/* ---- Long-form prose (Markdown bodies) ---- */
+.prose-warm {
+  color: var(--color-ink);
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.66;
+}
+.prose-warm :where(p, ul, ol) {
+  margin-block: 0.9em;
+}
+.prose-warm > :first-child {
+  margin-top: 0;
+}
+.prose-warm :where(h2) {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.6vw, 31px);
+  margin-block: 1.6em 0.5em;
+}
+.prose-warm :where(h3) {
+  font-family: var(--font-display);
+  font-size: clamp(19px, 2vw, 23px);
+  margin-block: 1.3em 0.4em;
+}
+.prose-warm a {
+  color: var(--color-violet-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-warm a:hover {
+  color: var(--color-violet-700);
+}
+.prose-warm :where(ul) {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+.prose-warm :where(ol) {
+  list-style: decimal;
+  padding-left: 1.25em;
+}
+.prose-warm strong {
+  color: var(--color-violet-700);
+  font-weight: 600;
+}
+.prose-warm :where(blockquote) {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.32;
+  font-weight: 500;
+  color: var(--color-violet-700);
+  border-left: 3px solid var(--color-violet-500);
+  padding-left: 1rem;
+  margin-block: 1.4em;
+}

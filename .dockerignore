@@ -1,0 +1,11 @@
+node_modules
+.svelte-kit
+build
+.git
+.github
+.env
+.env.*
+docs
+k8s
+*.md
+test-results
