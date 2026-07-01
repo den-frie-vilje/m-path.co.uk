@@ -1,0 +1,93 @@
+{
+  "seo": {
+    "title": "M-Path | Men's Mental Health & Masculinity Programmes",
+    "description": "Men's mental health, emotional wellbeing & masculinity programmes designed to drive inclusion and allyship within schools and organisations of all sizes.",
+    "image": "/img/og/home.png"
+  },
+  "hero": {
+    "eyebrow": "Men's mental health & masculinity",
+    "title": "Engaging men in cultural change",
+    "lead": "Men's mental health, emotional wellbeing & masculinity programmes designed to drive inclusion and allyship within organisations of all sizes.",
+    "ctas": [
+      { "label": "Discover more", "href": "/about" },
+      { "label": "Get in touch", "href": "/connect" }
+    ],
+    "bg": "/img/photos/mpath-workshop-2.jpg"
+  },
+  "stats": [
+    { "value": "11–18", "label": "Age range we work with" },
+    { "value": "1,000s", "label": "Students engaged" },
+    { "value": "UK & Europe", "label": "Schools & organisations" },
+    { "value": "10+ yrs", "label": "Delivering this work" }
+  ],
+  "intro": {
+    "eyebrow": "What we do",
+    "heading": "Meeting men and boys with compassion, not blame",
+    "lead": "Talks from professional speakers, workshops and wellbeing networks that help men and boys engage with their emotional wellbeing and develop their powers of empathy and allyship.",
+    "cards": [
+      {
+        "icon": "message-circle",
+        "title": "Challenge",
+        "body": "We know these conversations can be difficult, and believe men and boys can face that challenge when they are met with compassion and without blame."
+      },
+      {
+        "icon": "lightbulb",
+        "title": "Educate",
+        "body": "We help them better understand the benefit of broadening and embracing our view of masculinity — for their own sake and for the benefit of those around them."
+      },
+      {
+        "icon": "users",
+        "title": "Support",
+        "body": "We recognise proper change in this sphere won't happen overnight — that's why we work with organisations to enact long-lasting, cultural change."
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "heading": "How we work with schools and organisations",
+    "lead": "Every programme is tailored to the specific needs of your school, college or workplace.",
+    "items": [
+      {
+        "icon": "mic",
+        "title": "Keynote speaking",
+        "body": "We deliver keynotes around the world, in person and online, speaking passionately on masculinity, men's mental health and allyship to audiences of all sizes."
+      },
+      {
+        "icon": "briefcase",
+        "title": "Workplaces",
+        "body": "Training programmes that help male colleagues with their emotional wellbeing and foster more inclusive, emotionally intelligent workplaces.",
+        "href": "/workplaces"
+      },
+      {
+        "icon": "graduation-cap",
+        "title": "Education",
+        "body": "We partner with schools and colleges to promote emotional wellbeing and empathy, equipping young men to navigate the complexities of modern masculinity.",
+        "href": "/schools"
+      },
+      {
+        "icon": "users",
+        "title": "Men's wellbeing networks",
+        "body": "We help organisations set up networks where men can gather to support each other through the complexities of daily life, facilitated by trained practitioners."
+      },
+      {
+        "icon": "compass",
+        "title": "One-to-one coaching",
+        "body": "Experienced coaches work one-on-one to build emotional intelligence, healthier relationships and support through life transitions."
+      },
+      {
+        "icon": "book-open",
+        "title": "Online resources",
+        "body": "Articles, tools and insights that support a healthier relationship with masculinity and men's emotional wellbeing.",
+        "href": "/blog"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to start the conversation?",
+    "body": "Tell us about your school, college or organisation and we'll design a programme that fits.",
+    "ctas": [
+      { "label": "Get in touch", "href": "/connect" },
+      { "label": "Programmes for schools", "href": "/schools" }
+    ]
+  }
+}

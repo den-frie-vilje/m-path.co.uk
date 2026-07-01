@@ -1,0 +1,44 @@
+{
+  "seo": {
+    "title": "Workplace Programmes | M-Path men's wellbeing & allyship",
+    "description": "M-Path works with businesses through a DE&I lens — talks, workshops and support groups that give men targeted support with their emotional wellbeing and build male allyship.",
+    "image": "/img/og/workplaces.png"
+  },
+  "hero": {
+    "eyebrow": "For workplaces",
+    "title": "Workplace Programmes",
+    "lead": "Giving men targeted support with their emotional health and wellbeing benefits an entire workplace. We deliver that support through programmes on men's mental health, allyship and inclusion.",
+    "ctas": [{ "label": "Enquire — info@m-path.co.uk", "href": "mailto:info@m-path.co.uk" }],
+    "contactEmail": "info@m-path.co.uk"
+  },
+  "intro": {
+    "body": "> Feeling uncertain about whether DE&I includes them is the main reason men say they either disengage or are not as committed to it as others in their organisation.\n> — Forbes\n\nFor cultural change to truly happen within an organisation, a majority of colleagues must be engaged and feel included. Currently that isn't happening. We work with businesses through a DE&I lens — using talks, workshops and support groups to open up discussions, help male colleagues with very real emotional challenges, and address male allyship in the process."
+  },
+  "programme": {
+    "eyebrow": "What we offer",
+    "heading": "Workplace programmes for men",
+    "steps": [
+      {
+        "title": "Healthy masculinity talk",
+        "body": "The talk engages the audience in challenging discussion about certain aspects of masculine expectation. It helps them think critically about their own behaviour and recognise that they have the power to help others overcome mental health issues, tendencies for violence, and the removal of female agency."
+      },
+      {
+        "title": "Three workshops",
+        "body": "Three separate workshops — on empathy in leadership, men's mental health, and male allyship. Colleagues are challenged to think about their own difficulties in the modern world, the lived experiences of those around them, and how they can develop their powers of allyship."
+      },
+      {
+        "title": "Men's wellbeing networks",
+        "body": "Many businesses have working groups and support networks, but very few have one specifically for men. As trained facilitators who've built these networks across a variety of business settings, we encourage attendees of our talks and workshops to take the bold step into men's work."
+      }
+    ]
+  },
+  "note": "Prices, further information and additional testimonials are available on request. Read more about founder [Chris Hemmings](/chris-hemmings).",
+  "cta": {
+    "heading": "Build a more inclusive workplace",
+    "body": "Let's design a talk, workshop series or wellbeing network that fits your organisation.",
+    "ctas": [
+      { "label": "Email info@m-path.co.uk", "href": "mailto:info@m-path.co.uk" },
+      { "label": "Get in touch", "href": "/connect" }
+    ]
+  }
+}

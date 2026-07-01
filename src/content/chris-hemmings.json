@@ -1,0 +1,99 @@
+{
+  "seo": {
+    "title": "Chris Hemmings | M-Path founder, facilitator & psychotherapist",
+    "description": "Chris Hemmings is a BACP-registered psychotherapist, coach and speaker specialising in men and boys, masculinity and mental health. Founder of M-Path and Men's Therapy Hub.",
+    "image": "/img/og/chris-hemmings.png"
+  },
+  "hero": {
+    "eyebrow": "Founder",
+    "title": "Chris Hemmings",
+    "lead": "M-Path founder, lead facilitator & psychotherapist."
+  },
+  "bio": {
+    "body": "M-Path was founded by Chris Hemmings, a BACP-registered psychotherapist, coach and speaker who specialises in working with men and boys around masculinity and mental health. Chris was called into this work after the death of his father in 2013 and his subsequent fall into drugs and alcohol. Since then, he has dedicated over a decade to helping men build emotional wellbeing, develop empathy and become more effective allies.\n\nAlongside delivering talks and workshops on masculinity, men's mental health and allyship to schools, universities and organisations around the world, Chris founded [Men's Therapy Hub](http://www.menstherapyhub.co.uk) — a growing platform connecting male clients with male therapists, building professional community and reshaping how men access support.\n\nBefore training as a therapist and gaining accreditation with the British Association for Counselling and Psychotherapy, Chris spent ten years as a journalist with the BBC. His first book, *Be A Man: How Macho Culture Damages Us and How to Escape It*, was published in 2017 and explored how traditional masculine norms harm men's mental health and relationships. These themes featured across his documentaries and his writing for the BBC, The Independent, The Telegraph and The Guardian.\n\nNow based between London and Copenhagen, Chris continues to guide the development of men's groups, emotional wellbeing networks and progressive conversations around gender and identity — both through M-Path and Men's Therapy Hub."
+  },
+  "press": {
+    "heading": "As published by…",
+    "outlets": ["The BBC", "The Independent", "The Telegraph", "The Guardian"]
+  },
+  "book": {
+    "heading": "Be A Man — the book",
+    "blurb": "For decades women have shone the spotlight on equality and asked why they're treated like second-class citizens, demanding freedoms, rights and legal protections. Why have generations of men blocked that march toward equality, and what impact has it had? Journalist, broadcaster and former lad Chris Hemmings sets out to explore why so few men ask such probing questions of their own sex.",
+    "reviews": [
+      {
+        "by": "Owen Jones",
+        "quote": "A beautiful, searing book which drips with courage and insight, about how unreconstructed, traditional masculinity is bad for men and women alike. The policing of gender norms hurts men and women — and this book is a critical contribution to how we overcome it."
+      },
+      {
+        "by": "Dame Jenni Murray",
+        "quote": "I love this book. It's what I've been longing for — a young man who, as a result of his own experience, is courageous enough to say traditional masculinity is bad for everyone. Bravo, Chris Hemmings!"
+      },
+      {
+        "by": "James O'Brien, LBC",
+        "quote": "A timely and startling book about a very real and dangerously unacknowledged crisis facing young men in the West. Part confessional memoir, part academic analysis — a bold and well-argued attempt to replace the broken breadwinner/homemaker paradigm with something relevant to twenty-first century relationships."
+      }
+    ]
+  },
+  "publications": [
+    {
+      "outlet": "The Independent",
+      "links": [
+        {
+          "label": "Male suicide: it's time to face the stark truth about a growing crisis",
+          "href": "https://www.independent.co.uk/voices/world-suicide-prevention-day-men-emotions-childhood-biggest-killer-in-uk-under-45-a7235766.html"
+        },
+        {
+          "label": "Before my dad died I didn't know how to express my emotions towards him",
+          "href": "https://www.independent.co.uk/voices/fathers-day-sons-death-parenting-masculinity-a8402066.html"
+        },
+        {
+          "label": "Why do my male tears make so many people uncomfortable?",
+          "href": "https://www.independent.co.uk/voices/why-do-my-male-tears-make-so-many-people-uncomfortable-a6733156.html"
+        },
+        {
+          "label": "What can you do as a man on International Women's Day?",
+          "href": "https://www.independent.co.uk/voices/what-can-you-do-as-a-man-on-international-women-s-day-here-are-some-tips-a6918916.html"
+        }
+      ]
+    },
+    {
+      "outlet": "The Telegraph",
+      "links": [
+        {
+          "label": "Not all men are guilty of violence and sexism — but all men have a responsibility to stop those crimes",
+          "href": "https://www.telegraph.co.uk/men/thinking-man/not-men-guilty-violence-sexism-men-have-responsibility-stop/"
+        },
+        {
+          "label": "The women's movement is a marvel. Men should take note and copy, not criticise",
+          "href": "https://www.telegraph.co.uk/men/thinking-man/womens-movement-marvel-men-should-take-note-copy-not-criticise/"
+        }
+      ]
+    },
+    {
+      "outlet": "The BBC",
+      "links": [
+        {
+          "label": "How can universities get men to talk about mental health?",
+          "href": "https://www.bbc.co.uk/programmes/p07jlp32"
+        },
+        {
+          "label": "Doctors' mental health at tipping point",
+          "href": "https://www.bbc.co.uk/programmes/p06k5gdy"
+        },
+        { "label": "Men can be nursery teachers too", "href": "https://www.bbc.co.uk/news/education-43386250" },
+        {
+          "label": "Why are most problem gamblers men?",
+          "href": "https://www.bbc.co.uk/programmes/p05y0709"
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "heading": "Work with Chris and the M-Path team",
+    "body": "Book a talk or workshop, or find out more about our programmes.",
+    "ctas": [
+      { "label": "See workplace programmes", "href": "/workplaces" },
+      { "label": "Get in touch", "href": "/connect" }
+    ]
+  }
+}

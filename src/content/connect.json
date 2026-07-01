@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Get in touch | M-Path",
+    "description": "Contact M-Path about talks, workshops and wellbeing programmes for your school, college or organisation.",
+    "image": "/img/og/connect.png"
+  },
+  "hero": {
+    "title": "Get in touch",
+    "lead": "We're happy to be contacted by phone or email and will respond as soon as we can."
+  },
+  "columns": [
+    {
+      "heading": "Schools & Colleges",
+      "phone": "+44 7533 898971",
+      "phoneHref": "tel:+447533898971",
+      "email": "education@m-path.co.uk"
+    },
+    {
+      "heading": "Workplaces",
+      "phone": "+44 7745 553680",
+      "phoneHref": "tel:+447745553680",
+      "email": "info@m-path.co.uk"
+    }
+  ],
+  "links": [
+    { "label": "Read more about us", "href": "/about" },
+    { "label": "Programmes for schools", "href": "/schools" },
+    { "label": "Programmes for workplaces", "href": "/workplaces" }
+  ]
+}

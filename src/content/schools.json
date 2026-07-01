@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Schools & Colleges | M-Path masculinity & wellbeing programmes",
+    "description": "M-Path has engaged thousands of young people aged 11–18 across the UK and Europe with talks and workshops on masculinity, empathy and bystander intervention.",
+    "image": "/img/og/schools.png"
+  },
+  "hero": {
+    "eyebrow": "For schools & colleges",
+    "title": "Schools & Colleges",
+    "lead": "We've worked in schools and colleges across the UK and Europe, successfully engaging thousands of young people aged 11–18 with talks and workshops on masculinity, empathy and bystander intervention.",
+    "ctas": [{ "label": "Enquire — education@m-path.co.uk", "href": "mailto:education@m-path.co.uk" }],
+    "contactEmail": "education@m-path.co.uk"
+  },
+  "intro": {
+    "body": "We know that this generation of students is ready to meet the challenge faced by a changing world, and we've seen first-hand how transformational this work can be when boys are met with compassion and understanding.\n\nThis programme is for pupils of all genders. It encourages a movement away from blaming and shaming boys — whilst challenging them to better engage with the changing world around them."
+  },
+  "programme": {
+    "eyebrow": "What we do",
+    "heading": "A programme built to complement itself",
+    "steps": [
+      {
+        "title": "The talk",
+        "body": "The 'buy-in' to the work. The audience learns about the facilitator's personal story and what brought them into men's mental health and masculinity development. They then discuss the emotional challenges facing men and boys today, before exploring how broadening our view of healthy masculinity — and moving away from terms like 'toxic masculinity' — can build self-esteem and wellbeing, benefitting adolescent development and healthier relationships."
+      },
+      {
+        "title": "Workshops",
+        "body": "Pupils are guided through a series of interactive workshops on empathy, mental health and healthy masculinity. These sessions encourage pupils to reflect on their own experiences and those of others, building on themes that help attendees understand men's emotional wellbeing and how to support boys' engagement in a changing society."
+      },
+      {
+        "title": "Staff CPD",
+        "body": "We offer CPD workshops and INSET talks on masculinity, men's mental health and understanding the 'manosphere'. Staff leave with practical tools to meet boys' emotional needs, connect with them in their current reality, and continue the work done in the workshops."
+      },
+      {
+        "title": "Parents",
+        "body": "This important work doesn't end when the school day finishes. We invite parents into the conversation through online webinars that explain what their children were taught, equipping them with strategies to continue the work at home."
+      }
+    ]
+  },
+  "note": "Prices, further information and additional testimonials are available on request. Contact us at [education@m-path.co.uk](mailto:education@m-path.co.uk). You can also see founder Chris Hemmings' profile on the [London Speaker Bureau](https://londonspeakerbureau.com/speaker-profile/chris-hemmings/).",
+  "cta": {
+    "heading": "Bring the programme to your school",
+    "body": "Talk to us about a talk, a full workshop series, staff CPD or a parents' webinar.",
+    "ctas": [
+      { "label": "Email education@m-path.co.uk", "href": "mailto:education@m-path.co.uk" },
+      { "label": "About Chris Hemmings", "href": "/chris-hemmings" }
+    ]
+  }
+}
