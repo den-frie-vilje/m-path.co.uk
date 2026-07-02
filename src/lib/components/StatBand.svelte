@@ -22,7 +22,7 @@
       <div class="flex grow basis-40 flex-col items-center px-5 text-center">
         <dd>
           <span
-            class="inline-block font-display text-5xl font-bold leading-none whitespace-nowrap sm:text-6xl {onDark
+            class="stat-number inline-block font-display text-5xl font-bold leading-none whitespace-nowrap sm:text-6xl {onDark
               ? 'text-white'
               : 'text-violet-700'}"
           >

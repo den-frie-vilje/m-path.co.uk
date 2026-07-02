@@ -651,6 +651,19 @@ details[open] > summary .path-node {
     height: auto;
   }
 
+  /* Tighter card padding on paper (~28–40px screen → ~3.5mm). `~=` matches the exact class token
+     so it won't hit gap-6 etc. */
+  [class~='p-6'],
+  [class~='p-7'],
+  [class~='p-8'] {
+    padding: 3.5mm !important;
+  }
+
+  /* Front-page impact numbers reduced ~75% (screen ~60px → 15px) so they read as compact stats. */
+  .stat-number {
+    font-size: 15px !important;
+  }
+
   /* Organisation logos: a tidy small grid, not blown up to full width. */
   .logo-wall {
     display: grid !important;
