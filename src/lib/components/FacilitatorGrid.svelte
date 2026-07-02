@@ -14,7 +14,8 @@
       .join('');
 </script>
 
-<ul class="grid gap-8 sm:grid-cols-2">
+<!-- 2-col only from lg (each card is a wide photo+text row — 2-up any earlier gets cramped). -->
+<ul class="grid gap-8 lg:grid-cols-2">
   {#each people as p (p.name)}
     <li class="flex flex-col gap-5 rounded-2xl border border-line bg-paper-2 p-7 sm:flex-row">
       <div class="shrink-0">

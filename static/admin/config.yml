@@ -1,6 +1,6 @@
 # Sveltia CMS config for m-path.co.uk — fully expanded (no anchors/merges) so any YAML parser reads
 # it. Mirrors src/content/*.json (typed in src/lib/content/index.ts). Prose = limited markdown toolbar;
-# lists render gracefully at any length.
+# lists render gracefully at any length. All SEO content is CMS-sourced (titles/descriptions/OG/schema).
 backend:
   name: github
   repo: den-frie-vilje/m-path.co.uk
@@ -1235,6 +1235,22 @@ collections:
         minimal: false
         name: body
         label: Body
+    - name: person
+      label: Person (SEO / schema)
+      widget: object
+      fields:
+      - name: jobTitle
+        label: Job title
+        widget: string
+      - name: image
+        label: Portrait
+        widget: image
+      - name: sameAs
+        label: Profile URLs (sameAs)
+        widget: list
+        field:
+          name: url
+          widget: string
     - name: video
       label: Video
       widget: object

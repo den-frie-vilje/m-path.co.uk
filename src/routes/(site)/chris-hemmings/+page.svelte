@@ -24,15 +24,12 @@
 <SeoHead {seo} />
 <JsonLd
   data={personJsonLd({
-    name: 'Chris Hemmings',
+    name: chris.hero.title,
+    jobTitle: chris.person.jobTitle,
     description: chris.bio.body,
-    image: '/img/photos/chris-hemmings.jpg',
+    image: chris.person.image,
     path: '/chris-hemmings',
-    sameAs: [
-      'https://chrishemmings.co.uk',
-      'http://www.menstherapyhub.co.uk',
-      'https://londonspeakerbureau.com/speaker-profile/chris-hemmings/'
-    ]
+    sameAs: chris.person.sameAs
   })}
 />
 
@@ -40,7 +37,7 @@
   eyebrow={chris.hero.eyebrow}
   title={chris.hero.title}
   lead={chris.hero.lead}
-  portrait={{ src: '/img/photos/chris-hemmings.jpg', alt: 'Chris Hemmings' }}
+  portrait={{ src: chris.person.image, alt: chris.hero.title }}
 />
 
 <Section tone="paper">

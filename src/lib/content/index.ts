@@ -206,6 +206,7 @@ export interface ChrisContent {
   seo: Seo;
   hero: { eyebrow?: string; title: string; lead: string };
   bio: { body: string };
+  person: { jobTitle: string; image: string; sameAs: string[] };
   video?: { eyebrow?: string; heading: string; blurb?: string; id: string; title: string };
   press: { heading: string; outlets: string[] };
   book: { heading: string; blurb: string; reviews: { by: string; quote: string }[] };

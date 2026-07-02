@@ -60,7 +60,7 @@ export function buildSeo({ seo, path, type = 'website', article }: BuildOpts): H
           name: site.brand,
           url: site.url,
           description: site.tagline,
-          logo: abs('/apple-touch-icon.png'),
+          logo: abs(site.logo),
           // General enquiries address (last contact = Workplaces/info@); fall back to the first
           // contact so trimming the list to one entry never drops the email.
           email: (site.contacts.at(-1) ?? site.contacts[0])?.email,
@@ -99,13 +99,20 @@ export function faqJsonLd(items: { q: string; a: string }[]) {
   };
 }
 
-/** Person schema for the founder page. */
-export function personJsonLd(opts: { name: string; description: string; image: string; path: string; sameAs?: string[] }) {
+/** Person schema for the founder page. All fields sourced from CMS content. */
+export function personJsonLd(opts: {
+  name: string;
+  jobTitle: string;
+  description: string;
+  image: string;
+  path: string;
+  sameAs?: string[];
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: opts.name,
-    jobTitle: 'Psychotherapist, speaker & founder',
+    jobTitle: opts.jobTitle,
     description: stripMarkdown(opts.description, 400),
     image: abs(opts.image),
     url: abs(opts.path),
