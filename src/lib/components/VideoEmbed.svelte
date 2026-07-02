@@ -52,3 +52,5 @@
     </button>
   {/if}
 </div>
+<!-- Print-only: the watch URL under the thumbnail (the iframe can't print). -->
+<p class="print-video-url">▶ {title} — youtube.com/watch?v={id}</p>

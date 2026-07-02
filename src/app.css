@@ -480,7 +480,238 @@ details[open] > summary .path-node {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-violet-500) 22%, transparent);
 }
 
-/* EXAMPLE — the single restrained accent: the destination node (the hopeful endpoint = allyship)
-   carries a muted-gold outline; a warm gold ring when reached. Violet's complement region,
-   desaturated, one role only, separated by neutral space (research: metallic reads premium only
-   when restrained). Revert this commit to return to pure monochrome. */
+/* Print-only elements are hidden on screen; the print stylesheet reveals them. */
+.print-letterhead,
+.print-video-url {
+  display: none;
+}
+
+/* ============================================================================
+   PRINT — turn each page into a professional, hand-designed WHITE PAPER a teacher
+   can hand to staff/management. Paper typography (pt, near-black ink), light grounds,
+   expanded accordions (JS opens them on beforeprint), a logo letterhead + running
+   page-number footer, and visible URLs (incl. under video thumbnails).
+   Sourced from print-CSS/typography research (Butterick, MDN, Smashing, W3C).
+   ============================================================================ */
+@media print {
+  @page {
+    margin: 18mm 16mm 15mm;
+    /* Native margin-box footer — Chromium 131+/Safari 18.2+ (Firefox degrades to none). */
+    @bottom-left {
+      content: 'M-Path · Men’s mental health & masculinity programmes';
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8pt;
+      color: #777;
+    }
+    @bottom-right {
+      content: counter(page) ' / ' counter(pages);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8pt;
+      color: #777;
+    }
+  }
+
+  html {
+    background: #fff;
+    font-size: 11pt;
+  }
+  body {
+    background: #fff;
+    color: #1a1a1a;
+    print-color-adjust: economy;
+    -webkit-print-color-adjust: economy;
+  }
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Drop chrome, interactive controls and decorative layers. */
+  header,
+  footer,
+  .btn,
+  button,
+  .menu-panel,
+  .sr-only {
+    display: none !important;
+  }
+  .grain::before {
+    display: none !important;
+  }
+  /* Hero: remove the full-bleed background photo + gradient scrim + glow orbs (direct children);
+     the nested portrait image is kept. */
+  section.brand-gradient > img,
+  section.brand-gradient > div[aria-hidden='true'],
+  section > div[aria-hidden='true'] {
+    display: none !important;
+  }
+  /* Accordion chevron indicators are meaningless on paper. */
+  summary svg {
+    display: none !important;
+  }
+
+  /* Heavy brand grounds → white paper, dark ink. */
+  section,
+  .surface-plum,
+  .brand-gradient,
+  .brand-gradient-soft {
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+  .surface-plum *,
+  .brand-gradient *,
+  .brand-gradient-soft * {
+    color: #1a1a1a !important;
+  }
+  [class*='border'] {
+    border-color: #dcdce3 !important;
+  }
+
+  /* Expand accordions fully (JS beforeprint adds [open]; ensure content is laid out). */
+  details[open] > *,
+  details::details-content {
+    height: auto !important;
+    content-visibility: visible !important;
+    overflow: visible !important;
+  }
+
+  /* Tighter paper rhythm. */
+  .section-y {
+    padding-block: 9mm !important;
+  }
+
+  /* Paper typography (pt; near-black; keep the brand fonts). */
+  body,
+  p,
+  li,
+  .prose-warm {
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .prose-warm {
+    max-width: none;
+  }
+  h1,
+  .t-hero,
+  .t-display {
+    font-family: 'Jost', sans-serif;
+    font-size: 23pt !important;
+    line-height: 1.1;
+    color: #111;
+    break-after: avoid;
+  }
+  h2,
+  .t-h2 {
+    font-size: 17pt !important;
+    line-height: 1.15;
+    color: #111;
+    break-after: avoid;
+  }
+  h3,
+  .t-h3 {
+    font-size: 13pt !important;
+    color: #111;
+    break-after: avoid;
+  }
+  .t-eyebrow {
+    color: #7d17ad !important;
+    font-size: 8.5pt;
+  }
+  .t-lead {
+    font-size: 12pt;
+    color: #333 !important;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  blockquote,
+  figure,
+  img,
+  li,
+  .rounded-2xl,
+  .rounded-3xl {
+    break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  /* Expose destination of content links (not nav/buttons/logo-image links). */
+  .prose-warm a[href^='http']::after,
+  main a[href^='http']:not(:has(img)):not(.btn)::after {
+    content: ' (' attr(href) ')';
+    font-size: 85%;
+    color: #555;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+  a {
+    color: #1a1a1a;
+    text-decoration: underline;
+  }
+
+  /* Letterhead masthead (print-only). */
+  .print-letterhead {
+    display: flex !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12mm;
+    padding-bottom: 4mm;
+    margin-bottom: 7mm;
+    border-bottom: 1.5pt solid #7d17ad;
+  }
+  .print-letterhead .pl-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .print-letterhead .pl-logo {
+    width: 46px;
+    height: 46px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .print-letterhead .pl-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    line-height: 1;
+    color: #111;
+  }
+  .print-letterhead .pl-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    color: #555;
+    margin-top: 2pt;
+  }
+  .print-letterhead .pl-meta {
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.55;
+    color: #444;
+  }
+  .print-letterhead .pl-label {
+    color: #7d17ad;
+    font-weight: 600;
+  }
+  .print-letterhead .pl-url {
+    margin-top: 2pt;
+    color: #777;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Video: show the watch URL under the (retained) thumbnail. */
+  .print-video-url {
+    display: block !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    color: #7d17ad;
+    margin-top: 4pt;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+}
