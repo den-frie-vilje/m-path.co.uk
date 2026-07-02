@@ -48,7 +48,7 @@
 <!-- Print-only letterhead — a hand-designed white-paper masthead at the top of the printed page. -->
 <div class="print-letterhead" aria-hidden="true">
   <div class="pl-brand">
-    <img src="/img/m-path-icon.png" alt="{site.brand} logo" class="pl-logo" />
+    <img src="/img/m-path-logo-color.png" alt="{site.brand} logo" class="pl-logo" />
     <div>
       <p class="pl-name">{site.brand}</p>
       <p class="pl-tagline">{site.tagline}</p>

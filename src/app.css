@@ -657,7 +657,9 @@ details[open] > summary .path-node {
     display: flex !important;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 12mm;
+    flex-wrap: wrap; /* if the sheet is too narrow, contact block stacks below the logo */
+    column-gap: 12mm;
+    row-gap: 3mm;
     padding-bottom: 4mm;
     margin-bottom: 7mm;
     border-bottom: 1.5pt solid #7d17ad;
@@ -668,8 +670,8 @@ details[open] > summary .path-node {
     gap: 10px;
   }
   .print-letterhead .pl-logo {
-    width: 46px;
-    height: 46px;
+    height: 52px;
+    width: auto; /* badge is portrait — preserve aspect, don't squish */
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
@@ -687,19 +689,26 @@ details[open] > summary .path-node {
     margin-top: 2pt;
   }
   .print-letterhead .pl-meta {
+    margin-left: auto; /* right side when inline; stays put when it wraps below the logo */
     text-align: right;
     font-family: 'Montserrat', sans-serif;
-    font-size: 8.5pt;
-    line-height: 1.55;
+    font-size: 7.5pt;
+    line-height: 1.5;
     color: #444;
+  }
+  /* Contact lines never wrap mid-line — the whole block drops below the logo instead. */
+  .print-letterhead .pl-meta p {
+    white-space: nowrap;
   }
   .print-letterhead .pl-label {
     color: #7d17ad;
     font-weight: 600;
   }
+  /* The URL is the one line allowed to wrap (it can be long). */
   .print-letterhead .pl-url {
     margin-top: 2pt;
     color: #777;
+    white-space: normal;
     overflow-wrap: break-word;
     word-break: break-all;
   }
