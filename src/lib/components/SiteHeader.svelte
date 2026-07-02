@@ -37,7 +37,7 @@
 <svelte:window on:keydown={onKeydown} bind:scrollY />
 
 <header
-  class="sticky top-0 z-50 border-b border-white/10 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-violet-900/85 {scrolled
+  class="site-header sticky top-0 z-50 border-b border-white/10 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-violet-900/85 {scrolled
     ? 'bg-violet-900 shadow-[0_10px_30px_-14px_rgba(28,13,46,0.6)]'
     : 'bg-violet-900/95'}"
 >

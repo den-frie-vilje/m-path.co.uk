@@ -70,11 +70,11 @@
       {#if eyebrow}
         <p class="t-eyebrow !text-white/75">{eyebrow}</p>
       {/if}
-      <h1 class="{compact ? 't-display' : 't-hero'} mt-5 text-white">
+      <h1 class="page-title {compact ? 't-display' : 't-hero'} mt-5 text-white">
         {#if parts}{parts.before}<span class="turn">{parts.word}</span>{parts.after}{:else}{title}{/if}
       </h1>
       {#if lead}
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">{lead}</p>
+        <p class="page-lead mt-6 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl">{lead}</p>
       {/if}
       {#if ctas.length}
         <div class="mt-8 flex flex-wrap gap-3">

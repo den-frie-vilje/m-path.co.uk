@@ -6,7 +6,7 @@
   const year = new Date().getFullYear();
 </script>
 
-<footer class="bg-violet-950 text-white/80">
+<footer class="site-footer bg-violet-950 text-white/80">
   <div class="container-page grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
     <div class="max-w-sm">
       <img src={site.logoWhite} alt="{site.brand} logo" class="h-16 w-auto" width="45" height="64" />

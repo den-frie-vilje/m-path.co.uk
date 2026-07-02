@@ -12,7 +12,7 @@
         <img
           src={group.logo}
           alt={group.outlet}
-          class="h-9 w-auto max-w-[170px] object-contain"
+          class="pub-logo h-9 w-auto max-w-[170px] object-contain"
           loading="lazy"
         />
       {:else}

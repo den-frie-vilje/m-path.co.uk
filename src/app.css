@@ -527,9 +527,10 @@ details[open] > summary .path-node {
     text-shadow: none !important;
   }
 
-  /* Drop chrome, interactive controls and decorative layers. */
-  header,
-  footer,
+  /* Drop chrome, interactive controls and decorative layers. Scope to the SITE header/footer only —
+     the blog article's own <header> (title + lead) and inline <footer>s (citations) must print. */
+  .site-header,
+  .site-footer,
   .btn,
   button,
   .menu-panel,
@@ -566,6 +567,34 @@ details[open] > summary .path-node {
   }
   [class*='border'] {
     border-color: #dcdce3 !important;
+  }
+
+  /* Page header (hero + article header) — editorial masthead: a large title, a standfirst lead in a
+     softer regular weight, and a hairline rule separating it from the body. Scoped to .page-title/
+     .page-lead so CTA bands and gradient content sections keep their normal sizing. */
+  .page-title {
+    font-size: 29pt !important;
+    line-height: 1.08 !important;
+    margin-bottom: 0 !important;
+  }
+  .page-lead {
+    font-size: 13pt !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    margin-top: 2.5mm !important;
+  }
+  .container-page:has(.page-title) {
+    border-bottom: 0.75pt solid #d8d4de !important;
+    padding-bottom: 4mm !important;
+    margin-bottom: 5mm !important;
+  }
+
+  /* "Selected writing" outlet logos: smaller on paper. */
+  .pub-logo {
+    height: 6mm !important;
+    width: auto !important;
+    max-width: 34mm !important;
+    object-fit: contain;
   }
 
   /* Expand accordions fully (JS beforeprint adds [open]; ensure content is laid out). */
@@ -688,7 +717,11 @@ details[open] > summary .path-node {
     border-left: 1pt solid #7d17ad !important;
   }
   .tl-node-row .brand-gradient {
-    background: none !important;
+    /* Opaque white fill so the rail line doesn't run through the number (needs `exact` or the paper
+       white isn't painted over the line). The chip has z-10 so it sits above the rail. */
+    background: #fff !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
     color: #7d17ad !important;
     border: 1pt solid #7d17ad !important;
     box-shadow: none !important;

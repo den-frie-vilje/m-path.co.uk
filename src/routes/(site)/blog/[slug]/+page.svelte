@@ -44,7 +44,10 @@
     <p class="mt-6 text-sm font-medium uppercase tracking-wider text-white/70">
       <time datetime={post.date}>{dateLabel}</time> · {post.author}
     </p>
-    <h1 class="t-display mt-3 max-w-3xl text-white">{post.title}</h1>
+    <h1 class="page-title t-display mt-3 max-w-3xl text-white">{post.title}</h1>
+    {#if post.excerpt}
+      <p class="page-lead mt-5 max-w-2xl text-lg leading-relaxed text-white/85">{post.excerpt}</p>
+    {/if}
   </div>
 </header>
 
