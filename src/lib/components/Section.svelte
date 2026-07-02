@@ -6,6 +6,7 @@
 -->
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { reveal } from '$lib/actions/reveal';
 
   interface Props {
     // paper (white) · sand (warm alt) · mist (cool lilac alt) · lilac (raised) ·
@@ -45,7 +46,10 @@
 <section {id} class="section-y relative isolate overflow-hidden {grounds[tone]} {klass}">
   <div class="container-page relative z-10">
     {#if eyebrow || heading || lead}
-      <div class="{align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} mb-10 sm:mb-14">
+      <div
+        use:reveal
+        class="{align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} mb-10 sm:mb-14"
+      >
         {#if eyebrow}
           <p class="t-eyebrow {onDark ? '!text-violet-300' : ''}">{eyebrow}</p>
         {/if}

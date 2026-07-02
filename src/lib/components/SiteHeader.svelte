@@ -12,6 +12,8 @@
 
   let open = $state(false);
   let toggleEl: HTMLButtonElement | undefined = $state();
+  let scrollY = $state(0);
+  const scrolled = $derived(scrollY > 8);
 
   // Active when the path IS the link or a sub-path of it (with a `/` boundary), so '/schools' never
   // lights up for a hypothetical '/schools-extra'.
@@ -32,10 +34,12 @@
   }
 </script>
 
-<svelte:window on:keydown={onKeydown} />
+<svelte:window on:keydown={onKeydown} bind:scrollY />
 
 <header
-  class="sticky top-0 z-50 border-b border-white/10 bg-violet-900/95 backdrop-blur supports-[backdrop-filter]:bg-violet-900/85"
+  class="sticky top-0 z-50 border-b border-white/10 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-violet-900/85 {scrolled
+    ? 'bg-violet-900 shadow-[0_10px_30px_-14px_rgba(28,13,46,0.6)]'
+    : 'bg-violet-900/95'}"
 >
   <div class="container-page flex h-[68px] items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-2" aria-label="{site.brand} — home" onclick={close}>
