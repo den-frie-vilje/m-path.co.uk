@@ -82,30 +82,34 @@
     </button>
   </div>
 
-  <!-- Mobile panel -->
-  {#if open}
-    <nav
-      id="mobile-menu"
-      aria-label="Primary"
-      class="border-t border-white/10 bg-violet-900 navfull:hidden"
-    >
-      <ul class="container-page flex flex-col gap-1 py-4">
-        {#each site.nav as item (item.href)}
-          <li>
-            <a
-              href={item.href}
-              aria-current={current(item.href) ? 'page' : undefined}
-              onclick={close}
-              class="block rounded-xl px-4 py-3 text-base font-medium text-white/90 hover:bg-white/10 aria-[current=page]:bg-white/12 aria-[current=page]:text-white"
-            >
-              {item.label}
-            </a>
+  <!-- Mobile panel — absolute overlay that SLIDES open (doesn't push page content down).
+       Always in the DOM; `inert` when closed so its links stay out of the tab order. -->
+  <nav
+    id="mobile-menu"
+    aria-label="Primary"
+    inert={!open}
+    class="menu-panel absolute left-0 right-0 top-full grid navfull:hidden {open ? 'is-open' : ''}"
+  >
+    <div class="overflow-hidden">
+      <div class="border-t border-white/10 bg-violet-900 shadow-xl">
+        <ul class="container-page flex flex-col gap-1 py-4">
+          {#each site.nav as item (item.href)}
+            <li>
+              <a
+                href={item.href}
+                aria-current={current(item.href) ? 'page' : undefined}
+                onclick={close}
+                class="block rounded-xl px-4 py-3 text-base font-medium text-white/90 hover:bg-white/10 aria-[current=page]:bg-white/12 aria-[current=page]:text-white"
+              >
+                {item.label}
+              </a>
+            </li>
+          {/each}
+          <li class="pt-2">
+            <a href={site.cta.href} onclick={close} class="btn btn-on-violet w-full">{site.cta.label}</a>
           </li>
-        {/each}
-        <li class="pt-2">
-          <a href={site.cta.href} onclick={close} class="btn btn-on-violet w-full">{site.cta.label}</a>
-        </li>
-      </ul>
-    </nav>
-  {/if}
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

@@ -360,6 +360,20 @@ h4 {
   }
 }
 
+/* Mobile menu — slides open as an overlay (grid-rows 0fr→1fr), never pushing page content. */
+.menu-panel {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.26s var(--ease-brand);
+}
+.menu-panel.is-open {
+  grid-template-rows: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-panel {
+    transition: none;
+  }
+}
+
 /* "How it works" path draw. The .tl-anim class is added by JS only (no-JS/reduced-motion show the
    final state). Rail scales in from the top; nodes appear staggered along it. */
 .tl-anim .tl-rail {
