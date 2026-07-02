@@ -45,7 +45,7 @@
 <section {id} class="section-y relative isolate overflow-hidden {grounds[tone]} {klass}">
   <div class="container-page relative z-10">
     {#if eyebrow || heading || lead}
-      <div class="{align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} mb-10 sm:mb-14">
+      <div class="section-head {align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'} mb-10 sm:mb-14">
         {#if eyebrow}
           <p class="t-eyebrow {onDark ? '!text-violet-300' : ''}">{eyebrow}</p>
         {/if}

@@ -41,7 +41,7 @@
         </div>
         {#if href}
           <span
-            class="mt-4 inline-flex items-center gap-1 text-sm font-semibold {dark
+            class="card-cta mt-4 inline-flex items-center gap-1 text-sm font-semibold {dark
               ? 'text-violet-300'
               : 'text-violet-600 group-hover:text-violet-700'}"
           >

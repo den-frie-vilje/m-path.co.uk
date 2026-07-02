@@ -575,9 +575,22 @@ details[open] > summary .path-node {
     overflow: visible !important;
   }
 
-  /* Tighter paper rhythm. */
+  /* Tighter paper rhythm — substantially less vertical space between sections. */
   .section-y {
-    padding-block: 9mm !important;
+    padding-block: 4mm !important;
+  }
+  section.brand-gradient .container-page,
+  .bg-sand > .container-page,
+  .bg-mist > .container-page {
+    padding-block: 4mm !important;
+  }
+  /* Keep the eyebrow with its heading (and the whole heading block together). */
+  .section-head {
+    break-inside: avoid;
+    margin-bottom: 4mm !important;
+  }
+  .t-eyebrow {
+    break-after: avoid;
   }
 
   /* Paper typography (pt; near-black; keep the brand fonts). */
@@ -638,6 +651,28 @@ details[open] > summary .path-node {
     height: auto;
   }
 
+  /* Organisation logos: a tidy small grid, not blown up to full width. */
+  .logo-wall {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(30mm, 1fr));
+    gap: 5mm 8mm;
+    align-items: center;
+    max-width: 150mm;
+    margin-inline: auto;
+  }
+  .logo-wall li {
+    display: flex;
+    justify-content: center;
+  }
+  .logo-wall img {
+    height: 10mm !important;
+    width: auto !important;
+    max-width: 90% !important;
+    object-fit: contain;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
   /* Expose destination of content links (not nav/buttons/logo-image links). */
   .prose-warm a[href^='http']::after,
   main a[href^='http']:not(:has(img)):not(.btn)::after {
@@ -649,7 +684,16 @@ details[open] > summary .path-node {
   }
   a {
     color: #1a1a1a;
+    text-decoration: none;
+  }
+  /* Underline only genuine content links + card CTAs — NOT whole-card links (which would
+     underline the whole card body). Card links are internal (href="/…") so external + prose
+     links + the .card-cta get the underline; the card <a> itself stays undecorated. */
+  .prose-warm a[href],
+  main a[href^='http'],
+  .card-cta {
     text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* Letterhead masthead (print-only). */

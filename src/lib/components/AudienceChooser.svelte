@@ -38,7 +38,7 @@
         <div class="mt-3 flex-1"><Prose md={a.blurb} class="!text-[16px]" /></div>
 
         <span
-          class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-violet-600 group-hover:text-violet-700"
+          class="card-cta mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-violet-600 group-hover:text-violet-700"
         >
           {a.cta}
           <Icon

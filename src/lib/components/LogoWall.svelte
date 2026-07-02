@@ -5,7 +5,7 @@
 </script>
 
 <!-- Centred flex-wrap so any number of partners stays balanced (no ragged trailing grid row). -->
-<ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14">
+<ul class="logo-wall flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14">
   {#each items as p (p.name)}
     <li class="flex items-center justify-center">
       <svelte:element
