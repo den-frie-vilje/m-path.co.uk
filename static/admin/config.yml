@@ -207,68 +207,71 @@ collections:
         default: organisation
 - name: blog
   label: Blog posts
-  file: src/content/posts.json
   editor:
     preview: false
   description: Articles shown on /blog and at /blog/<slug>.
-  fields:
-  - name: items
-    label: Posts
-    widget: list
-    summary: '{{fields.title}}'
+  files:
+  - name: posts
+    label: All posts
+    file: src/content/posts.json
     fields:
-    - name: slug
-      label: Slug
-      widget: string
-      hint: URL segment — /blog/<slug>
-    - name: title
-      label: Title
-      widget: string
-    - name: date
-      label: Published
-      widget: datetime
-    - name: author
-      label: Author
-      widget: string
-      default: Chris Hemmings
-    - name: cover
-      label: Cover image
-      widget: image
-      required: false
-    - widget: markdown
-      buttons:
-      - bold
-      - italic
-      - link
-      - heading-two
-      - heading-three
-      - quote
-      - bulleted-list
-      - numbered-list
-      editor_components: []
-      modes:
-      - rich_text
-      - raw
-      minimal: false
-      name: excerpt
-      label: Excerpt
-    - widget: markdown
-      buttons:
-      - bold
-      - italic
-      - link
-      - heading-two
-      - heading-three
-      - quote
-      - bulleted-list
-      - numbered-list
-      editor_components: []
-      modes:
-      - rich_text
-      - raw
-      minimal: false
-      name: body
-      label: Body
+    - name: items
+      label: Posts
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: URL segment — /blog/<slug>
+      - name: title
+        label: Title
+        widget: string
+      - name: date
+        label: Published
+        widget: datetime
+      - name: author
+        label: Author
+        widget: string
+        default: Chris Hemmings
+      - name: cover
+        label: Cover image
+        widget: image
+        required: false
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: excerpt
+        label: Excerpt
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
 - name: pages
   label: Pages
   editor:
