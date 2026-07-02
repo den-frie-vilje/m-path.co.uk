@@ -3,6 +3,7 @@
  * `Seo` content + the shared site config. Pure data — rendered by <SeoHead>.
  */
 import { site, type Seo } from '$lib/content';
+import { stripMarkdown } from '$lib/markdown';
 
 export interface HeadSeo {
   title: string;
@@ -59,6 +60,7 @@ export function buildSeo({ seo, path, type = 'website', article }: BuildOpts): H
           name: site.brand,
           url: site.url,
           description: site.tagline,
+          logo: abs('/apple-touch-icon.png'),
           // General enquiries address (last contact = Workplaces/info@); fall back to the first
           // contact so trimming the list to one entry never drops the email.
           email: (site.contacts.at(-1) ?? site.contacts[0])?.email,
@@ -81,5 +83,33 @@ export function buildSeo({ seo, path, type = 'website', article }: BuildOpts): H
     },
     twitter: { card: 'summary_large_image', title, description, image },
     jsonLd: JSON.stringify({ '@context': 'https://schema.org', ...graph })
+  };
+}
+
+/** FAQPage schema (rich-result eligible) from the page's FAQ items. Answers stripped to plain text. */
+export function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((i) => ({
+      '@type': 'Question',
+      name: i.q,
+      acceptedAnswer: { '@type': 'Answer', text: stripMarkdown(i.a, 500) }
+    }))
+  };
+}
+
+/** Person schema for the founder page. */
+export function personJsonLd(opts: { name: string; description: string; image: string; path: string; sameAs?: string[] }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: opts.name,
+    jobTitle: 'Psychotherapist, speaker & founder',
+    description: stripMarkdown(opts.description, 400),
+    image: abs(opts.image),
+    url: abs(opts.path),
+    worksFor: { '@type': 'Organization', name: site.brand, url: site.url },
+    ...(opts.sameAs?.length ? { sameAs: opts.sameAs } : {})
   };
 }

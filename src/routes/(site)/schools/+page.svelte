@@ -1,7 +1,8 @@
 <script lang="ts">
   import { schools, testimonialsFor } from '$lib/content';
-  import { buildSeo } from '$lib/seo';
+  import { buildSeo, faqJsonLd } from '$lib/seo';
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
   import Hero from '$lib/components/Hero.svelte';
   import Section from '$lib/components/Section.svelte';
   import Prose from '$lib/components/Prose.svelte';
@@ -19,6 +20,7 @@
 </script>
 
 <SeoHead {seo} />
+{#if schools.faq}<JsonLd data={faqJsonLd(schools.faq.items)} />{/if}
 
 <Hero
   eyebrow={schools.hero.eyebrow}

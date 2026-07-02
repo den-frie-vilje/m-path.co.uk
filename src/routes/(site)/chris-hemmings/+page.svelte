@@ -1,7 +1,8 @@
 <script lang="ts">
   import { chris, testimonials } from '$lib/content';
-  import { buildSeo } from '$lib/seo';
+  import { buildSeo, personJsonLd } from '$lib/seo';
   import SeoHead from '$lib/components/SeoHead.svelte';
+  import JsonLd from '$lib/components/JsonLd.svelte';
   import Hero from '$lib/components/Hero.svelte';
   import Section from '$lib/components/Section.svelte';
   import Prose from '$lib/components/Prose.svelte';
@@ -21,6 +22,19 @@
 </script>
 
 <SeoHead {seo} />
+<JsonLd
+  data={personJsonLd({
+    name: 'Chris Hemmings',
+    description: chris.bio.body,
+    image: '/img/photos/chris-hemmings.jpg',
+    path: '/chris-hemmings',
+    sameAs: [
+      'https://chrishemmings.co.uk',
+      'http://www.menstherapyhub.co.uk',
+      'https://londonspeakerbureau.com/speaker-profile/chris-hemmings/'
+    ]
+  })}
+/>
 
 <Hero
   eyebrow={chris.hero.eyebrow}
