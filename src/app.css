@@ -885,6 +885,7 @@ details[open] > summary .path-node {
     font-size: 9pt;
     color: #7d17ad;
     margin-top: 4pt;
+    text-align: center;
     overflow-wrap: break-word;
     word-break: break-all;
   }
