@@ -11,7 +11,7 @@
 
 <SeoHead {seo} />
 
-<Hero title={blog.hero.title} lead={blog.hero.lead} compact />
+<Hero eyebrow={blog.hero.eyebrow} title={blog.hero.title} lead={blog.hero.lead} compact />
 
 <Section tone="paper">
   <ul class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

@@ -197,7 +197,7 @@ export interface ProgrammePageContent {
 
 export interface ConnectContent {
   seo: Seo;
-  hero: { title: string; lead: string };
+  hero: { eyebrow?: string; title: string; lead: string };
   columns: { heading: string; phone?: string; phoneHref?: string; email: string }[];
   links: CtaLink[];
 }
@@ -216,7 +216,7 @@ export interface ChrisContent {
 
 export interface BlogContent {
   seo: Seo;
-  hero: { title: string; lead: string };
+  hero: { eyebrow?: string; title: string; lead: string };
 }
 
 // ── typed accessors ──────────────────────────────────────────────────────────────────────────────

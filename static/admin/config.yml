@@ -1373,6 +1373,9 @@ collections:
       label: Hero
       widget: object
       fields:
+      - name: eyebrow
+        widget: string
+        required: false
       - name: title
         widget: string
       - name: lead
@@ -1424,6 +1427,9 @@ collections:
       label: Hero
       widget: object
       fields:
+      - name: eyebrow
+        widget: string
+        required: false
       - name: title
         widget: string
       - name: lead

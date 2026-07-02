@@ -5,6 +5,7 @@
     "image": "/img/og/connect.png"
   },
   "hero": {
+    "eyebrow": "Get in touch",
     "title": "Get in touch",
     "lead": "We're happy to be contacted by phone or email and will respond as soon as we can."
   },
@@ -23,8 +24,17 @@
     }
   ],
   "links": [
-    { "label": "Read more about us", "href": "/about" },
-    { "label": "Programmes for schools", "href": "/schools" },
-    { "label": "Programmes for workplaces", "href": "/workplaces" }
+    {
+      "label": "Read more about us",
+      "href": "/about"
+    },
+    {
+      "label": "Programmes for schools",
+      "href": "/schools"
+    },
+    {
+      "label": "Programmes for workplaces",
+      "href": "/workplaces"
+    }
   ]
 }

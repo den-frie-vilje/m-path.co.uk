@@ -12,7 +12,7 @@
 
 <SeoHead {seo} />
 
-<Hero title={connect.hero.title} lead={connect.hero.lead} compact />
+<Hero eyebrow={connect.hero.eyebrow} title={connect.hero.title} lead={connect.hero.lead} compact />
 
 <Section tone="paper">
   <div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">

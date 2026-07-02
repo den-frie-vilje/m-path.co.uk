@@ -544,6 +544,7 @@ details[open] > summary .path-node {
   /* Hero: remove the full-bleed background photo + gradient scrim + glow orbs (direct children);
      the nested portrait image is kept. */
   section.brand-gradient > img,
+  section.brand-gradient > picture,
   section.brand-gradient > div[aria-hidden='true'],
   section > div[aria-hidden='true'] {
     display: none !important;
