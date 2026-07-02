@@ -574,15 +574,15 @@ details[open] > summary .path-node {
      softer regular weight, and a hairline rule separating it from the body. Scoped to .page-title/
      .page-lead so CTA bands and gradient content sections keep their normal sizing. */
   .page-title {
-    font-size: 29pt !important;
-    line-height: 1.08 !important;
+    font-size: 38pt !important;
+    line-height: 1.05 !important;
     margin-bottom: 0 !important;
   }
   .page-lead {
-    font-size: 13pt !important;
-    line-height: 1.5 !important;
+    font-size: 15.5pt !important;
+    line-height: 1.45 !important;
     color: #333 !important;
-    margin-top: 2.5mm !important;
+    margin-top: 3mm !important;
   }
   .container-page:has(.page-title) {
     border-bottom: 0.75pt solid #d8d4de !important;
