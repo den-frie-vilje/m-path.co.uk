@@ -534,6 +534,7 @@ details[open] > summary .path-node {
   .btn,
   button,
   .menu-panel,
+  .print-hide,
   .sr-only {
     display: none !important;
   }

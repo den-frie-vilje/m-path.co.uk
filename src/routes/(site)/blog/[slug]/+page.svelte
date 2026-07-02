@@ -72,7 +72,7 @@
 </Section>
 
 {#if more.length}
-  <Section tone="paper" heading="More from the blog" align="center">
+  <Section tone="paper" heading="More from the blog" align="center" class="print-hide">
     <ul class="grid gap-8 md:grid-cols-2">
       {#each more as p (p.slug)}
         <li><PostCard post={p} /></li>
