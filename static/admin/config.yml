@@ -1292,6 +1292,11 @@ collections:
       fields:
       - name: outlet
         widget: string
+      - name: logo
+        label: Outlet logo
+        widget: image
+        required: false
+        hint: Shown on the card instead of the outlet name.
       - name: links
         label: Links
         widget: list

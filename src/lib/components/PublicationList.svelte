@@ -8,8 +8,17 @@
 <div class="grid gap-8 md:grid-cols-3">
   {#each groups as group (group.outlet)}
     <div class="rounded-2xl border border-line bg-paper-2 p-6">
-      <h3 class="font-display text-lg font-semibold text-violet-700">{group.outlet}</h3>
-      <ul class="mt-4 space-y-3">
+      {#if group.logo}
+        <img
+          src={group.logo}
+          alt={group.outlet}
+          class="h-7 w-auto max-w-[150px] object-contain"
+          loading="lazy"
+        />
+      {:else}
+        <h3 class="font-display text-lg font-semibold text-violet-700">{group.outlet}</h3>
+      {/if}
+      <ul class="mt-5 space-y-3">
         {#each group.links as link (link.href)}
           <li>
             <a

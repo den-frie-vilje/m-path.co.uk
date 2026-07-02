@@ -49,6 +49,7 @@
   "publications": [
     {
       "outlet": "The Independent",
+      "logo": "/img/logos/press/the-independent.svg",
       "links": [
         {
           "label": "Male suicide: it's time to face the stark truth about a growing crisis",
@@ -70,6 +71,7 @@
     },
     {
       "outlet": "The Telegraph",
+      "logo": "/img/logos/press/the-telegraph.svg",
       "links": [
         {
           "label": "Not all men are guilty of violence and sexism — but all men have a responsibility to stop those crimes",
@@ -83,6 +85,7 @@
     },
     {
       "outlet": "The BBC",
+      "logo": "/img/logos/press/bbc-news.svg",
       "links": [
         {
           "label": "How can universities get men to talk about mental health?",

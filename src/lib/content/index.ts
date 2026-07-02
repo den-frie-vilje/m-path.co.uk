@@ -103,6 +103,7 @@ export interface Partner {
 
 export interface PublicationGroup {
   outlet: string;
+  logo?: string; // /img/logos/press/*
   links: CtaLink[];
 }
 
