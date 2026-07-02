@@ -673,12 +673,26 @@ details[open] > summary .path-node {
     font-size: 28px !important;
   }
 
-  /* The "How it works" path timeline uses a JS scroll-reveal; if it never scrolled into view it
-     stays hidden (opacity 0) — force its final visible state so it always prints. */
-  .tl-rail,
+  /* The "How it works" path. It uses a JS scroll-reveal (opacity 0 until in view) — force the final
+     visible state so it always prints. Keep the line + numbered boxes, but render them OUTLINED:
+     borders print reliably, whereas gradient fills are dropped and cost ink. */
   .tl-node-row {
     opacity: 1 !important;
     transform: none !important;
+  }
+  .tl-rail {
+    opacity: 1 !important;
+    transform: none !important;
+    width: 0 !important;
+    background: none !important;
+    border-left: 1pt solid #7d17ad !important;
+  }
+  .tl-node-row .brand-gradient {
+    background: none !important;
+    color: #7d17ad !important;
+    border: 1pt solid #7d17ad !important;
+    box-shadow: none !important;
+    transform: none !important; /* drop the tilt on paper */
   }
 
   /* Don't print card CTAs ("Learn more" / "Explore …") — they're on-screen affordances. */
@@ -799,7 +813,7 @@ details[open] > summary .path-node {
   .print-video-thumb {
     display: block !important;
     width: 100%;
-    max-width: 120mm;
+    max-width: none;
     height: auto;
     border-radius: 3mm;
     margin: 0 auto;
