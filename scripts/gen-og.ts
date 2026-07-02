@@ -66,19 +66,20 @@ interface Card {
 }
 
 function markup(card: Card): string {
+  // No URL/CTA chip: an OG card is itself always presented as a link when shared, so a "m-path.co.uk"
+  // button is redundant — and dropping it frees the vertical space that cramped a 3-line lead. Header
+  // pinned to the top; the eyebrow/title/lead block is vertically centred in the remaining space, so
+  // it stays balanced whether the lead runs one line or three.
   return `
-  <div style="display:flex;flex-direction:column;justify-content:space-between;width:1200px;height:630px;padding:70px;background:linear-gradient(130deg,#4a1170 0%,#a230d9 55%,#d03edf 100%);font-family:'Montserrat';">
+  <div style="display:flex;flex-direction:column;width:1200px;height:630px;padding:70px;background:linear-gradient(130deg,#4a1170 0%,#a230d9 55%,#d03edf 100%);font-family:'Montserrat';">
     <div style="display:flex;align-items:center;">
       <img src="${badge}" width="70" height="99" style="width:70px;height:99px;" />
       <span style="color:#ffffff;font-family:'Jost';font-size:30px;font-weight:600;margin-left:22px;letter-spacing:0.5px;">${site.brand}</span>
     </div>
-    <div style="display:flex;flex-direction:column;">
+    <div style="display:flex;flex-direction:column;flex:1;justify-content:center;">
       <div style="color:#ffd6f6;font-size:24px;font-weight:500;letter-spacing:4px;text-transform:uppercase;">${card.eyebrow}</div>
       <div style="color:#ffffff;font-family:'Jost';font-size:74px;font-weight:700;letter-spacing:-1.5px;line-height:1.03;margin-top:20px;">${noOrphans(card.title)}</div>
       <div style="color:#f4e9fb;font-size:30px;font-weight:400;line-height:1.3;margin-top:24px;max-width:960px;">${noOrphans(card.subtitle)}</div>
-    </div>
-    <div style="display:flex;">
-      <div style="display:flex;background:#ffffff;color:#7d17ad;font-family:'Jost';font-size:23px;font-weight:600;padding:14px 30px;border-radius:9999px;">m-path.co.uk</div>
     </div>
   </div>`;
 }
