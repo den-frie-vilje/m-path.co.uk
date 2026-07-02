@@ -15,9 +15,10 @@ third-party components before integrating.
 - SvelteKit 5 (runes) + `@sveltejs/adapter-static` — fully prerendered, single-locale (English).
 - Tailwind v4; design tokens in the `@theme` block of `src/app.css`.
 - **Type:** Jost (display) + Montserrat (body), self-hosted via `@fontsource`.
-- **Palette:** purple→magenta brand (violet `#A230D9`, magenta `#D03EDF`), harvested from the
-  existing site and modernised. Keep bright magenta/cyan/yellow to accents & gradients; violet-600
-  for text/links on light (AA). See DECISIONS.md §3.
+- **Palette:** purple→magenta brand (violet `#A230D9`, magenta `#D03EDF`), warm neutrals, a flat
+  deep-plum gravitas surface, and ONE gold accent (`--color-gold-400`) for the primary CTA on dark
+  grounds. Magenta = large-text/gradient only; violet-600 for text/links on light (AA). Cyan/yellow
+  were dropped (see DECISIONS.md §3 + §6, docs/type-color-principles.md).
 - `marked` for first-party markdown; `DOMPurify` for any third-party HTML.
 - Sveltia CMS at `/admin` (GitHub backend, self-hosted bundle).
 

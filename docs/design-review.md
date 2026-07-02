@@ -81,6 +81,17 @@ Avoid: clinical, corporate-cold, laddish, preachy (the thesis is "compassion not
 
 Carry forward from the original: its *courage* with saturated full-bleed colour and true accent use.
 
+## What actually landed (update — supersedes the accent recs above)
+The identity moves shipped (plum gravitas ground, poster display tier, the 300→700 "highlighted
+turn", inline-SVG grain, the 2° tilt, the PATH-motif journey nodes — all in `src/app.css`), **but
+the cyan/yellow accent recommendation (#3) was reversed.** The research pass
+(`docs/type-color-principles.md`) found cyan-on-magenta is the worst possible pairing (vibrating,
+chromatic aberration), so cyan + yellow were dropped: the palette went monochrome-brand, then took a
+single **gold** accent (`--color-gold-400`) for the primary CTA on dark grounds, plus a scrapped
+wide-gamut P3/OKLCH gold experiment that survives only as a progressive `@supports` block. The path
+line + nodes are rendered in the violet family, not cyan/yellow. Full history: DECISIONS.md §6.
+A separate feature also landed: a hand-designed **print / white-paper stylesheet** (DECISIONS.md §7).
+
 ## Deferred to the technical pass (per Ole)
 a11y audit, responsive polish, and appearance/microinteraction **animations** — after this
 message + static-aesthetic pass lands. (The static aesthetic/identity above is IN scope now.)

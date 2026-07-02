@@ -1,6 +1,10 @@
 # Typography & colour — researched principles (cited)
 
-Evidence-based direction (5-angle research pass) that replaces the ad-hoc cyan/yellow accents.
+Evidence-based direction (5-angle research pass) that replaced the ad-hoc cyan/yellow accents.
+**What landed** (see DECISIONS.md §6, and the `@theme` block in `src/app.css`): one brand hue
+(violet→magenta) + warm neutrals + a flat deep-plum gravitas surface, plus a **single muted-gold
+accent** reserved for the primary CTA on dark grounds. There is **no cyan and no yellow token** in
+the shipped palette — the paragraphs below explain why.
 
 ## Colour
 - **60-30-10**: dominant = warm neutrals; secondary = violet/plum structure; **accent ≤10% reserved
@@ -13,9 +17,13 @@ Evidence-based direction (5-angle research pass) that replaces the ad-hoc cyan/y
 - **Cyan on magenta is the worst possible pairing** — equiluminant + saturated + near-complementary,
   PLUS cyan/magenta chromatic aberration → edge shimmer. Dropped entirely. — Envato Tuts+ (vibrating
   colours), Wikipedia (Chromostereopsis / Chromatic aberration), Albers *Interaction of Color*.
-- **If a second accent is ever wanted**: violet's complement is yellow → a **muted gold/amber**,
+- **The one second accent we took**: violet's complement is yellow → a **muted gold/amber**,
   desaturated, thin details only, separated by neutral space, ≤10%. Metallic/gold reads premium ONLY
   when restrained. — Media.io luxury palettes; Refactoring UI (desaturate 20-30% / rotate hue ≤30°).
+  Shipped as `--color-gold-400` (`#f2b52a`), used in a single role — the primary CTA on violet/plum
+  grounds (`.btn-on-violet`, dark text on gold = 8.6:1 AA). A bolder wide-gamut variant
+  (`oklch(0.85 0.19 92)`) is layered progressively on display-P3 screens via `@supports`, gamut-
+  mapping to the sRGB fallback elsewhere. (DECISIONS.md §6 records the full accent journey.)
 - **Warm neutrals, not cold**: tint greys toward yellow/orange; dark = very-dark plum, not black. On
   coloured grounds use same-hue lower-saturation, not grey. — Refactoring UI.
 - **Accent contrast**: CTA ≥3:1 non-text (SC 1.4.11) + label ≥4.5:1 (SC 1.4.3). violet-500 + white =

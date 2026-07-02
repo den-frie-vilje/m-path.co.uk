@@ -19,7 +19,10 @@ cloud-agnostic alternative to the Docker Compose model in `../deploy/` (same ima
 # 1. Namespace (kustomize also creates it, but the pull secret needs it first):
 kubectl create namespace m-path
 
-# 2. GHCR image pull secret (the package is private):
+# 2. GHCR image pull secret — only needed if the GHCR package is private.
+#    The repo (den-frie-vilje/m-path.co.uk) is public; if the published
+#    package is public too, skip this step and drop imagePullSecrets from
+#    deployment.yaml.
 kubectl create secret docker-registry ghcr \
   --namespace m-path \
   --docker-server=ghcr.io \
