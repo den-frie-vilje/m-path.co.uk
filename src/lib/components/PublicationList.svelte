@@ -25,7 +25,7 @@
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-start gap-2 text-[15px] leading-snug text-ink transition hover:text-violet-700"
+              class="pub-link group flex items-start gap-2 text-[15px] leading-snug text-ink transition hover:text-violet-700"
             >
               <Icon
                 name="arrow-up-right"

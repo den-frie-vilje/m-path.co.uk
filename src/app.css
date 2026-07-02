@@ -722,13 +722,36 @@ details[open] > summary .path-node {
     filter: none !important;
   }
 
-  /* Expose destination of content links (not nav/buttons/logo-image links). */
+  /* Expose destination of content links (not nav/buttons/logo-image/publication links). */
   .prose-warm a[href^='http']::after,
-  main a[href^='http']:not(:has(img)):not(.btn)::after {
+  main a[href^='http']:not(:has(img)):not(.btn):not(.pub-link)::after {
     content: ' (' attr(href) ')';
     font-size: 85%;
     color: #555;
     overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Press publications — editorial layout: bold article title, its URL on its own line beneath in a
+     lighter regular weight, no underlines, no arrow icon. */
+  .pub-link {
+    display: block;
+    font-weight: 700;
+    color: #1a1a1a !important;
+    text-decoration: none !important;
+    break-inside: avoid;
+  }
+  .pub-link svg {
+    display: none !important;
+  }
+  .pub-link::after {
+    content: attr(href);
+    display: block;
+    margin-top: 1pt;
+    font-weight: 400;
+    font-size: 82%;
+    color: #6b6b6b;
+    text-decoration: none;
     word-break: break-all;
   }
   a {
@@ -739,7 +762,7 @@ details[open] > summary .path-node {
      underline the whole card body). Card links are internal (href="/…") so external + prose
      links + the .card-cta get the underline; the card <a> itself stays undecorated. */
   .prose-warm a[href],
-  main a[href^='http'] {
+  main a[href^='http']:not(.pub-link) {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
