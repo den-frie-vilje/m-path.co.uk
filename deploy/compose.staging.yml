@@ -1,4 +1,4 @@
-# Staging stack — m-path-co-uk.staging.denfrievilje.dk.
+# Staging stack — m-path-co-uk.stage.denfrievilje.dk.
 #
 # Brought up + reconciled by the nas-sites pull-only deploy agent
 # on its next fire after a `staging` branch push (see nas-sites
@@ -110,7 +110,7 @@ services:
       # `Cannot read property 'match' of undefined` if singular.
       #
       # `${STAGE_ORIGIN}` each site sets explicitly in
-      # staging.env (format: <domain-dashed>.staging.denfrievilje.dk,
+      # staging.env (format: <domain-dashed>.stage.denfrievilje.dk,
       # dashed because LE wildcards match one label only, and
       # raw $DOMAIN contains dots that'd break the cert chain).
       ORIGINS: ${STAGE_ORIGIN:-localhost}

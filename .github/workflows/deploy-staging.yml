@@ -32,4 +32,4 @@ jobs:
         PUBLIC_BUILD_TIME=${{ github.event.head_commit.timestamp }}
         PUBLIC_GITHUB_REPO=${{ github.repository }}
       # Origin URL (not the CF apex) so the verify poll bypasses any CDN caching.
-      verify-url: https://m-path-co-uk.staging.denfrievilje.dk/
+      verify-url: https://m-path-co-uk.stage.denfrievilje.dk/

@@ -5,8 +5,8 @@ backend:
   name: github
   repo: den-frie-vilje/m-path.co.uk
   branch: staging
-  base_url: https://m-path-co-uk.staging.denfrievilje.dk/auth
-  site_domain: m-path-co-uk.staging.denfrievilje.dk
+  base_url: https://m-path-co-uk.stage.denfrievilje.dk/auth
+  site_domain: m-path-co-uk.stage.denfrievilje.dk
 publish_mode: simple
 media_folder: static/img
 public_folder: /img
