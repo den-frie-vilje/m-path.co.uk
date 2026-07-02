@@ -659,9 +659,22 @@ details[open] > summary .path-node {
     padding: 3.5mm !important;
   }
 
-  /* Front-page impact numbers reduced ~75% (screen ~60px → 15px) so they read as compact stats. */
+  /* Front-page impact numbers: sized between the screen ~60px and a body size — clear but not huge. */
   .stat-number {
-    font-size: 15px !important;
+    font-size: 28px !important;
+  }
+
+  /* The "How it works" path timeline uses a JS scroll-reveal; if it never scrolled into view it
+     stays hidden (opacity 0) — force its final visible state so it always prints. */
+  .tl-rail,
+  .tl-node-row {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Don't print card CTAs ("Learn more" / "Explore …") — they're on-screen affordances. */
+  .card-cta {
+    display: none !important;
   }
 
   /* Organisation logos: a tidy small grid, not blown up to full width. */
@@ -703,8 +716,7 @@ details[open] > summary .path-node {
      underline the whole card body). Card links are internal (href="/…") so external + prose
      links + the .card-cta get the underline; the card <a> itself stays undecorated. */
   .prose-warm a[href],
-  main a[href^='http'],
-  .card-cta {
+  main a[href^='http'] {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
