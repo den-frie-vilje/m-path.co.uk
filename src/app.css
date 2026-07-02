@@ -592,6 +592,12 @@ details[open] > summary .path-node {
   .t-eyebrow {
     break-after: avoid;
   }
+  /* Start each headed section (eyebrow + section header) on a fresh page. The hero has no
+     .section-head, so it stays with the letterhead on page 1. */
+  section:has(.section-head) {
+    break-before: page;
+    page-break-before: always;
+  }
 
   /* Paper typography (pt; near-black; keep the brand fonts). */
   body,
