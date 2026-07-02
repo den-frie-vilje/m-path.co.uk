@@ -4,12 +4,13 @@
   import { renderMarkdown } from '$lib/markdown';
   import type { Testimonial } from '$lib/content';
   let { items, columns = 3 }: { items: Testimonial[]; columns?: 2 | 3 } = $props();
-  const cols = $derived(columns === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3');
+  // Centred flex-wrap so any count (1, 2, 3, 5…) stays balanced — no trailing grid gaps.
+  const maxW = $derived(columns === 2 ? 'max-w-xl' : 'max-w-md');
 </script>
 
-<ul class="grid gap-6 {cols}">
+<ul class="flex flex-wrap justify-center gap-6">
   {#each items as t, i (i)}
-    <li class="flex h-full flex-col rounded-2xl border border-line bg-paper-2 p-7">
+    <li class="flex grow basis-80 flex-col rounded-2xl border border-line bg-paper-2 p-7 {maxW}">
       <Icon name="quote" size={28} class="text-violet-400" />
       <blockquote class="prose-warm mt-4 flex-1 !text-[17px] !leading-relaxed">
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->

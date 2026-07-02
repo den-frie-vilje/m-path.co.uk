@@ -57,9 +57,9 @@
     heading={schools.videos.heading}
     lead={schools.videos.lead}
   >
-    <div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+    <div class="mx-auto flex max-w-4xl flex-wrap justify-center gap-6">
       {#each schools.videos.items as v (v.id)}
-        <VideoEmbed id={v.id} title={v.title} />
+        <div class="grow basis-[26rem]"><VideoEmbed id={v.id} title={v.title} /></div>
       {/each}
     </div>
   </Section>

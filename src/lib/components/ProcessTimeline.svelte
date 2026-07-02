@@ -9,11 +9,13 @@
 </script>
 
 <ol class="relative mx-auto max-w-2xl">
-  <!-- the path rail (decorative) -->
-  <span
-    aria-hidden="true"
-    class="absolute bottom-4 left-[1.375rem] top-4 w-0.5 rounded bg-gradient-to-b from-violet-500 via-violet-400/50 to-violet-300/70"
-  ></span>
+  <!-- the path rail (decorative) — only when there's an actual sequence to thread. -->
+  {#if steps.length > 1}
+    <span
+      aria-hidden="true"
+      class="absolute bottom-4 left-[1.375rem] top-4 w-0.5 rounded bg-gradient-to-b from-violet-500 via-violet-400/50 to-violet-300/70"
+    ></span>
+  {/if}
 
   {#each steps as step, i (step.title)}
     <li class="relative flex gap-5 pb-9 last:pb-0">

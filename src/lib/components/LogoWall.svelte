@@ -4,7 +4,8 @@
   let { items }: { items: Partner[] } = $props();
 </script>
 
-<ul class="grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
+<!-- Centred flex-wrap so any number of partners stays balanced (no ragged trailing grid row). -->
+<ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-14">
   {#each items as p (p.name)}
     <li class="flex items-center justify-center">
       <svelte:element

@@ -1,322 +1,1397 @@
-# Sveltia CMS configuration — single-locale (English).
-#
-# Editing happens on STAGING (m-path-co-uk.staging.denfrievilje.dk/admin) against the GitHub backend
-# via the OAuth proxy (Caddy `/auth/*` → sveltia-auth). Prose fields use the `markdown` widget with a
-# DELIBERATELY LIMITED toolbar — bold / italic / link / H2 / H3 / quote / lists only, and no
-# image/code editor components — so editors write flowing prose, not layout. (Per house style: prose
-# is markdown, structured arrays are for genuine lists.)
-
+# Sveltia CMS config for m-path.co.uk — fully expanded (no anchors/merges) so any YAML parser reads
+# it. Mirrors src/content/*.json (typed in src/lib/content/index.ts). Prose = limited markdown toolbar;
+# lists render gracefully at any length.
 backend:
   name: github
   repo: den-frie-vilje/m-path.co.uk
   branch: staging
   base_url: https://m-path-co-uk.staging.denfrievilje.dk/auth
   site_domain: m-path-co-uk.staging.denfrievilje.dk
-
-# Staging writes go straight to the staging branch (no editorial PR flow).
 publish_mode: simple
-
 media_folder: static/img
 public_folder: /img
-
-# ── reusable markdown widget (limited controls) ─────────────────────────────────────────────────
-# Sveltia reads YAML anchors, so the constrained toolbar is defined once and merged into every prose
-# field with `<<: *prose`.
-_prose: &prose
-  widget: markdown
-  buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list]
-  editor_components: [] # no image / code-block inserts
-  modes: [rich_text, raw]
-  minimal: false
-
 collections:
-  # ── General — site-wide, reused across pages ──────────────────────────────────────────────────
-  - name: general
-    label: General
-    editor: { preview: false }
-    files:
-      - name: site
-        label: Site
-        file: src/content/site.json
-        fields:
-          - { name: brand, label: Brand name, widget: string }
-          - { name: tagline, label: Tagline, widget: string }
-          - { name: url, label: Site URL, widget: string }
-          - { name: logo, label: Logo, widget: image }
-          - { name: logoWhite, label: Logo (white), widget: image }
-          - { name: footerBlurb, label: Footer blurb, <<: *prose }
-          - name: nav
-            label: Header navigation
-            widget: list
-            fields: [{ name: label, widget: string }, { name: href, widget: string }]
-          - name: footerNav
-            label: Footer navigation
-            widget: list
-            fields: [{ name: label, widget: string }, { name: href, widget: string }]
-          - { name: cta, label: Header CTA, widget: object, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - name: defaultSeo
-            label: Default SEO / share card
-            widget: object
-            fields:
-              - { name: title, label: Title, widget: string }
-              - { name: description, label: Meta description, widget: text }
-              - { name: image, label: OG image, widget: image, required: false }
-          - name: contacts
-            label: Contact routes
-            widget: list
-            fields:
-              - { name: label, label: Label, widget: string }
-              - { name: phone, label: Phone, widget: string, required: false }
-              - { name: phoneHref, label: Phone link (tel:), widget: string, required: false }
-              - { name: email, label: Email, widget: string }
-          - name: socials
-            label: Social links
-            widget: list
-            fields:
-              - { name: label, label: Label, widget: string }
-              - { name: icon, label: Icon key, widget: select, options: [facebook, twitter, linkedin] }
-              - { name: href, label: URL, widget: string }
-
-      - name: testimonials
-        label: Testimonials
-        file: src/content/testimonials.json
-        description: Sitewide quotes, reused across pages.
-        fields:
-          - name: items
-            label: Testimonials
-            widget: list
-            summary: '{{fields.org}} — {{fields.quote}}'
-            fields:
-              - { name: quote, label: Quote, widget: text }
-              - { name: author, label: Author, widget: string, required: false }
-              - { name: org, label: Organisation, widget: string, required: false }
-              - { name: href, label: Link, widget: string, required: false }
-
-      - name: partners
-        label: Partner logos
-        file: src/content/partners.json
-        fields:
-          - name: items
-            label: Partners
-            widget: list
-            summary: '{{fields.name}}'
-            fields:
-              - { name: name, label: Name, widget: string }
-              - { name: logo, label: Logo, widget: image }
-              - { name: href, label: Link, widget: string, required: false }
-              - { name: kind, label: Kind, widget: select, options: [organisation, school, press], default: organisation }
-
-  # ── Blog posts ────────────────────────────────────────────────────────────────────────────────
-  - name: blog
-    label: Blog posts
-    file: src/content/posts.json
-    editor: { preview: false }
-    description: Articles shown on /blog and at /blog/<slug>.
+- name: general
+  label: General
+  editor:
+    preview: false
+  files:
+  - name: site
+    label: Site
+    file: src/content/site.json
     fields:
-      - name: items
-        label: Posts
+    - name: brand
+      label: Brand name
+      widget: string
+    - name: tagline
+      label: Tagline
+      widget: string
+    - name: url
+      label: Site URL
+      widget: string
+    - name: logo
+      label: Logo
+      widget: image
+    - name: logoWhite
+      label: Logo (white)
+      widget: image
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      - heading-two
+      - heading-three
+      - quote
+      - bulleted-list
+      - numbered-list
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      minimal: false
+      name: footerBlurb
+      label: Footer blurb
+    - name: nav
+      label: Header navigation
+      widget: list
+      summary: '{{fields.label}}'
+      fields:
+      - name: label
+        widget: string
+      - name: href
+        widget: string
+    - name: footerNav
+      label: Footer navigation
+      widget: list
+      summary: '{{fields.label}}'
+      fields:
+      - name: label
+        widget: string
+      - name: href
+        widget: string
+    - name: cta
+      label: Header CTA
+      widget: object
+      fields:
+      - name: label
+        widget: string
+      - name: href
+        widget: string
+    - name: contacts
+      label: Contact routes
+      widget: list
+      summary: '{{fields.label}}'
+      fields:
+      - name: label
+        label: Label
+        widget: string
+      - name: phone
+        label: Phone
+        widget: string
+        required: false
+      - name: phoneHref
+        label: Phone link (tel:)
+        widget: string
+        required: false
+      - name: email
+        label: Email
+        widget: string
+    - name: socials
+      label: Social links
+      widget: list
+      required: false
+      summary: '{{fields.label}}'
+      fields:
+      - name: label
+        label: Label
+        widget: string
+      - name: icon
+        label: Icon
+        widget: select
+        options:
+        - facebook
+        - twitter
+        - linkedin
+      - name: href
+        label: URL
+        widget: string
+    - name: defaultSeo
+      label: Default SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+  - name: testimonials
+    label: Testimonials
+    file: src/content/testimonials.json
+    description: Sitewide quotes. `tag` controls where they appear (workplace-only vs everywhere).
+    fields:
+    - name: items
+      label: Testimonials
+      widget: list
+      summary: '{{fields.org}} — {{fields.quote}}'
+      fields:
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: quote
+        label: Quote
+      - name: author
+        label: Author
+        widget: string
+        required: false
+      - name: org
+        label: Organisation
+        widget: string
+        required: false
+      - name: href
+        label: Link
+        widget: string
+        required: false
+      - name: tag
+        label: Audience
+        widget: select
+        options:
+        - general
+        - workplace
+        default: general
+        hint: '''workplace'' shows only on Workplaces; ''general'' shows everywhere (incl. Schools).'
+  - name: partners
+    label: Partner logos
+    file: src/content/partners.json
+    fields:
+    - name: items
+      label: Partners
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: logo
+        label: Logo
+        widget: image
+      - name: href
+        label: Link
+        widget: string
+        required: false
+      - name: kind
+        label: Kind
+        widget: select
+        options:
+        - organisation
+        - school
+        - press
+        default: organisation
+- name: blog
+  label: Blog posts
+  file: src/content/posts.json
+  editor:
+    preview: false
+  description: Articles shown on /blog and at /blog/<slug>.
+  fields:
+  - name: items
+    label: Posts
+    widget: list
+    summary: '{{fields.title}}'
+    fields:
+    - name: slug
+      label: Slug
+      widget: string
+      hint: URL segment — /blog/<slug>
+    - name: title
+      label: Title
+      widget: string
+    - name: date
+      label: Published
+      widget: datetime
+    - name: author
+      label: Author
+      widget: string
+      default: Chris Hemmings
+    - name: cover
+      label: Cover image
+      widget: image
+      required: false
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      - heading-two
+      - heading-three
+      - quote
+      - bulleted-list
+      - numbered-list
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      minimal: false
+      name: excerpt
+      label: Excerpt
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      - heading-two
+      - heading-three
+      - quote
+      - bulleted-list
+      - numbered-list
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      minimal: false
+      name: body
+      label: Body
+- name: pages
+  label: Pages
+  editor:
+    preview: false
+  files:
+  - name: home
+    label: Home
+    file: src/content/home.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: eyebrow
+        label: Eyebrow
+        widget: string
+        required: false
+      - name: title
+        label: Title
+        widget: string
+      - name: highlight
+        label: Emphasised word
+        widget: string
+        required: false
+        hint: One word in the title, shown heavier.
+      - name: lead
+        label: Lead
+        widget: text
+      - name: bg
+        label: Background photo
+        widget: image
+        required: false
+      - name: ctas
+        label: Buttons
+        widget: list
+        fields:
+        - name: label
+          label: Label
+          widget: string
+        - name: href
+          label: Link
+          widget: string
+    - name: stats
+      label: Impact stats
+      widget: list
+      summary: '{{fields.value}} — {{fields.label}}'
+      fields:
+      - name: value
+        label: Value
+        widget: string
+      - name: label
+        label: Label
+        widget: string
+    - name: audiences
+      label: Audience chooser
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - name: icon
+        label: Icon
+        widget: select
+        options:
+        - message-circle
+        - lightbulb
+        - users
+        - mic
+        - briefcase
+        - graduation-cap
+        - compass
+        - book-open
+        - check
+        - play
+        - mail
+        - phone
+        - quote
+        - arrow-right
+        - external-link
+        required: false
+      - name: eyebrow
+        widget: string
+      - name: title
+        widget: string
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: blurb
+        label: Blurb
+      - name: cta
+        label: Button label
+        widget: string
+      - name: href
+        label: Link
+        widget: string
+    - name: intro
+      label: Intro
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: lead
+        widget: text
+      - name: cards
+        label: Cards
         widget: list
         summary: '{{fields.title}}'
         fields:
-          - { name: slug, label: Slug, widget: string, hint: 'URL segment — /blog/<slug>' }
-          - { name: title, label: Title, widget: string }
-          - { name: date, label: Published, widget: datetime }
-          - { name: author, label: Author, widget: string, default: Chris Hemmings }
-          - { name: cover, label: Cover image, widget: image, required: false }
-          - { name: excerpt, label: Excerpt, <<: *prose }
-          - { name: body, label: Body, <<: *prose }
-
-  # ── Pages ─────────────────────────────────────────────────────────────────────────────────────
-  - name: pages
-    label: Pages
-    editor: { preview: false }
-    files:
-      - name: home
-        label: Home
-        file: src/content/home.json
+        - name: icon
+          label: Icon
+          widget: select
+          options:
+          - message-circle
+          - lightbulb
+          - users
+          - mic
+          - briefcase
+          - graduation-cap
+          - compass
+          - book-open
+          - check
+          - play
+          - mail
+          - phone
+          - quote
+          - arrow-right
+          - external-link
+          required: false
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+    - name: services
+      label: Services
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: lead
+        widget: text
+        required: false
+      - name: items
+        label: Services
+        widget: list
+        summary: '{{fields.title}}'
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, label: Title, widget: string }, { name: description, label: Meta description, widget: text }] }
-          - name: hero
-            label: Hero
-            widget: object
-            fields:
-              - { name: eyebrow, label: Eyebrow, widget: string, required: false }
-              - { name: title, label: Title, widget: string }
-              - { name: lead, label: Lead, widget: text }
-              - { name: bg, label: Background photo, widget: image, required: false }
-              - { name: ctas, label: Buttons, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - name: stats
-            label: Impact stats
-            widget: list
-            fields: [{ name: value, label: Value, widget: string }, { name: label, label: Label, widget: string }]
-          - name: intro
-            label: Intro
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string }
-              - { name: heading, widget: string }
-              - { name: lead, widget: text }
-              - name: cards
-                label: Cards
-                widget: list
-                fields:
-                  - { name: icon, label: Icon, widget: string, required: false }
-                  - { name: title, widget: string }
-                  - { name: body, label: Body, <<: *prose }
-          - name: services
-            label: Services
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string }
-              - { name: heading, widget: string }
-              - { name: lead, widget: text, required: false }
-              - name: items
-                label: Services
-                widget: list
-                fields:
-                  - { name: icon, label: Icon, widget: string, required: false }
-                  - { name: title, widget: string }
-                  - { name: body, label: Body, <<: *prose }
-                  - { name: href, label: Link, widget: string, required: false }
-          - name: cta
-            label: Closing CTA
-            widget: object
-            fields:
-              - { name: heading, widget: string }
-              - { name: body, widget: text }
-              - { name: ctas, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-
-      - name: about
-        label: About
-        file: src/content/about.json
+        - name: icon
+          label: Icon
+          widget: select
+          options:
+          - message-circle
+          - lightbulb
+          - users
+          - mic
+          - briefcase
+          - graduation-cap
+          - compass
+          - book-open
+          - check
+          - play
+          - mail
+          - phone
+          - quote
+          - arrow-right
+          - external-link
+          required: false
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+        - name: href
+          label: Link
+          widget: string
+          required: false
+    - name: cta
+      label: Closing CTA band
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: body
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - { name: hero, label: Hero, widget: object, fields: [{ name: eyebrow, widget: string, required: false }, { name: title, widget: string }, { name: lead, widget: text }] }
-          - { name: mission, label: Mission, widget: object, fields: [{ name: body, label: Body, <<: *prose }] }
-          - name: founder
-            label: Founder block
-            widget: object
-            fields:
-              - { name: heading, widget: string }
-              - { name: body, label: Body, <<: *prose }
-              - { name: cta, widget: object, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - name: facilitators
-            label: Facilitators
-            widget: object
-            fields:
-              - { name: heading, widget: string }
-              - { name: lead, widget: text, required: false }
-              - name: people
-                label: People
-                widget: list
-                summary: '{{fields.name}}'
-                fields:
-                  - { name: name, widget: string }
-                  - { name: role, widget: string }
-                  - { name: photo, label: Photo, widget: image, required: false }
-                  - { name: bio, label: Bio, <<: *prose }
-                  - { name: links, label: Links, widget: list, required: false, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - { name: cta, label: Closing CTA, widget: object, fields: [{ name: heading, widget: string }, { name: body, widget: text }, { name: ctas, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }] }
-
-      - name: schools
-        label: Schools
-        file: src/content/schools.json
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+  - name: about
+    label: About
+    file: src/content/about.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: title
+        widget: string
+      - name: lead
+        widget: text
+    - name: mission
+      label: Mission
+      widget: object
+      fields:
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
+    - name: founder
+      label: Founder block
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
+      - name: cta
+        widget: object
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - name: hero
-            label: Hero
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string, required: false }
-              - { name: title, widget: string }
-              - { name: lead, widget: text }
-              - { name: ctas, widget: list, required: false, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - { name: intro, label: Intro, widget: object, required: false, fields: [{ name: body, label: Body, <<: *prose }] }
-          - name: programme
-            label: Programme
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string }
-              - { name: heading, widget: string }
-              - name: steps
-                label: Steps
-                widget: list
-                summary: '{{fields.title}}'
-                fields: [{ name: title, widget: string }, { name: body, label: Body, <<: *prose }]
-          - { name: note, label: Note, <<: *prose, required: false }
-          - { name: cta, label: Closing CTA, widget: object, fields: [{ name: heading, widget: string }, { name: body, widget: text }, { name: ctas, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }] }
-
-      - name: workplaces
-        label: Workplaces
-        file: src/content/workplaces.json
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+    - name: facilitators
+      label: Facilitators
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: lead
+        widget: text
+        required: false
+      - name: people
+        label: People
+        widget: list
+        summary: '{{fields.name}}'
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - name: hero
-            label: Hero
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string, required: false }
-              - { name: title, widget: string }
-              - { name: lead, widget: text }
-              - { name: ctas, widget: list, required: false, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - { name: intro, label: Intro, widget: object, required: false, fields: [{ name: body, label: Body, <<: *prose }] }
-          - name: programme
-            label: Programme
-            widget: object
-            fields:
-              - { name: eyebrow, widget: string }
-              - { name: heading, widget: string }
-              - name: steps
-                label: Steps
-                widget: list
-                summary: '{{fields.title}}'
-                fields: [{ name: title, widget: string }, { name: body, label: Body, <<: *prose }]
-          - { name: note, label: Note, <<: *prose, required: false }
-          - { name: cta, label: Closing CTA, widget: object, fields: [{ name: heading, widget: string }, { name: body, widget: text }, { name: ctas, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }] }
-
-      - name: chris
-        label: Chris Hemmings
-        file: src/content/chris-hemmings.json
+        - name: name
+          widget: string
+        - name: role
+          widget: string
+        - name: photo
+          label: Photo
+          widget: image
+          required: false
+          hint: Leave blank for an initials monogram.
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: bio
+          label: Bio
+        - name: links
+          label: Links
+          widget: list
+          required: false
+          fields:
+          - name: label
+            widget: string
+          - name: href
+            widget: string
+    - name: media
+      label: In the media (video)
+      widget: object
+      required: false
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: heading
+        widget: string
+      - name: lead
+        widget: text
+        required: false
+      - name: video
+        widget: object
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - { name: hero, label: Hero, widget: object, fields: [{ name: eyebrow, widget: string, required: false }, { name: title, widget: string }, { name: lead, widget: text }] }
-          - { name: bio, label: Bio, widget: object, fields: [{ name: body, label: Body, <<: *prose }] }
-          - { name: press, label: Press, widget: object, fields: [{ name: heading, widget: string }, { name: outlets, label: Outlets, widget: list, field: { name: outlet, widget: string } }] }
-          - name: book
-            label: Book
-            widget: object
-            fields:
-              - { name: heading, widget: string }
-              - { name: blurb, label: Blurb, widget: text }
-              - { name: reviews, label: Reviews, widget: list, fields: [{ name: by, widget: string }, { name: quote, widget: text }] }
-          - name: publications
-            label: Publications
-            widget: list
-            summary: '{{fields.outlet}}'
-            fields:
-              - { name: outlet, widget: string }
-              - { name: links, label: Links, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-          - { name: cta, label: Closing CTA, widget: object, fields: [{ name: heading, widget: string }, { name: body, widget: text }, { name: ctas, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }] }
-
-      - name: connect
-        label: Get in touch
-        file: src/content/connect.json
+        - name: id
+          label: YouTube ID
+          widget: string
+          hint: e.g. lTXGLGHJcNg
+        - name: title
+          label: Title
+          widget: string
+    - name: cta
+      label: Closing CTA band
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: body
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - { name: hero, label: Hero, widget: object, fields: [{ name: title, widget: string }, { name: lead, widget: text }] }
-          - name: columns
-            label: Contact columns
-            widget: list
-            fields:
-              - { name: heading, widget: string }
-              - { name: phone, widget: string, required: false }
-              - { name: phoneHref, widget: string, required: false }
-              - { name: email, widget: string }
-          - { name: links, label: Links, widget: list, fields: [{ name: label, widget: string }, { name: href, widget: string }] }
-
-      - name: blogpage
-        label: Blog page
-        file: src/content/blog.json
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+  - name: schools
+    label: Schools
+    file: src/content/schools.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: title
+        widget: string
+      - name: highlight
+        label: Emphasised word
+        widget: string
+        required: false
+      - name: lead
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
+        required: false
         fields:
-          - { name: seo, label: SEO, widget: object, fields: [{ name: title, widget: string }, { name: description, widget: text }] }
-          - { name: hero, label: Hero, widget: object, fields: [{ name: title, widget: string }, { name: lead, widget: text }] }
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+      - name: contactEmail
+        label: Contact email
+        widget: string
+        required: false
+    - name: credentials
+      label: Credentials / trust
+      widget: object
+      required: false
+      fields:
+      - name: heading
+        widget: string
+      - name: items
+        label: Points
+        widget: list
+        summary: '{{fields.label}}'
+        fields:
+        - name: icon
+          label: Icon
+          widget: select
+          options:
+          - message-circle
+          - lightbulb
+          - users
+          - mic
+          - briefcase
+          - graduation-cap
+          - compass
+          - book-open
+          - check
+          - play
+          - mail
+          - phone
+          - quote
+          - arrow-right
+          - external-link
+          required: false
+        - name: label
+          widget: string
+    - name: intro
+      label: Intro
+      widget: object
+      required: false
+      fields:
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
+    - name: programme
+      label: Programme
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: steps
+        label: Steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+    - name: videos
+      label: Videos
+      widget: object
+      required: false
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: heading
+        widget: string
+      - name: lead
+        widget: text
+        required: false
+      - name: items
+        label: Videos
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - name: id
+          label: YouTube ID
+          widget: string
+        - name: title
+          label: Title
+          widget: string
+    - name: process
+      label: How it works
+      widget: object
+      required: false
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: steps
+        label: Steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+    - name: faq
+      label: FAQ
+      widget: object
+      required: false
+      fields:
+      - name: heading
+        widget: string
+      - name: items
+        label: Questions
+        widget: list
+        summary: '{{fields.q}}'
+        fields:
+        - name: q
+          label: Question
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: a
+          label: Answer
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      - heading-two
+      - heading-three
+      - quote
+      - bulleted-list
+      - numbered-list
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      minimal: false
+      name: note
+      label: Footnote
+      required: false
+    - name: cta
+      label: Closing CTA band
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: body
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
+        fields:
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+  - name: workplaces
+    label: Workplaces
+    file: src/content/workplaces.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: title
+        widget: string
+      - name: highlight
+        label: Emphasised word
+        widget: string
+        required: false
+      - name: lead
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
+        required: false
+        fields:
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+      - name: contactEmail
+        label: Contact email
+        widget: string
+        required: false
+    - name: credentials
+      label: Credentials / trust
+      widget: object
+      required: false
+      fields:
+      - name: heading
+        widget: string
+      - name: items
+        label: Points
+        widget: list
+        summary: '{{fields.label}}'
+        fields:
+        - name: icon
+          label: Icon
+          widget: select
+          options:
+          - message-circle
+          - lightbulb
+          - users
+          - mic
+          - briefcase
+          - graduation-cap
+          - compass
+          - book-open
+          - check
+          - play
+          - mail
+          - phone
+          - quote
+          - arrow-right
+          - external-link
+          required: false
+        - name: label
+          widget: string
+    - name: intro
+      label: Intro
+      widget: object
+      required: false
+      fields:
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
+    - name: programme
+      label: Programme
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: steps
+        label: Steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+    - name: process
+      label: How it works
+      widget: object
+      required: false
+      fields:
+      - name: eyebrow
+        widget: string
+      - name: heading
+        widget: string
+      - name: steps
+        label: Steps
+        widget: list
+        summary: '{{fields.title}}'
+        fields:
+        - name: title
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: body
+          label: Body
+    - name: faq
+      label: FAQ
+      widget: object
+      required: false
+      fields:
+      - name: heading
+        widget: string
+      - name: items
+        label: Questions
+        widget: list
+        summary: '{{fields.q}}'
+        fields:
+        - name: q
+          label: Question
+          widget: string
+        - widget: markdown
+          buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+          editor_components: []
+          modes:
+          - rich_text
+          - raw
+          minimal: false
+          name: a
+          label: Answer
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      - heading-two
+      - heading-three
+      - quote
+      - bulleted-list
+      - numbered-list
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      minimal: false
+      name: note
+      label: Footnote
+      required: false
+    - name: cta
+      label: Closing CTA band
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: body
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
+        fields:
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+  - name: chris
+    label: Chris Hemmings
+    file: src/content/chris-hemmings.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: title
+        widget: string
+      - name: lead
+        widget: text
+    - name: bio
+      label: Bio
+      widget: object
+      fields:
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        - heading-two
+        - heading-three
+        - quote
+        - bulleted-list
+        - numbered-list
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        minimal: false
+        name: body
+        label: Body
+    - name: video
+      label: Video
+      widget: object
+      required: false
+      fields:
+      - name: eyebrow
+        widget: string
+        required: false
+      - name: heading
+        widget: string
+      - name: blurb
+        label: Blurb
+        widget: text
+        required: false
+      - name: id
+        label: YouTube ID
+        widget: string
+      - name: title
+        label: Title
+        widget: string
+    - name: press
+      label: Press
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: outlets
+        label: Outlets
+        widget: list
+        field:
+          name: outlet
+          widget: string
+    - name: book
+      label: Book
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: blurb
+        label: Blurb
+        widget: text
+      - name: reviews
+        label: Reviews
+        widget: list
+        summary: '{{fields.by}}'
+        fields:
+        - name: by
+          widget: string
+        - name: quote
+          widget: text
+    - name: publications
+      label: Publications
+      widget: list
+      summary: '{{fields.outlet}}'
+      fields:
+      - name: outlet
+        widget: string
+      - name: links
+        label: Links
+        widget: list
+        fields:
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+    - name: cta
+      label: Closing CTA band
+      widget: object
+      fields:
+      - name: heading
+        widget: string
+      - name: body
+        widget: text
+      - name: ctas
+        label: Buttons
+        widget: list
+        fields:
+        - name: label
+          widget: string
+        - name: href
+          widget: string
+  - name: connect
+    label: Get in touch
+    file: src/content/connect.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: title
+        widget: string
+      - name: lead
+        widget: text
+    - name: columns
+      label: Contact columns
+      widget: list
+      summary: '{{fields.heading}}'
+      fields:
+      - name: heading
+        widget: string
+      - name: phone
+        widget: string
+        required: false
+      - name: phoneHref
+        widget: string
+        required: false
+      - name: email
+        widget: string
+    - name: links
+      label: Links
+      widget: list
+      fields:
+      - name: label
+        widget: string
+      - name: href
+        widget: string
+  - name: blogpage
+    label: Blog page
+    file: src/content/blog.json
+    fields:
+    - name: seo
+      label: SEO / share card
+      widget: object
+      fields:
+      - name: title
+        label: Title
+        widget: string
+        required: false
+      - name: description
+        label: Meta description
+        widget: text
+      - name: image
+        label: OG image
+        widget: image
+        required: false
+        hint: Auto-generated per page if left blank.
+    - name: hero
+      label: Hero
+      widget: object
+      fields:
+      - name: title
+        widget: string
+      - name: lead
+        widget: text
