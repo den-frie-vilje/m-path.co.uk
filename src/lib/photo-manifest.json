@@ -53,6 +53,15 @@
     "webp": "/img/photos/_gen/chris-nike-320.webp 320w, /img/photos/_gen/chris-nike-480.webp 480w, /img/photos/_gen/chris-nike-640.webp 640w, /img/photos/_gen/chris-nike-768.webp 768w",
     "fallback": "/img/photos/_gen/chris-nike-768.jpg"
   },
+  "/img/photos/chris-working-bw.jpg": {
+    "hash": "2161e3f3a015",
+    "quality": "source",
+    "width": 1600,
+    "height": 1600,
+    "avif": "/img/photos/_gen/chris-working-bw-320.avif 320w, /img/photos/_gen/chris-working-bw-480.avif 480w, /img/photos/_gen/chris-working-bw-640.avif 640w, /img/photos/_gen/chris-working-bw-768.avif 768w, /img/photos/_gen/chris-working-bw-1024.avif 1024w, /img/photos/_gen/chris-working-bw-1280.avif 1280w, /img/photos/_gen/chris-working-bw-1600.avif 1600w",
+    "webp": "/img/photos/_gen/chris-working-bw-320.webp 320w, /img/photos/_gen/chris-working-bw-480.webp 480w, /img/photos/_gen/chris-working-bw-640.webp 640w, /img/photos/_gen/chris-working-bw-768.webp 768w, /img/photos/_gen/chris-working-bw-1024.webp 1024w, /img/photos/_gen/chris-working-bw-1280.webp 1280w, /img/photos/_gen/chris-working-bw-1600.webp 1600w",
+    "fallback": "/img/photos/_gen/chris-working-bw-1600.jpg"
+  },
   "/img/photos/darrell-warwick.jpg": {
     "hash": "44f2aafaaeb6",
     "quality": "source",
