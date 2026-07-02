@@ -482,6 +482,7 @@ details[open] > summary .path-node {
 
 /* Print-only elements are hidden on screen; the print stylesheet reveals them. */
 .print-letterhead,
+.print-video-thumb,
 .print-video-url {
   display: none;
 }
@@ -652,9 +653,11 @@ details[open] > summary .path-node {
   .rounded-3xl {
     break-inside: avoid;
   }
+  /* Only cap width — do NOT force height:auto. Third-party SVG logos are sized by a Tailwind height
+     class (h-7, h-9…); dropping that height lets an SVG expand to its intrinsic viewBox size and
+     balloon across the page. Keeping the height class constrains logos while photos still scale. */
   img {
     max-width: 100% !important;
-    height: auto;
   }
 
   /* Tighter card padding on paper (~28–40px screen → ~3.5mm). `~=` matches the exact class token
@@ -788,7 +791,23 @@ details[open] > summary .path-node {
     word-break: break-all;
   }
 
-  /* Video: show the watch URL under the (retained) thumbnail. */
+  /* Video: hide the interactive facade (its button is dropped, leaving an empty dark box). */
+  .video-facade {
+    display: none !important;
+  }
+  /* Video: show a static thumbnail in its place. */
+  .print-video-thumb {
+    display: block !important;
+    width: 100%;
+    max-width: 120mm;
+    height: auto;
+    border-radius: 3mm;
+    margin: 0 auto;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Video: show the watch URL under the thumbnail. */
   .print-video-url {
     display: block !important;
     font-family: 'Montserrat', sans-serif;

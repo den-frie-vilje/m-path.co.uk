@@ -16,7 +16,7 @@
   const poster = $derived(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
 </script>
 
-<div class="relative aspect-video overflow-hidden rounded-2xl bg-plum-950 shadow-xl {klass}">
+<div class="video-facade relative aspect-video overflow-hidden rounded-2xl bg-plum-950 shadow-xl {klass}">
   {#if playing}
     <iframe
       class="absolute inset-0 h-full w-full"
@@ -52,5 +52,6 @@
     </button>
   {/if}
 </div>
-<!-- Print-only: the watch URL under the thumbnail (the iframe can't print). -->
+<!-- Print-only: a static thumbnail + the watch URL (the facade button + iframe don't print). -->
+<img class="print-video-thumb" src={poster} alt={title} />
 <p class="print-video-url">▶ {title} — youtube.com/watch?v={id}</p>
