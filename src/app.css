@@ -578,7 +578,7 @@ details[open] > summary .path-node {
   h1.page-title {
     font-size: 64pt !important;
     line-height: 0.98 !important;
-    margin-bottom: 0 !important;
+    margin-block: 8mm 6mm !important; /* vertical air to the eyebrow above and the lead below */
   }
   .page-lead {
     font-size: 15.5pt !important;
@@ -591,7 +591,7 @@ details[open] > summary .path-node {
   section.brand-gradient > .container-page:has(.page-title),
   .brand-gradient-soft > .container-page:has(.page-title) {
     border-bottom: 0.75pt solid #d8d4de !important;
-    padding-block: 16mm 9mm !important;
+    padding-block: 6mm !important;
     margin-bottom: 7mm !important;
   }
 
