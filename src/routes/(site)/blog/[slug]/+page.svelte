@@ -37,7 +37,7 @@
   <div class="container-page py-16 sm:py-20">
     <a
       href="/blog"
-      class="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-white"
+      class="print-hide inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition hover:text-white"
     >
       <Icon name="arrow-right" size={16} class="rotate-180" /> All articles
     </a>
