@@ -869,8 +869,8 @@ details[open] > summary .path-node {
   /* Video: show a static thumbnail in its place. */
   .print-video-thumb {
     display: block !important;
-    width: 100%;
-    max-width: none;
+    width: 75%;
+    max-width: 75%;
     height: auto;
     border-radius: 3mm;
     margin: 0 auto;
