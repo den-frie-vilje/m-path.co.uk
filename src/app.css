@@ -576,7 +576,7 @@ details[open] > summary .path-node {
   /* h1.page-title (specificity 0,1,1) so it beats the generic `.t-hero/.t-display { 23pt }` print
      rule below (0,1,0, but later in source). A big cover-page title for the white paper. */
   h1.page-title {
-    font-size: 80pt !important;
+    font-size: 64pt !important;
     line-height: 0.98 !important;
     margin-bottom: 0 !important;
   }
@@ -586,10 +586,13 @@ details[open] > summary .path-node {
     color: #333 !important;
     margin-top: 3mm !important;
   }
-  .container-page:has(.page-title) {
+  /* Generous vertical breathing room around the cover title. Specificity must beat the earlier
+     `section.brand-gradient .container-page { padding-block: 4mm }` rule, hence the full path. */
+  section.brand-gradient > .container-page:has(.page-title),
+  .brand-gradient-soft > .container-page:has(.page-title) {
     border-bottom: 0.75pt solid #d8d4de !important;
-    padding-bottom: 4mm !important;
-    margin-bottom: 5mm !important;
+    padding-block: 16mm 9mm !important;
+    margin-bottom: 7mm !important;
   }
 
   /* "Selected writing" outlet logos: smaller on paper. */
