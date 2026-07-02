@@ -37,7 +37,7 @@
   eyebrow={chris.hero.eyebrow}
   title={chris.hero.title}
   lead={chris.hero.lead}
-  portrait={{ src: chris.person.image, alt: chris.hero.title }}
+  bg={chris.hero.bg ? { src: chris.hero.bg, alt: 'Chris Hemmings leading an M-Path workshop' } : undefined}
 />
 
 <Section tone="paper">

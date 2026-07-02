@@ -28,6 +28,7 @@
   highlight={schools.hero.highlight}
   lead={schools.hero.lead}
   ctas={schools.hero.ctas}
+  bg={schools.hero.bg ? { src: schools.hero.bg, alt: 'An M-Path workshop in a school setting' } : undefined}
 />
 
 {#if schools.credentials}

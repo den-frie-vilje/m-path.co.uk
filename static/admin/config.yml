@@ -724,6 +724,10 @@ collections:
         required: false
       - name: lead
         widget: text
+      - name: bg
+        label: Background photo
+        widget: image
+        required: false
       - name: ctas
         label: Buttons
         widget: list
@@ -983,6 +987,10 @@ collections:
         required: false
       - name: lead
         widget: text
+      - name: bg
+        label: Background photo
+        widget: image
+        required: false
       - name: ctas
         label: Buttons
         widget: list
@@ -1214,6 +1222,10 @@ collections:
         widget: string
       - name: lead
         widget: text
+      - name: bg
+        label: Background photo
+        widget: image
+        required: false
     - name: bio
       label: Bio
       widget: object

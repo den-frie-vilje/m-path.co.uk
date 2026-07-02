@@ -34,12 +34,15 @@
 
 <section class="brand-gradient grain relative isolate overflow-hidden text-white">
   {#if bg}
-    <!-- Background photo + gradient scrim: photo reads on the left/bottom, copy stays legible. -->
-    <img
+    <!-- Background photo + gradient scrim: photo reads on the left/bottom, copy stays legible.
+         Responsive via <Photo> (AVIF/WebP srcset) — it's a full-bleed photograph. -->
+    <Photo
       src={bg.src}
       alt={bg.alt ?? ''}
-      class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+      sizes="100vw"
+      loading="eager"
       fetchpriority="high"
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
     />
     <div
       aria-hidden="true"

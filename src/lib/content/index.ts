@@ -184,7 +184,7 @@ export interface AboutContent {
 
 export interface ProgrammePageContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas?: CtaLink[]; contactEmail?: string };
+  hero: { eyebrow?: string; title: string; highlight?: string; lead: string; ctas?: CtaLink[]; contactEmail?: string; bg?: string };
   intro?: { body: string };
   credentials?: { heading: string; items: Credential[] };
   programme: { eyebrow: string; heading: string; steps: ProgrammeStep[] };
@@ -204,7 +204,7 @@ export interface ConnectContent {
 
 export interface ChrisContent {
   seo: Seo;
-  hero: { eyebrow?: string; title: string; lead: string };
+  hero: { eyebrow?: string; title: string; lead: string; bg?: string };
   bio: { body: string };
   person: { jobTitle: string; image: string; sameAs: string[] };
   video?: { eyebrow?: string; heading: string; blurb?: string; id: string; title: string };
