@@ -5,7 +5,6 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
   import Prose from './Prose.svelte';
-  import { reveal } from '$lib/actions/reveal';
   import type { IconCard, Service } from '$lib/content';
 
   interface Props {
@@ -19,9 +18,9 @@
 </script>
 
 <ul class="grid gap-6 {cols}">
-  {#each items as item, i (item.title)}
+  {#each items as item (item.title)}
     {@const href = 'href' in item && item.href ? item.href : undefined}
-    <li class="h-full" use:reveal={{ delay: (i % 3) * 80 }}>
+    <li class="h-full">
       <svelte:element
         this={href ? 'a' : 'div'}
         href={href}
