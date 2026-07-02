@@ -573,9 +573,11 @@ details[open] > summary .path-node {
   /* Page header (hero + article header) — editorial masthead: a large title, a standfirst lead in a
      softer regular weight, and a hairline rule separating it from the body. Scoped to .page-title/
      .page-lead so CTA bands and gradient content sections keep their normal sizing. */
-  .page-title {
-    font-size: 76pt !important;
-    line-height: 1 !important;
+  /* h1.page-title (specificity 0,1,1) so it beats the generic `.t-hero/.t-display { 23pt }` print
+     rule below (0,1,0, but later in source). A big cover-page title for the white paper. */
+  h1.page-title {
+    font-size: 80pt !important;
+    line-height: 0.98 !important;
     margin-bottom: 0 !important;
   }
   .page-lead {
