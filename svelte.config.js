@@ -13,8 +13,8 @@ const config = {
     }),
     prerender: {
       // `*` crawls all reachable + static page routes. Unlinked endpoint routes
-      // (sitemap) are listed explicitly. (robots.txt is a plain static file.)
-      entries: ['*', '/sitemap.xml']
+      // (sitemap, robots) are listed explicitly.
+      entries: ['*', '/sitemap.xml', '/robots.txt']
     }
   }
 };

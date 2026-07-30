@@ -51,5 +51,7 @@ sign. `/admin` is stripped from the production image (`STRIP_EDITOR=true`).
 ## Conventions
 - Svelte 5 runes only (`$props`, `$state`, `$derived`). Don't name a variable `state`.
 - Unlinked endpoint routes must be listed in `svelte.config.js` `prerender.entries`. `robots.txt`
-  is a plain `static/` file.
+  is a prerendered route: staging (`--mode staging` → `.env.staging`, `PUBLIC_ALLOW_INDEXING=false`)
+  bakes Disallow-all, production bakes Allow + sitemap. Read env via `$env/static/public` only —
+  never `$env/dynamic/public` (silent production fallback on a mis-applied mode).
 - Verify contrast by computing WCAG ratios; magenta-500 is large-text/gradient only.

@@ -55,6 +55,12 @@
     header Pragma "no-cache"
     header Expires "0"
 
+    # Noindex backstop (strap #2 — strap #1 is the staging image's
+    # baked Disallow-all robots.txt): every response tells crawlers
+    # to keep this origin out of the index even when a URL is
+    # reached some way robots.txt doesn't cover.
+    header X-Robots-Tag "noindex, nofollow"
+
     # Structured JSON access log to stdout — Docker / Container
     # Manager picks it up. Easy to grep or pipe into a log
     # collector later.

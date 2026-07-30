@@ -70,8 +70,15 @@ ENV PUBLIC_GITHUB_REPO=$PUBLIC_GITHUB_REPO
 # is a fresh shell).
 RUN eval "$(pkgx dev --shellcode 2>/dev/null)" && dev on && \
     pnpm check
+# NO `--` before the flags: pnpm forwards a literal `--` to the
+# script, so `pnpm build -- --mode staging` would run
+# `vite build -- --mode staging` — Vite reads `--` as
+# end-of-options and silently builds in PRODUCTION mode
+# (.env.staging never loads). Latent here until robots.txt became
+# mode-dependent; the same bug shipped wrong staging images on
+# skovbyesexologi.com (fixed there 2026-07-29).
 RUN eval "$(pkgx dev --shellcode 2>/dev/null)" && dev on && \
-    pnpm build -- --mode $VITE_MODE
+    pnpm build --mode $VITE_MODE
 
 # ----- runtime --------------------------------------------------
 # nginxinc/nginx-unprivileged runs as UID 101 (nginx user),
