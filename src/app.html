@@ -7,6 +7,10 @@
     <link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#a230d9" />
+    <!-- Build identity for the pull-only deploy model: CI passes PUBLIC_GIT_SHA as a build arg and
+         the nas-sites verify step polls the live origin until this sha appears (see deploy/). The
+         placeholder bakes to '' when the var is unset (local builds), unlike $env/static imports. -->
+    <meta name="git-sha" content="%sveltekit.env.PUBLIC_GIT_SHA%" />
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
