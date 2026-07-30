@@ -67,3 +67,20 @@ a large cover-page title (`h1.page-title`), section-per-page breaks, an OUTLINED
 (borders print reliably, gradient fills don't), YouTube static thumbnails + visible watch URLs,
 an editorial press-publications layout (title + URL beneath), logo-size clamping (so intrinsic-size
 SVGs don't balloon), and a reusable `.print-hide` utility. See §Print in `docs/design-review.md`.
+
+## 8. Per-mode builds: staging bakes noindex, env is static-only, the image exposes its sha
+`robots.txt` began as a plain `static/` file — which meant every image, staging included, shipped
+the production Allow-all + sitemap advert (live on the stage origin until 2026-07-30, with no
+X-Robots-Tag backstop). It is now a prerendered route on `PUBLIC_ALLOW_INDEXING`: production bakes
+the byte-identical Allow variant, staging/dev bake Disallow-all, and the staging Caddyfile stamps
+`X-Robots-Tag: noindex, nofollow` as the header backstop. Rules that keep this honest: env is read
+via `$env/static/public` ONLY (mode-file-sourced, hard build failure on a missing declaration —
+`$env/dynamic/public`'s silent fallback is how a mis-applied mode ships production values
+unnoticed); the compare is fail-closed (only the literal `"true"` allows indexing); the per-mode
+`.env.{development,staging,production}` files are committed (PUBLIC_* values only, never secrets)
+and explicitly re-included in `.dockerignore` (its `.env.*` exclusion otherwise fails the image
+build). The Dockerfile invokes `pnpm build --mode $VITE_MODE` with NO `--` — pnpm forwards a
+literal `--` to the script and Vite then reads it as end-of-options and silently builds production
+(found shipping on skovbyesexologi.com 2026-07-29; latent here). `app.html` bakes
+`<meta name="git-sha">` from `PUBLIC_GIT_SHA` so the nas-sites verify step can poll the origin for
+the deployed sha — CI never confirms a pull-only rollout, the live page is the only proof.
