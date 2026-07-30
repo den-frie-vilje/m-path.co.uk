@@ -129,7 +129,6 @@ export interface Seo {
 export interface SiteContent {
   brand: string;
   tagline: string;
-  url: string;
   logo: string;
   logoWhite: string;
   nav: NavItem[];

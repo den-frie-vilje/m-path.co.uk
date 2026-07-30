@@ -24,9 +24,6 @@ collections:
     - name: tagline
       label: Tagline
       widget: string
-    - name: url
-      label: Site URL
-      widget: string
     - name: logo
       label: Logo
       widget: image

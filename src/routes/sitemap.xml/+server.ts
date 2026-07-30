@@ -1,4 +1,5 @@
-import { site, posts } from '$lib/content';
+import { posts } from '$lib/content';
+import { SITE_URL } from '$lib/seo';
 import { isoDate } from '$lib/util';
 import type { RequestHandler } from './$types';
 
@@ -7,7 +8,7 @@ export const prerender = true;
 const STATIC_PATHS = ['/', '/about', '/schools', '/workplaces', '/chris-hemmings', '/blog', '/connect'];
 
 export const GET: RequestHandler = () => {
-  const base = site.url.replace(/\/$/, '');
+  const base = SITE_URL;
   const urls = [
     ...STATIC_PATHS.map((p) => ({ loc: base + (p === '/' ? '' : p), lastmod: undefined as string | undefined })),
     ...posts.map((p) => ({ loc: `${base}/blog/${p.slug}`, lastmod: isoDate(p.date) }))
