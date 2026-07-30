@@ -19,14 +19,14 @@
  * variant.
  */
 import { PUBLIC_ALLOW_INDEXING } from '$env/static/public';
-import { site } from '$lib/content';
+import { SITE_URL } from '$lib/seo';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
 export const GET: RequestHandler = () => {
   const allowIndexing = PUBLIC_ALLOW_INDEXING === 'true';
-  const base = site.url.replace(/\/$/, '');
+  const base = SITE_URL;
 
   const body = allowIndexing
     ? ['User-agent: *', 'Allow: /', 'Disallow: /admin', '', `Sitemap: ${base}/sitemap.xml`, ''].join(

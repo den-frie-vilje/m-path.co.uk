@@ -84,3 +84,8 @@ literal `--` to the script and Vite then reads it as end-of-options and silently
 (found shipping on skovbyesexologi.com 2026-07-29; latent here). `app.html` bakes
 `<meta name="git-sha">` from `PUBLIC_GIT_SHA` so the nas-sites verify step can poll the origin for
 the deployed sha — CI never confirms a pull-only rollout, the live page is the only proof.
+The canonical origin (`PUBLIC_SITE_URL`) also lives in the per-mode env, not in CMS content:
+an editor must not be able to rewrite canonicals/OG/sitemap origins, and staging builds are
+self-consistent (stage-host URLs on a fully noindexed origin) — `site.url` was removed from
+`site.json` + the Sveltia Site editor. This is the family-wide pattern shared with
+chrishemmings.co.uk and skovbyesexologi.com; do not diverge per site (Ole 2026-07-30).

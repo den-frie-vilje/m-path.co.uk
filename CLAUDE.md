@@ -49,6 +49,9 @@ Kubernetes manifests (any provider). `.github/workflows/deploy-{production,stagi
 sign. `/admin` is stripped from the production image (`STRIP_EDITOR=true`).
 
 ## Conventions
+- **Branch flow: ALWAYS work from `staging`.** Branch off staging, merge work back to staging
+  (Sveltia also writes here); `main` only advances via a promote PR staging → main through the
+  production gates. Never commit to main directly, never update staging from main.
 - Svelte 5 runes only (`$props`, `$state`, `$derived`). Don't name a variable `state`.
 - Unlinked endpoint routes must be listed in `svelte.config.js` `prerender.entries`. `robots.txt`
   is a prerendered route: staging (`--mode staging` → `.env.staging`, `PUBLIC_ALLOW_INDEXING=false`)

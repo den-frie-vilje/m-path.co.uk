@@ -2,8 +2,17 @@
  * Builds the `<svelte:head>` SEO payload (title, meta, Open Graph, Twitter, JSON-LD) from a page's
  * `Seo` content + the shared site config. Pure data — rendered by <SeoHead>.
  */
+import { PUBLIC_SITE_URL } from '$env/static/public';
 import { site, type Seo } from '$lib/content';
 import { stripMarkdown } from '$lib/markdown';
+
+/**
+ * Canonical origin for canonicals/OG/JSON-LD/sitemap/robots. Deploy config, not CMS content — an
+ * editor must not be able to rewrite the canonical origin, and staging builds must be
+ * self-consistent (stage-host URLs). Per-mode value from the committed `.env.[mode]` files via
+ * `$env/static/public` (hard build failure if undeclared). Family-wide pattern, see DECISIONS §8.
+ */
+export const SITE_URL = PUBLIC_SITE_URL.replace(/\/+$/, '');
 
 export interface HeadSeo {
   title: string;
@@ -27,7 +36,7 @@ const THEME_COLOR = '#a230d9';
 
 function abs(path: string): string {
   if (/^https?:\/\//i.test(path)) return path;
-  return site.url.replace(/\/$/, '') + (path.startsWith('/') ? path : `/${path}`);
+  return SITE_URL + (path.startsWith('/') ? path : `/${path}`);
 }
 
 interface BuildOpts {
@@ -58,7 +67,7 @@ export function buildSeo({ seo, path, type = 'website', article }: BuildOpts): H
       : {
           '@type': 'Organization',
           name: site.brand,
-          url: site.url,
+          url: SITE_URL,
           description: site.tagline,
           logo: abs(site.logo),
           // General enquiries address (last contact = Workplaces/info@); fall back to the first
@@ -116,7 +125,7 @@ export function personJsonLd(opts: {
     description: stripMarkdown(opts.description, 400),
     image: abs(opts.image),
     url: abs(opts.path),
-    worksFor: { '@type': 'Organization', name: site.brand, url: site.url },
+    worksFor: { '@type': 'Organization', name: site.brand, url: SITE_URL },
     ...(opts.sameAs?.length ? { sameAs: opts.sameAs } : {})
   };
 }
