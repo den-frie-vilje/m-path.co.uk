@@ -5,6 +5,12 @@ build
 .github
 .env
 .env.*
+# …but the committed per-mode files MUST reach the build context —
+# $env/static/public fails `pnpm check` + `vite build` loudly without
+# them (PUBLIC_* values only, no secrets; gitleaks-scanned in CI).
+!.env.development
+!.env.staging
+!.env.production
 docs
 k8s
 *.md
