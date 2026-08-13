@@ -42,15 +42,15 @@
       sizes="100vw"
       loading="eager"
       fetchpriority="high"
-      class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+      class="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover object-center"
     />
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 bg-gradient-to-br from-violet-950/92 via-violet-900/80 to-violet-700/60"
+      class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-violet-950/92 via-violet-900/80 to-violet-700/60"
     ></div>
     <div
       aria-hidden="true"
-      class="absolute inset-0 -z-10 mix-blend-multiply"
+      class="pointer-events-none absolute inset-0 -z-10 mix-blend-multiply"
       style="background:linear-gradient(120deg,#4a1170cc,#a230d955 60%,#d03edf33)"
     ></div>
   {/if}
