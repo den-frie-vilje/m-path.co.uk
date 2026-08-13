@@ -5,11 +5,41 @@
 -->
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { afterNavigate, beforeNavigate } from '$app/navigation';
   import { page } from '$app/state';
   import { site } from '$lib/content';
   import SiteHeader from '$lib/components/SiteHeader.svelte';
   import SiteFooter from '$lib/components/SiteFooter.svelte';
   let { children } = $props();
+
+  /* Smooth scrolling is for MOVING WITHIN a page, not for arriving at one.
+     `html { scroll-behavior: smooth }` in app.css also catches SvelteKit's
+     scroll-to-top on a navigation, so following a cross-page link animated the
+     old page back up before the new one appeared — on low-end mobiles that
+     reads as the tap doing nothing, then a broken crawl. Suppress it for the
+     duration of a navigation that CHANGES the path; fragment-only navigation
+     keeps the glide. Restored two ways: the right moment is the frame after
+     the navigation (rAF), but rAF never fires in a throttled/background tab,
+     which would leave smooth scrolling dead for the whole session — the
+     timeout is the backstop. Ported from gosscounselling (site)/+layout.svelte. */
+  let suppressed = false;
+
+  function restoreScrollBehaviour() {
+    document.documentElement.style.scrollBehavior = '';
+  }
+
+  beforeNavigate(({ from, to }) => {
+    if (!to || from?.url.pathname === to.url.pathname) return;
+    document.documentElement.style.scrollBehavior = 'auto';
+    suppressed = true;
+  });
+
+  afterNavigate(() => {
+    if (!suppressed) return;
+    suppressed = false;
+    requestAnimationFrame(restoreScrollBehaviour);
+    setTimeout(restoreScrollBehaviour, 120);
+  });
 
   let printedDate = $state('');
 
