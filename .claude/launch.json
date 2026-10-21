@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "/Users/drexolek/.pkgx/nodejs.org/v25.2.1/bin/node",
+      "runtimeExecutable": "/Users/drexolek/.pkgx/nodejs.org/v26.12.1/bin/node",
       "runtimeArgs": ["node_modules/vite/bin/vite.js", "dev", "--host", "0.0.0.0", "--port", "5173", "--strictPort"],
       "port": 5173
     }
